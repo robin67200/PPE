@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class newww : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -97,11 +97,10 @@ namespace PPE.API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     NoteFinale = table.Column<float>(type: "REAL", nullable: false),
                     Critere1ID1 = table.Column<int>(nullable: true),
-                    Critere1ID = table.Column<int>(nullable: false),
+                    Critere1ID = table.Column<int>(type: "INTEGER", nullable: false),
                     Critere2ID1 = table.Column<int>(nullable: true),
-                    Critere2ID = table.Column<int>(nullable: false),
+                    Critere2ID = table.Column<int>(type: "INTEGER", nullable: false),
                     penaliteID = table.Column<int>(nullable: true),
-                    PenaliteID = table.Column<int>(nullable: false),
                     Remarques = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -132,8 +131,8 @@ namespace PPE.API.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Phase_Penalite_PenaliteID",
-                        column: x => x.PenaliteID,
+                        name: "FK_Phase_Penalite_Critere2ID",
+                        column: x => x.Critere2ID,
                         principalTable: "Penalite",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -213,11 +212,6 @@ namespace PPE.API.Migrations
                 name: "IX_Phase_Critere2ID1",
                 table: "Phase",
                 column: "Critere2ID1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Phase_PenaliteID",
-                table: "Phase",
-                column: "PenaliteID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Phase_penaliteID",

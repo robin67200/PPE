@@ -180,11 +180,15 @@ namespace PPE.API.Migrations
                         .HasColumnName("ID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Critere1ID");
+                    b.Property<int>("Critere1ID")
+                        .HasColumnName("Critere1ID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Critere1ID1");
 
-                    b.Property<int>("Critere2ID");
+                    b.Property<int>("Critere2ID")
+                        .HasColumnName("Critere2ID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Critere2ID1");
 
@@ -192,7 +196,9 @@ namespace PPE.API.Migrations
                         .HasColumnName("NoteFinale")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("PenaliteID");
+                    b.Property<int>("PenaliteID")
+                        .HasColumnName("Critere2ID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Remarques")
                         .HasColumnName("Remarques")
