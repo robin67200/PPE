@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class a : Migration
+    public partial class database1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -100,7 +100,8 @@ namespace PPE.API.Migrations
                     Critere1ID = table.Column<int>(type: "INTEGER", nullable: false),
                     Critere2ID1 = table.Column<int>(nullable: true),
                     Critere2ID = table.Column<int>(type: "INTEGER", nullable: false),
-                    penaliteID = table.Column<int>(nullable: true),
+                    PenaliteID1 = table.Column<int>(nullable: true),
+                    PenaliteID = table.Column<int>(type: "INTEGER", nullable: false),
                     Remarques = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -131,14 +132,14 @@ namespace PPE.API.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Phase_Penalite_Critere2ID",
-                        column: x => x.Critere2ID,
+                        name: "FK_Phase_Penalite_PenaliteID",
+                        column: x => x.PenaliteID,
                         principalTable: "Penalite",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Phase_Penalite_penaliteID",
-                        column: x => x.penaliteID,
+                        name: "FK_Phase_Penalite_PenaliteID1",
+                        column: x => x.PenaliteID1,
                         principalTable: "Penalite",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
@@ -214,9 +215,14 @@ namespace PPE.API.Migrations
                 column: "Critere2ID1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Phase_penaliteID",
+                name: "IX_Phase_PenaliteID",
                 table: "Phase",
-                column: "penaliteID");
+                column: "PenaliteID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Phase_PenaliteID1",
+                table: "Phase",
+                column: "PenaliteID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

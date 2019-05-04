@@ -14,7 +14,7 @@ namespace PPE.API.Models
         public Critere2 Critere2 {get;set;}
         public int Critere2ID {get;set;}
         
-        public Penalite penalite {get;set;}
+        public Penalite Penalite {get;set;}
         public int PenaliteID {get;set;}
 
         public string Remarques {get; set;}

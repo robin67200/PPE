@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190504100042_a")]
-    partial class a
+    [Migration("20190504170549_database1")]
+    partial class database1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -199,14 +199,14 @@ namespace PPE.API.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<int>("PenaliteID")
-                        .HasColumnName("Critere2ID")
+                        .HasColumnName("PenaliteID")
                         .HasColumnType("INTEGER");
+
+                    b.Property<int?>("PenaliteID1");
 
                     b.Property<string>("Remarques")
                         .HasColumnName("Remarques")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("penaliteID");
 
                     b.HasKey("ID");
 
@@ -220,7 +220,7 @@ namespace PPE.API.Migrations
 
                     b.HasIndex("PenaliteID");
 
-                    b.HasIndex("penaliteID");
+                    b.HasIndex("PenaliteID1");
 
                     b.ToTable("Phase");
                 });
@@ -310,9 +310,9 @@ namespace PPE.API.Migrations
                         .HasForeignKey("PenaliteID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("PPE.API.Models.Penalite", "penalite")
+                    b.HasOne("PPE.API.Models.Penalite", "Penalite")
                         .WithMany()
-                        .HasForeignKey("penaliteID");
+                        .HasForeignKey("PenaliteID1");
                 });
 #pragma warning restore 612, 618
         }

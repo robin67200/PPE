@@ -11,11 +11,11 @@ namespace PPE.API.DataAccess {
             builder.HasKey(p => p.ID);
 
             builder.Property(x => x.ID).HasColumnName("ID").HasColumnType("INTEGER").IsRequired();
-            builder.Property(x => x.NoteFinale).HasColumnName("NoteFinale").HasColumnType("REAL").IsRequired();
+            builder.Property(x => x.NoteFinale).HasColumnName("NoteFinale").HasColumnType("REAL");
             builder.Property(x => x.Remarques).HasColumnName("Remarques").HasColumnType("TEXT");
-            builder.Property(x => x.Critere1ID).HasColumnName("Critere1ID").HasColumnType("INTEGER");
-            builder.Property(x => x.Critere2ID).HasColumnName("Critere2ID").HasColumnType("INTEGER");
-            builder.Property(x => x.PenaliteID).HasColumnName("Critere2ID").HasColumnType("INTEGER");
+            builder.Property(x => x.Critere1ID).HasColumnName("Critere1ID").HasColumnType("INTEGER").IsRequired();
+            builder.Property(x => x.Critere2ID).HasColumnName("Critere2ID").HasColumnType("INTEGER").IsRequired();
+            builder.Property(x => x.PenaliteID).HasColumnName("PenaliteID").HasColumnType("INTEGER").IsRequired();
 
             builder.HasMany(x => x.evaluations).WithOne().HasForeignKey(x => x.PhaseId);
            
