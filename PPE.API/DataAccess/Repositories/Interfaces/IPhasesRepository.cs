@@ -5,6 +5,6 @@ namespace PPE.API.DataAccess.Repositories
 {
     public interface IPhasesRepository : IRepository<Phase>
     {
-         Phase GetByIdFull(int id);
+         
     }
 }

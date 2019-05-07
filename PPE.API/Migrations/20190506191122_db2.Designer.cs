@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190504170549_database1")]
-    partial class database1
+    [Migration("20190506191122_db2")]
+    partial class db2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,81 +18,36 @@ namespace PPE.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
-            modelBuilder.Entity("PPE.API.Models.Critere1", b =>
+            modelBuilder.Entity("PPE.API.Models.Critere", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
+                        .HasColumnName("Id")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Bareme")
-                        .HasColumnName("Bareme")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("C1")
+                    b.Property<string>("Label")
                         .IsRequired()
-                        .HasColumnName("C1")
+                        .HasColumnName("Label")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("C2")
-                        .IsRequired()
-                        .HasColumnName("C2")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("C3")
-                        .IsRequired()
-                        .HasColumnName("C3")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("C4")
-                        .IsRequired()
-                        .HasColumnName("C4")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Critere1");
-                });
-
-            modelBuilder.Entity("PPE.API.Models.Critere2", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
+                    b.Property<int?>("Order")
+                        .HasColumnName("Order")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Bareme")
-                        .HasColumnName("Bareme")
-                        .HasColumnType("REAL");
+                    b.Property<int>("PhaseId")
+                        .HasColumnName("PhaseId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("C1")
-                        .IsRequired()
-                        .HasColumnName("C1")
-                        .HasColumnType("TEXT");
+                    b.HasKey("Id");
 
-                    b.Property<string>("C2")
-                        .IsRequired()
-                        .HasColumnName("C2")
-                        .HasColumnType("TEXT");
+                    b.HasIndex("PhaseId");
 
-                    b.Property<string>("C3")
-                        .IsRequired()
-                        .HasColumnName("C3")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("C4")
-                        .IsRequired()
-                        .HasColumnName("C4")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Critere2");
+                    b.ToTable("Critere");
                 });
 
             modelBuilder.Entity("PPE.API.Models.Evaluation", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ID")
                         .HasColumnType("INTEGER");
@@ -109,17 +64,11 @@ namespace PPE.API.Migrations
                         .HasColumnName("JuryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PhaseId")
-                        .HasColumnName("PhaseId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("EtudiantId");
 
                     b.HasIndex("JuryId");
-
-                    b.HasIndex("PhaseId");
 
                     b.ToTable("Evaluation");
                 });
@@ -151,28 +100,30 @@ namespace PPE.API.Migrations
                     b.ToTable("Jury");
                 });
 
-            modelBuilder.Entity("PPE.API.Models.Penalite", b =>
+            modelBuilder.Entity("PPE.API.Models.Note", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
+                        .HasColumnName("Id")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("P1")
-                        .HasColumnName("P1")
+                    b.Property<int>("CritereId")
+                        .HasColumnName("CritereId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("P2")
-                        .HasColumnName("P2")
+                    b.Property<int>("EvaluationId")
+                        .HasColumnName("EvaluationId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Total")
-                        .HasColumnName("Total")
+                    b.Property<TypesNote>("Notation")
+                        .HasColumnName("Notation")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.ToTable("Penalite");
+                    b.HasIndex("EvaluationId");
+
+                    b.ToTable("Notes");
                 });
 
             modelBuilder.Entity("PPE.API.Models.Phase", b =>
@@ -182,47 +133,27 @@ namespace PPE.API.Migrations
                         .HasColumnName("ID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Critere1ID")
-                        .HasColumnName("Critere1ID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("Critere1ID1");
-
-                    b.Property<int>("Critere2ID")
-                        .HasColumnName("Critere2ID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("Critere2ID1");
-
-                    b.Property<float>("NoteFinale")
-                        .HasColumnName("NoteFinale")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("PenaliteID")
-                        .HasColumnName("PenaliteID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("PenaliteID1");
-
-                    b.Property<string>("Remarques")
-                        .HasColumnName("Remarques")
+                    b.Property<string>("label")
+                        .IsRequired()
+                        .HasColumnName("Label")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("Critere1ID");
-
-                    b.HasIndex("Critere1ID1");
-
-                    b.HasIndex("Critere2ID");
-
-                    b.HasIndex("Critere2ID1");
-
-                    b.HasIndex("PenaliteID");
-
-                    b.HasIndex("PenaliteID1");
-
                     b.ToTable("Phase");
+                });
+
+            modelBuilder.Entity("PPE.API.Models.PhaseEvaluation", b =>
+                {
+                    b.Property<int>("EvaluationId");
+
+                    b.Property<int>("PhaseId");
+
+                    b.HasKey("EvaluationId", "PhaseId");
+
+                    b.HasIndex("PhaseId");
+
+                    b.ToTable("PhaseEvaluation");
                 });
 
             modelBuilder.Entity("PPE.API.Models.Student", b =>
@@ -267,6 +198,14 @@ namespace PPE.API.Migrations
                     b.ToTable("Student");
                 });
 
+            modelBuilder.Entity("PPE.API.Models.Critere", b =>
+                {
+                    b.HasOne("PPE.API.Models.Phase")
+                        .WithMany("Criteres")
+                        .HasForeignKey("PhaseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("PPE.API.Models.Evaluation", b =>
                 {
                     b.HasOne("PPE.API.Models.Student")
@@ -278,41 +217,27 @@ namespace PPE.API.Migrations
                         .WithMany("evaluations")
                         .HasForeignKey("JuryId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.HasOne("PPE.API.Models.Phase")
-                        .WithMany("evaluations")
-                        .HasForeignKey("PhaseId")
+            modelBuilder.Entity("PPE.API.Models.Note", b =>
+                {
+                    b.HasOne("PPE.API.Models.Evaluation")
+                        .WithMany("Notes")
+                        .HasForeignKey("EvaluationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("PPE.API.Models.Phase", b =>
+            modelBuilder.Entity("PPE.API.Models.PhaseEvaluation", b =>
                 {
-                    b.HasOne("PPE.API.Models.Critere1")
-                        .WithMany("phases")
-                        .HasForeignKey("Critere1ID")
+                    b.HasOne("PPE.API.Models.Evaluation", "Evaluation")
+                        .WithMany("Phases")
+                        .HasForeignKey("EvaluationId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("PPE.API.Models.Critere1", "Critere1")
-                        .WithMany()
-                        .HasForeignKey("Critere1ID1");
-
-                    b.HasOne("PPE.API.Models.Critere2")
-                        .WithMany("phases")
-                        .HasForeignKey("Critere2ID")
+                    b.HasOne("PPE.API.Models.Phase", "Phase")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("PhaseId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("PPE.API.Models.Critere2", "Critere2")
-                        .WithMany()
-                        .HasForeignKey("Critere2ID1");
-
-                    b.HasOne("PPE.API.Models.Penalite")
-                        .WithMany("phases")
-                        .HasForeignKey("PenaliteID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("PPE.API.Models.Penalite", "Penalite")
-                        .WithMany()
-                        .HasForeignKey("PenaliteID1");
                 });
 #pragma warning restore 612, 618
         }

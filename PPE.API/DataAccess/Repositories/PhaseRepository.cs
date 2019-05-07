@@ -12,14 +12,5 @@ namespace PPE.API.DataAccess.Repositories
         {
 
         }
-
-        public Phase GetByIdFull(int id)
-        {
-            return this.DbSet.Include(x => x.evaluations)
-                .Include(x => x.Critere1)
-                .Include(x => x.Critere2)
-                .FirstOrDefault(x => x.ID == id);
-
-        }
     }
 }

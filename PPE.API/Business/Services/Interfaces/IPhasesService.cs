@@ -6,6 +6,6 @@ namespace PPE.API.Business.Services.Interfaces
 {
     public interface IPhasesService : IBaseService<PhaseViewModel> 
     {
-        PhaseViewModel getRemarques(PhaseViewModel phase);
+        
     }
 }

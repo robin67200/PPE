@@ -1,9 +1,9 @@
-using PPE.API.Models;
+﻿using PPE.API.Models;
 using TechCloud.Tools.DataAccess.Infrastructure;
 
 namespace PPE.API.DataAccess.Repositories
 {
-    public interface ICriteres1Repository : IRepository<Critere1>
+    public interface ICriteresRepository : IRepository<Critere>
     {
          
     }

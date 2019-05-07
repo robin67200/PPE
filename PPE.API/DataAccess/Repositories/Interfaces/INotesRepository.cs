@@ -3,8 +3,8 @@ using TechCloud.Tools.DataAccess.Infrastructure;
 
 namespace PPE.API.DataAccess.Repositories
 {
-    public interface IPenalitesRepository : IRepository<Penalite>
+    public interface INotesRepository : IRepository<Note>
     {
-         
+        
     }
 }
