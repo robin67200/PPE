@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class db2 : Migration
+    public partial class db3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +61,8 @@ namespace PPE.API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Label = table.Column<string>(type: "TEXT", nullable: false),
                     Order = table.Column<int>(type: "INTEGER", nullable: true),
-                    PhaseId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PhaseId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Type = table.Column<long>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

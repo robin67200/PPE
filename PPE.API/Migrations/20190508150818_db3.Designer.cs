@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190506191122_db2")]
-    partial class db2
+    [Migration("20190508150818_db3")]
+    partial class db3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,10 @@ namespace PPE.API.Migrations
 
                     b.Property<int>("PhaseId")
                         .HasColumnName("PhaseId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<TypesCritere>("Type")
+                        .HasColumnName("Type")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

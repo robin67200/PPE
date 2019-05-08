@@ -9,5 +9,6 @@ namespace PPE.API.Models
         public string Label { get; set; }     
         public int? Order { get; set; } 
         public int PhaseId { get; set; }
+        public TypesCritere Type {get; set;}
     }
 }

@@ -9,7 +9,7 @@ using PPE.API.Business.Services.Interfaces;
 using PPE.API.Business.ViewModels;
 using PPE.API.Models;
 
-namespace Timesheet.API.Controllers
+namespace PPE.API.Controllers
 {
     
     [Route("api/[controller]")]

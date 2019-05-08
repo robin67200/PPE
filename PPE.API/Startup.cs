@@ -35,6 +35,7 @@ namespace PPE.API
             services.AddScoped<ICriteresRepository, CriteresRepository>();
             services.AddScoped<INotesRepository, NotesRepository>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
+            services.AddScoped<INotesService, NotesService>();
 
             services.AddScoped<IDbContext>(f =>
             {

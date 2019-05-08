@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PPE.API.Models;
 
-namespace Timesheet.API.Controllers
+namespace PPE.API.Controllers
 {
     
     [Route("api/[controller]")]

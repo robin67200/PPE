@@ -36,6 +36,10 @@ namespace PPE.API.Migrations
                         .HasColumnName("PhaseId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<TypesCritere>("Type")
+                        .HasColumnName("Type")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PhaseId");
