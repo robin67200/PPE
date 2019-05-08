@@ -6,5 +6,6 @@ namespace PPE.API.Models
         public int CritereId { get; set; }
         public int EvaluationId { get; set; }
         public TypesNote Notation { get; set; }
+       
     }
 }

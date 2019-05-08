@@ -14,6 +14,9 @@ namespace PPE.API.DataAccess {
             builder.Property(x => x.Notation).HasColumnName("Notation").HasColumnType("INTEGER").IsRequired();
             builder.Property(x => x.CritereId).HasColumnName("CritereId").HasColumnType("INTEGER");
             builder.Property(x => x.EvaluationId).HasColumnName("EvaluationId").HasColumnType("INTEGER").IsRequired();
+            
+
+
 
             
 
