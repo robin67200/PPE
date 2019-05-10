@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StudentService } from '../services/student.service';
@@ -14,6 +14,7 @@ export class StudentCreateComponent implements OnInit {
   createStudent: FormGroup;
   hasError = false;
   errorMessage: string;
+  student = new Student('', '', '', '', '', '');
 
   constructor(
     private http: HttpClient,
@@ -22,13 +23,24 @@ export class StudentCreateComponent implements OnInit {
     private service: StudentService
   ) {
     this.createStudent = fb.group({
-      name: ['', [Validators.required]],
-      firstName: ['', [Validators.required]],
-      mail: ['', [Validators.required]],
-      section: ['', [Validators.required]],
-      matiere: ['', [Validators.required]],
-      styleEval: ['', [Validators.required]],
-
+      name: new FormControl(this.student.name, [
+        Validators.required
+      ]),
+      firstName: new FormControl(this.student.firstName, [
+        Validators.required
+      ]),
+      mail: new FormControl(this.student.mail, [
+        Validators.required
+      ]),
+      section: new FormControl(this.student.section, [
+        Validators.required
+      ]),
+      matiere: new FormControl(this.student.matiere, [
+        Validators.required
+      ]),
+      evaluation: new FormControl(this.student.evaluation, [
+        Validators.required
+      ]),
     });
   }
 
@@ -37,20 +49,20 @@ export class StudentCreateComponent implements OnInit {
   get mail() {return this.createStudent.get('mail'); }
   get section() {return this.createStudent.get('section'); }
   get matiere() {return this.createStudent.get('matiere'); }
-  get styleEval() {return this.createStudent.get('styleEval'); }
+  get evaluation() {return this.createStudent.get('evaluation'); }
 
   ngOnInit() {
   }
 
   Save() {
     if (this.createStudent.valid) {
-      const newStudent = new Student();
+      const newStudent = new Student('', '', '', '', '', '');
       newStudent.name = this.createStudent.value.name;
       newStudent.firstName = this.createStudent.value.firstName;
       newStudent.mail = this.createStudent.value.mail;
       newStudent.section = this.createStudent.value.section;
       newStudent.matiere = this.createStudent.value.matiere;
-      newStudent.styleEval = this.createStudent.value.StyleEval;
+      newStudent.evaluation = this.createStudent.value.evaluation;
       this.service.postStudent(newStudent).subscribe(res => {
         this.router.navigate(['/students']);
       });

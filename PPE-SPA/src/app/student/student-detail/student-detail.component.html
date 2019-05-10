@@ -11,7 +11,7 @@
       <p>Mail: {{student.mail}}</p>
       <p>Section: {{student.section}}</p>
       <p>Matiere: {{student.matiere}}</p>
-      <p>Style Evaluation: {{student.styleEval}}</p>
+      <p>Style Evaluation: {{student.evaluation}}</p>
       
       
       <a [routerLink]="['/students/edit',student.id]">Modifier</a>
@@ -22,7 +22,7 @@
           <tr>
             <td>
                 <button class="btn btn-danger"  (click)="deleteStudent()">
-                    Delete User
+                    Supprimer
                 </button>
             </td>
           </tr>

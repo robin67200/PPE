@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class db3 : Migration
+    public partial class ss : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,7 +46,7 @@ namespace PPE.API.Migrations
                     Mail = table.Column<string>(type: "TEXT", nullable: false),
                     Section = table.Column<string>(type: "TEXT", nullable: false),
                     Matiere = table.Column<string>(type: "TEXT", nullable: false),
-                    StyleEval = table.Column<string>(type: "TEXT", nullable: false)
+                    Eval = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

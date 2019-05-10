@@ -1,3 +1,105 @@
-<p>
-  student-edit works!
-</p>
+<div class="container">
+  <h2 style="text-align:center">{{student.firstName}} {{student.name}}</h2>
+  <hr />
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <form [formGroup]="editStudent" (submit)="edit()">
+        <div class="form-group">
+          <label class="control-label">Nom</label>
+          <input
+            formControlName="name"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="name.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="name.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Prenom</label>
+          <input
+            formControlName="firstName"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="firstName.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="firstName.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Mail</label>
+          <input
+            formControlName="mail"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="mail.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="mail.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Section</label>
+          <input
+            formControlName="section"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="section.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="section.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Matiere</label>
+          <input
+            formControlName="matiere"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="matiere.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="matiere.hasError">
+             champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Style Evaluation</label>
+          <input
+            formControlName="evaluation"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="evaluation.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="evaluation.hasError">
+              Salary is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <br />
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div style="text-align:center">
+    <a [routerLink]="['/students']">Retour aux étudiants</a>
+  </div>
+</div>
