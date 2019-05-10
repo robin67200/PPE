@@ -53,16 +53,6 @@ namespace PPE.API.Controllers
         }
 
         // PUT api/phases/id
-<<<<<<< HEAD
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] PhaseViewModel phase)
-        {
-            
-            await _service.UpdateAsync(id, phase);
-
-            return Ok();
-        }
-=======
         /*[HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Phase phase)
         {
@@ -99,7 +89,6 @@ namespace PPE.API.Controllers
 
             return Ok();
         }*/
->>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
 
         // DELETE api/pahses/id
         [HttpDelete("{id}")]
