@@ -53,42 +53,14 @@ namespace PPE.API.Controllers
         }
 
         // PUT api/phases/id
-        /*[HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Phase phase)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] PhaseViewModel phase)
         {
+            await _service.UpdateAsync(id, phase);
             
-            var dbPhase = _context.Phases.FirstOrDefault(x => x.ID == id);
-           
-            dbPhase.Critere1Id = phase.Critere1Id;
-            dbPhase.Critere2Id = phase.Critere2Id;
-            dbPhase.PenaliteId = phase.PenaliteId;
-            
-            if(dbPhase.NoteFinale < 10)
-            {
-                dbPhase.Remarques = "Vous êtes recalés";
-            }
-            if(dbPhase.NoteFinale >= 10 && dbPhase.NoteFinale < 12)
-            {
-                dbPhase.Remarques = "Vous êtes admis sans mention";
-            }
-            if(dbPhase.NoteFinale >= 12 && dbPhase.NoteFinale < 14)
-            {
-                dbPhase.Remarques = "Vous êtes admis mmention assez bien";
-            }
-            if(dbPhase.NoteFinale >= 14 && dbPhase.NoteFinale < 16)
-            {
-                dbPhase.Remarques = "Vous êtes admis mention bien";
-            }
-            else
-            {
-                dbPhase.Remarques = "Bravo !! Admis mention très bien";
-            }
-
-            _context.Phases.Update(dbPhase);
-            await _context.SaveChangesAsync();
-
             return Ok();
-        }*/
+       }
+
 
         // DELETE api/pahses/id
         [HttpDelete("{id}")]
