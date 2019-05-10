@@ -1,11 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
-
-import { AppComponent } from './app.component';
-import { StudentComponent } from './Student/Student.component';
-import { StudentComponent } from './student/student.component';
-=======
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -29,15 +23,10 @@ const appRoutes: Routes = [
    },
    {path: 'nav', component: NavComponent},
  ];
->>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
 
 @NgModule({
    declarations: [
       AppComponent,
-<<<<<<< HEAD
-      StudentComponent,
-      StudentComponent
-=======
       NavComponent,
       EvaluationComponent,
       JuryComponent,
@@ -45,7 +34,6 @@ const appRoutes: Routes = [
       NoteComponent,
       CritereComponent,
       PhaseComponent
->>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
    ],
    imports: [
       BrowserModule

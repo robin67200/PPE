@@ -13,16 +13,11 @@ namespace PPE.API.Business.Services
     public class PhasesService : BaseService<Phase, PhaseViewModel>, IPhasesService
     {
         private readonly IPhasesRepository _repo;
-<<<<<<< HEAD
-        public PhasesService(IPhasesRepository repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork) => this._repo = repository;
-
-=======
         public PhasesService(IPhasesRepository repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
         {
             this._repo = repository;;
         }
         
->>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
     }
 
 }
