@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
+=======
+>>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
 
 @Component({
   selector: 'app-student',
@@ -8,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentComponent implements OnInit {
 
+<<<<<<< HEAD
   students: any;
   
   constructor(private http: HttpClient) { }
@@ -22,6 +26,11 @@ export class StudentComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+=======
+  constructor() { }
+
+  ngOnInit() {
+>>>>>>> 5f084637a956c76d98ecd5aa527c69bb94993b95
   }
 
 }

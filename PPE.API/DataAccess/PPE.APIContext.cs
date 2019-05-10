@@ -1,6 +1,4 @@
 
-using System;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PPE.API.DataAccess;
 using PPE.API.Models;
@@ -49,7 +47,5 @@ namespace PPE.API.Models
             modelBuilder.ApplyConfiguration(new NoteConfig());
             modelBuilder.ApplyConfiguration(new CritereConfig());
         }
-
-        
     }
 }
