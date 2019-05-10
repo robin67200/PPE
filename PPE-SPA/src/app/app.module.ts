@@ -4,20 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { EvaluationComponent } from './evaluation/evaluation.component';
-import { JuryComponent } from './jury/jury.component';
-import { StudentComponent } from './student/student.component';
-import { NoteComponent } from './note/note.component';
-import { CritereComponent } from './critere/critere.component';
-import { PhaseComponent } from './phase/phase.component';
+import { StudentService } from './student/services/student.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {BsDropdownModule} from 'ngx-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
    {
      path: '',
      children: [
        {
-         path: 'jobs',
-         loadChildren: './Job/jobs.module#JobsModule'
+         path: 'students',
+         loadChildren: './student/student.module#StudentsModule'
        }
      ]
    },
@@ -27,18 +25,17 @@ const appRoutes: Routes = [
 @NgModule({
    declarations: [
       AppComponent,
-      NavComponent,
-      EvaluationComponent,
-      JuryComponent,
-      StudentComponent,
-      NoteComponent,
-      CritereComponent,
-      PhaseComponent
+      NavComponent
    ],
    imports: [
-      BrowserModule
+      BrowserModule,
+      HttpClientModule,
+      RouterModule.forRoot(appRoutes),
+      ReactiveFormsModule,
+      FormsModule,
+      BsDropdownModule.forRoot()
    ],
-   providers: [],
+   providers: [StudentService],
    bootstrap: [
       AppComponent
    ]
