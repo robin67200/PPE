@@ -1,12 +1,12 @@
 export class Student {
 
     id: number;
-    Name: string;
-    FirstName: string;
-    Mail: string;
-    Section: string;
-    Matiere: string;
-    StyleEval: string;
+    name: string;
+    firstName: string;
+    mail: string;
+    section: string;
+    matiere: string;
+    styleEval: string;
 
 
 }
