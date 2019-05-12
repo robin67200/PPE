@@ -1,0 +1,29 @@
+<br />
+<div class="container-fluid">
+  <h4 style="text-align:center; margin-right: 3%">{{jury.firstName}} {{jury.name}}</h4>
+  
+  <hr />
+  <div class="row" >
+    <div class=" ml-auto mr-auto">
+      <br />
+      <p>Nom: {{jury.name}}</p>
+      <p>Prenom: {{jury.firstName}}</p>
+      <p>Mail: {{jury.mail}}</p>  
+      
+      <a [routerLink]="['/jurys/edit',jury.id]">Modifier</a>
+      <a [routerLink]="['/jurys']" style="margin-left: 7%"  >Retour</a>
+      <br />
+      <br />
+      <div class=" ml-auto mr-auto" >
+          <tr>
+            <td>
+                <button class="btn btn-danger"  (click)="deletejury()">
+                    Delete User
+                </button>
+            </td>
+          </tr>
+        </div>
+  </div>
+</div>
+
+</div>

@@ -8,5 +8,4 @@ export class Student {
     matiere: string;
     styleEval: string;
 
-
 }

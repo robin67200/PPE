@@ -1,0 +1,36 @@
+<div class="container">
+  <br />
+  <h2 style="text-align:center">Les jurys</h2>
+  <br />
+  <br />
+  <a [routerLink]="['/jurys/create']">Nouveau jury</a>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          Jury 1
+        </th>
+        <th>
+          Jury 2
+        </th>
+        <th>
+          Jury 3
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let jury of jurys">
+      <tr [routerLink]="['/jurys/detail',jury.id]">
+        <td>
+          {{ jury.teacher1 }}
+        </td>
+        <td>
+          {{ jury.teacher2 }}
+        </td>
+        <td>
+          {{ jury.teacher3 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

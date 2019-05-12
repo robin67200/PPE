@@ -16,7 +16,7 @@ export class StudentService {
         return this.http.put<Student>('http://localhost:5000/api/students/' + id, student);
       }
       postStudent(student: Student) {
-        return this.http.post<Student>('http://localhost:5000/api/students/', student);
+        return this.http.post<Student>('http://localhost:5000/api/students/' , student);
       }
       deleteStudentById(id: number) {
         return this.http.delete<Student>('http://localhost:5000/api/students/' + id);
