@@ -1,15 +1,15 @@
 <br />
 <div class="container-fluid">
-  <h4 style="text-align:center; margin-right: 3%">{{jury.firstName}} {{jury.name}}</h4>
-  
+  <h4 style="text-align:center; margin-right: 3%">Les jurys présents seront : </h4>
+
   <hr />
   <div class="row" >
     <div class=" ml-auto mr-auto">
       <br />
-      <p>Nom: {{jury.name}}</p>
-      <p>Prenom: {{jury.firstName}}</p>
-      <p>Mail: {{jury.mail}}</p>  
-      
+      <p>Nom: {{jury.teacher1}}</p>
+      <p>Prenom: {{jury.teacher2}}</p>
+      <p>Mail: {{jury.teacher3}}</p>
+
       <a [routerLink]="['/jurys/edit',jury.id]">Modifier</a>
       <a [routerLink]="['/jurys']" style="margin-left: 7%"  >Retour</a>
       <br />
@@ -17,8 +17,8 @@
       <div class=" ml-auto mr-auto" >
           <tr>
             <td>
-                <button class="btn btn-danger"  (click)="deletejury()">
-                    Delete User
+                <button class="btn btn-danger"  (click)="deleteJury()">
+                    Supprimer ce Jury
                 </button>
             </td>
           </tr>

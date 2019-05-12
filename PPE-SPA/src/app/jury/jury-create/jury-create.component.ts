@@ -39,7 +39,7 @@ get teacher3() {return this.createJury.get('teacher3'); }
 
 Save() {
   if (this.createJury.valid) {
-    const newJury = new Jury();
+    const newJury = new Jury('', '', '');
     newJury.teacher1 = this.createJury.value.teacher1;
     newJury.teacher2 = this.createJury.value.teacher2;
     newJury.teacher3 = this.createJury.value.teacher3;

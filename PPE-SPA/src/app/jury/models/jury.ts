@@ -1,7 +1,13 @@
 export class Jury {
+  id: number;
 
-    id: number;
-    teacher1: string;
-    teacher2: string;
-    teacher3: string;
+  constructor(
+    public teacher1: string,
+    public teacher2: string,
+    public teacher3: string,
+  ) {
+    this.id = 0;
+  }
+
 }
+

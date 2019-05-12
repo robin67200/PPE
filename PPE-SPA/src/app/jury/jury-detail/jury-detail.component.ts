@@ -13,7 +13,7 @@ import { JuryModalsComponent } from '../jury-modals/jury-modals.component';
 export class JuryDetailComponent implements OnInit {
 
   id: number;
-  jury: Jury = new Jury();
+  jury: Jury = new Jury('', '', '');
 
   constructor(
     route: ActivatedRoute,
