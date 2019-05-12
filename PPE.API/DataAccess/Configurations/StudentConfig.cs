@@ -16,7 +16,7 @@ namespace PPE.API.DataAccess {
             builder.Property(x => x.Mail).HasColumnName("Mail").HasColumnType("TEXT").IsRequired();
             builder.Property(x => x.Section).HasColumnName("Section").HasColumnType("TEXT").IsRequired();
             builder.Property(x => x.Matiere).HasColumnName("Matiere").HasColumnType("TEXT").IsRequired();
-            builder.Property(x => x.StyleEval).HasColumnName("StyleEval").HasColumnType("TEXT").IsRequired();
+            builder.Property(x => x.Evaluation).HasColumnName("Eval").HasColumnType("TEXT");
 
             builder.HasMany(x => x.evaluations).WithOne().HasForeignKey(x => x.EtudiantId);
         }

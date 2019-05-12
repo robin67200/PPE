@@ -12,7 +12,7 @@ namespace PPE.API.Models
         public string Section {get; set;}
         public string Matiere {get; set;}
 
-        public string StyleEval {get; set;}
+        public string Evaluation {get; set;}
 
 
         

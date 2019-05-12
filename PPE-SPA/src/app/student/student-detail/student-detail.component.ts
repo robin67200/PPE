@@ -13,7 +13,7 @@ import { StudentModalsComponent } from '../student-modals/student-modals.compone
 export class StudentDetailComponent implements OnInit {
 
   id: number;
-  student: Student = new Student();
+  student: Student = new Student('', '', '', '', '', '');
 
   constructor(
     route: ActivatedRoute,
@@ -27,6 +27,8 @@ export class StudentDetailComponent implements OnInit {
         }
       });
      }
+
+
 
   ngOnInit() {
     this.service.getStudentById(this.id).subscribe(res => {

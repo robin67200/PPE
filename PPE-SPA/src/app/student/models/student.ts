@@ -1,11 +1,15 @@
 export class Student {
-
     id: number;
-    name: string;
-    firstName: string;
-    mail: string;
-    section: string;
-    matiere: string;
-    styleEval: string;
+
+    constructor(
+        public name: string,
+        public firstName: string,
+        public mail: string,
+        public section: string,
+        public matiere: string,
+        public evaluation: string
+        ) {
+            this.id = 0;
+        }
 
 }

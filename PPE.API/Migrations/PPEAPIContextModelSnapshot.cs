@@ -165,6 +165,10 @@ namespace PPE.API.Migrations
                         .HasColumnName("ID")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Evaluation")
+                        .HasColumnName("Eval")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnName("FirstName")
@@ -188,11 +192,6 @@ namespace PPE.API.Migrations
                     b.Property<string>("Section")
                         .IsRequired()
                         .HasColumnName("Section")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("StyleEval")
-                        .IsRequired()
-                        .HasColumnName("StyleEval")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");

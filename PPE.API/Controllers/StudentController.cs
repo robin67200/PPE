@@ -61,7 +61,7 @@ namespace PPE.API.Controllers
             dbStudent.Mail = student.Mail;
             dbStudent.Section = student.Section;
             dbStudent.Matiere = student.Matiere;
-            dbStudent.StyleEval = student.StyleEval;
+            dbStudent.Evaluation = student.Evaluation;
             
 
             _context.Students.Update(dbStudent);
