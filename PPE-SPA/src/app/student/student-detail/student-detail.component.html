@@ -1,7 +1,7 @@
 <br />
 <div class="container-fluid">
-  <h4 style="text-align:center; margin-right: 3%">{{student.firstName}} {{student.name}}</h4>
-  
+  <h4>{{student.firstName}} {{student.name}}</h4>
+
   <hr />
   <div class="row" >
     <div class=" ml-auto mr-auto">
@@ -13,21 +13,27 @@
       <h5>Matiere: {{student.matiere}}</h5>
       <h5>Style Evaluation: {{student.evaluation}}</h5>
       <br>
-      
-      <a [routerLink]="['/students/edit',student.id]">Modifier</a>
-      <a [routerLink]="['/students']" style="margin-left: 7%"  >Retour</a>
-      <br />
-      <br />
+      <table style = "margin-left: 15%">
+        <tr>
+          <td>
+             <a [routerLink]="['/students/edit',student.id]"><button class = "btn btn-primary">Modifier</button></a>
+          </td>
+          <td>
+              <a [routerLink]="['/students']"><button class ="btn btn-primary">Retour</button></a>
+          </td>
+        </table>
       <div class=" ml-auto mr-auto" >
+        <br>
+        <table style = "margin-left: 15%">
           <tr>
             <td>
-                <button class="btn btn-danger"  (click)="deleteStudent()">
+                <button class="btn btn-danger" style="width: 160%" (click)="deleteStudent()">
                     Supprimer
                 </button>
             </td>
           </tr>
+        </table>
         </div>
   </div>
 </div>
-
 </div>
