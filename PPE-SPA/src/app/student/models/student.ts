@@ -1,8 +1,7 @@
 export class Student {
     id: number;
 
-    constructor
-        (
+    constructor(
         public name: string,
         public firstName: string,
         public mail: string,
@@ -12,6 +11,5 @@ export class Student {
         ) {
             this.id = 0;
         }
-
 
 }

@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { StudentService } from './student/services/student.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+
+import { StudentService } from './student/services/student.service';
+import { JuryService } from './jury/services/jury.service';
+
 
 const appRoutes: Routes = [
    {
@@ -15,8 +18,12 @@ const appRoutes: Routes = [
      children: [
        {
          path: 'students',
-         loadChildren: './student/student.module#StudentsModule'
-       }
+         loadChildren: './student/student.module#StudentsModule',
+       },
+       {
+          path: 'jurys',
+          loadChildren: './jury/jury.module#JurysModule',
+       },
      ]
    },
    {path: 'nav', component: NavComponent},
@@ -35,7 +42,7 @@ const appRoutes: Routes = [
       FormsModule,
       BsDropdownModule.forRoot()
    ],
-   providers: [StudentService],
+   providers: [JuryService, StudentService],
    bootstrap: [
       AppComponent
    ]

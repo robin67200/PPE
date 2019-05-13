@@ -1,0 +1,65 @@
+<div class="container">
+  <br />
+  <h2 style="text-align: center">Nouveau Jury</h2>
+  <br />
+  <hr>
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <form [formGroup]="createJury" (submit)="Save()" #formDir="ngForm">
+        <div class="form-group">
+          <label for="teacher1" class="control-label">Jury 1</label>
+          <input
+            formControlName="teacher1"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher1.invalid && hasError"  class="alert alert-danger">
+            <div *ngIf="teacher1.errors">
+              Champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Jury 2</label>
+          <input
+            formControlName="teacher2"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher2.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="teacher2.hasError">
+              champ obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Jury 3</label>
+          <input
+            formControlName="teacher3"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher3.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="teacher3.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <br />
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div>
+    <a style="text-align: center" class="nav-link text-blue" [routerLink]="['/jurys']">Retour a la liste</a>
+  </div>
+</div>

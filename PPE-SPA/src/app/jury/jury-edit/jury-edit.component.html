@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 style="text-align:center">{{jury.teacher1}}</h2>
+  <hr />
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <form [formGroup]="editJury" (submit)="edit()">
+        <div class="form-group">
+          <label class="control-label">Jury 1</label>
+          <input
+            formControlName="teacher1"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher1.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="teacher1.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Jury 2</label>
+          <input
+            formControlName="teacher2"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher2.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="teacher2.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Jury 3</label>
+          <input
+            formControlName="teacher3"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="teacher3.invalid && hasError" class="alert alert-danger">
+            <div *ngIf="teacher3.hasError">
+              champs obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </form>
+  <br />
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div style="text-align:center">
+    <a [routerLink]="['/jurys']">Retour aux étudiants</a>
+  </div>
+</div>
