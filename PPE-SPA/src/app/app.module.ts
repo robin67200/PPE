@@ -40,7 +40,8 @@ const appRoutes: Routes = [
       RouterModule.forRoot(appRoutes),
       ReactiveFormsModule,
       FormsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+
    ],
    providers: [JuryService, StudentService],
    bootstrap: [
