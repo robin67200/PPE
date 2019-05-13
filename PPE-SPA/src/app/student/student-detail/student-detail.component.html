@@ -6,13 +6,13 @@
   <div class="row" >
     <div class=" ml-auto mr-auto">
       <br />
-      <p>Nom: {{student.name}}</p>
-      <p>Prenom: {{student.firstName}}</p>
-      <p>Mail: {{student.mail}}</p>
-      <p>Section: {{student.section}}</p>
-      <p>Matiere: {{student.matiere}}</p>
-      <p>Style Evaluation: {{student.evaluation}}</p>
-      
+      <h5>Nom: {{student.name}}</h5>
+      <h5>Prenom: {{student.firstName}}</h5>
+      <h5>Mail: {{student.mail}}</h5>
+      <h5>Section: {{student.section}}</h5>
+      <h5>Matiere: {{student.matiere}}</h5>
+      <h5>Style Evaluation: {{student.evaluation}}</h5>
+      <br>
       
       <a [routerLink]="['/students/edit',student.id]">Modifier</a>
       <a [routerLink]="['/students']" style="margin-left: 7%"  >Retour</a>
