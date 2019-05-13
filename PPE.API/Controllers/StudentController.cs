@@ -32,6 +32,7 @@ namespace PPE.API.Controllers
         }
 
         // GET api/students/id
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetStudent(int id)
         {
