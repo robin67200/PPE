@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { StudentService } from './student/services/student.service';
 import { JuryService } from './jury/services/jury.service';
+import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const appRoutes: Routes = [
@@ -27,12 +30,17 @@ const appRoutes: Routes = [
      ]
    },
    {path: 'nav', component: NavComponent},
+   { path: 'home', component: HomeComponent },
+   // {path: '**', redirectTo: 'home', pathMatch: 'full'},
+   { path: 'registers', component: RegisterComponent },
  ];
 
 @NgModule({
    declarations: [
       AppComponent,
-      NavComponent
+      NavComponent,
+      HomeComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,
@@ -42,7 +50,11 @@ const appRoutes: Routes = [
       FormsModule,
       BsDropdownModule.forRoot()
    ],
-   providers: [JuryService, StudentService],
+   providers: [
+      JuryService,
+      StudentService,
+      AuthService
+   ],
    bootstrap: [
       AppComponent
    ]
