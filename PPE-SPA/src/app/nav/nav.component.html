@@ -1,25 +1,25 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918) 50px)">
   <div class="container">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link text-dark" routerLink="students">Students</a>
+      <li class="nav-item active">
+        <a class="nav-link text-dark" id="list" routerLink="students">Students<span class="sr-only"></span></a>
       </li>
-      <li><a class="nav-link text-dark" routerLink="jurys">Jurys</a></li>
+      <li><a class="nav-link text-dark" id="list" routerLink="jurys">Jurys</a></li>
     </ul>
   </div>
 
-  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-right: 5%">
+  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 78%">
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
         Welcome {{authService.decodedToken?.unique_name}}
       </a>
-      <div class="dropdown-menu mt-3"  *dropdownMenu>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>
           <a class="dropdown-item" (click)="logout()" style="cursor:pointer" ><i class="fa fa-sign-out"></i>Se deconnecter</a>
       </div>
       
   </div>
   
-  <div class="container">
+  <div class="container" style="margin-left: 25%">
       <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
           <input class="form-control mr-sm-2" type="text" name="username" 
             placeholder="Username" required [(ngModel)]="model.username">

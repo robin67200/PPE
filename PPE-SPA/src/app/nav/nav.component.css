@@ -1,0 +1,13 @@
+#list:hover{
+    background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918)) ;
+    animation-name: liste;
+    animation-duration: 4s;
+    
+}
+
+@keyframes liste {
+    0%   {background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918))}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }

@@ -21,7 +21,6 @@ namespace PPE.API.Models
 
         public DbSet<PPE.API.Models.Critere> Criteres { get; set; }
         public DbSet<PPE.API.Models.Note> Notes { get; set; }
-        public object User { get; internal set; }
        public DbSet<PPE.API.Models.User> Users {get; set;}
     
 
