@@ -13,6 +13,8 @@ import { JuryService } from './jury/services/jury.service';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { SuccessComponent } from './success/success.component';
 
 
 const appRoutes: Routes = [
@@ -22,17 +24,19 @@ const appRoutes: Routes = [
        {
          path: 'students',
          loadChildren: './student/student.module#StudentsModule',
+         canActivate: [AuthGuard]
        },
        {
           path: 'jurys',
           loadChildren: './jury/jury.module#JurysModule',
+          canActivate: [AuthGuard]
        },
      ]
    },
-   {path: 'nav', component: NavComponent},
-   { path: 'home', component: HomeComponent },
-   // {path: '**', redirectTo: 'home', pathMatch: 'full'},
-   { path: 'registers', component: RegisterComponent },
+   {path: 'home', component: HomeComponent },
+   {path: 'registers', component: RegisterComponent },
+   {path: 'success', component: SuccessComponent },
+   {path: '**', redirectTo: 'home', pathMatch: 'full'},
  ];
 
 @NgModule({
@@ -40,7 +44,8 @@ const appRoutes: Routes = [
       AppComponent,
       NavComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      SuccessComponent
    ],
    imports: [
       BrowserModule,
@@ -48,12 +53,14 @@ const appRoutes: Routes = [
       RouterModule.forRoot(appRoutes),
       ReactiveFormsModule,
       FormsModule,
+      ReactiveFormsModule,
       BsDropdownModule.forRoot()
    ],
    providers: [
       JuryService,
       StudentService,
-      AuthService
+      AuthService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

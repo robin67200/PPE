@@ -1,16 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light" style="background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918) 50px)">
   <div class="container">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <a class="navbar-brand" routerLink="home">PPE 2</a>
+    
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item active" routerLinkActive="active">
         <a class="nav-link text-dark" routerLink="students" id="list">Students<span class="sr-only"></span></a>
       </li>
-      <li><a class="nav-link text-dark" routerLink="jurys"id="list">Jurys</a></li>
+      <li class="nav-item active" routerLinkActive="active">
+        <a class="nav-link text-dark" routerLink="jurys" id="list">Jurys</a>
+      </li>
     </ul>
   </div>
 
-  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 78%">
+  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 70%">
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
-        Welcome {{authService.decodedToken?.unique_name}}
+        Welcome {{authService.decodedToken?.unique_name | titlecase}}
       </a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>
@@ -19,7 +23,7 @@
       
   </div>
   
-  <div class="container" style="margin-left: 25%">
+  <div class="container" style="margin-left: 19%">
       <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
           <input class="form-control mr-sm-2" type="text" name="username" 
             placeholder="Username" required [(ngModel)]="model.username">

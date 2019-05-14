@@ -42,6 +42,8 @@ export class NavComponent implements OnInit {
       this.alertify.succes('Inscription terminée !');
     }, error => {
       this.alertify.error(error);
+    }, () => {
+      this.router.navigate(['/success']);
     });
   }
 }

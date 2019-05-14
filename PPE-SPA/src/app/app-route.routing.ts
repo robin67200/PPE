@@ -11,9 +11,12 @@ import { JuryListComponent } from './jury/jury-list/jury-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AsyncAction } from 'rxjs/internal/scheduler/AsyncAction';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: 'students/create', component: StudentCreateComponent},
   {path: 'students/detail/:id', component: StudentDetailComponent},
   {path: 'students/edit/:id', component: StudentEditComponent},
