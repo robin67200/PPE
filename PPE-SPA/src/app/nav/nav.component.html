@@ -1,6 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-light" style="background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918) 50px)">
-  <div class="container">
-    <a class="navbar-brand" routerLink="home">PPE 2</a>
+<nav class="navbar navbar-expand-md navbar-light" 
+      style="background-image:repeating-linear-gradient(white,rgba(125, 214, 241, 0.918))">
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="margin-left:auto">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="navbar-collapse collapse" id="navbarCollapse" style>
+        <a class="navbar-brand" routerLink="home">PPE 2</a>
     
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item active" routerLinkActive="active">
@@ -10,20 +14,21 @@
         <a class="nav-link text-dark" routerLink="jurys" id="list">Jurys</a>
       </li>
     </ul>
-  </div>
-
+<!--
   <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 70%">
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
         Welcome {{authService.decodedToken?.unique_name | titlecase}}
       </a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>
-          <a class="dropdown-item" (click)="logout()" style="cursor:pointer" ><i class="fa fa-sign-out"></i>Se deconnecter</a>
+          <a class="dropdown-item" (click)="logout()" style="cursor:pointer" ><i class="fa fa-sign-out">
+            
+          </i>Se deconnecter</a>
       </div>
       
-  </div>
-  
-  <div class="container" style="margin-left: 19%">
+    </div>
+  -->
+  <div style="margin-left: auto">
       <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
           <input class="form-control mr-sm-2" type="text" name="username" 
             placeholder="Username" required [(ngModel)]="model.username">
@@ -32,4 +37,5 @@
           <button [disabled]="!LoginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
         </form>
   </div>
+</div>
 </nav>
