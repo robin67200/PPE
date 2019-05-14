@@ -41,6 +41,7 @@ namespace PPE.API
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddScoped<INotesService, NotesService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -58,7 +59,11 @@ namespace PPE.API
                 return f.GetService<PPEAPIContext>();
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ReferenceLoopHandling = 
+                    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
             services.AddCors();
 
             

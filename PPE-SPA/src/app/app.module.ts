@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { SuccessComponent } from './success/success.component';
+import { UserService } from './user/_services/user.service';
 
 
 const appRoutes: Routes = [
@@ -31,6 +32,11 @@ const appRoutes: Routes = [
           loadChildren: './jury/jury.module#JurysModule',
           canActivate: [AuthGuard]
        },
+       {
+         path: 'members',
+         loadChildren: './user/member.module#MembersModule',
+         canActivate: [AuthGuard]
+      },
      ]
    },
    {path: 'home', component: HomeComponent },
@@ -60,7 +66,8 @@ const appRoutes: Routes = [
       JuryService,
       StudentService,
       AuthService,
-      AuthGuard
+      AuthGuard,
+      UserService
    ],
    bootstrap: [
       AppComponent
