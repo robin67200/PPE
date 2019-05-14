@@ -8,16 +8,20 @@
     
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item active" routerLinkActive="active">
+        <a class="nav-link text-dark" routerLink="members" id="list">Membres<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active" routerLinkActive="active">
         <a class="nav-link text-dark" routerLink="students" id="list">Students<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active" routerLinkActive="active">
         <a class="nav-link text-dark" routerLink="jurys" id="list">Jurys</a>
       </li>
     </ul>
-<!--
-  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 70%">
+  </div>
+
+  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 62%">
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
-        Welcome {{authService.decodedToken?.unique_name | titlecase}}
+        Bienvenue {{authService.decodedToken?.unique_name | titlecase}}
       </a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>

@@ -204,9 +204,17 @@ namespace PPE.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime>("DateOfBirth");
+
+                    b.Property<DateTime>("LastActive");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("Status");
 
                     b.Property<string>("Username");
 

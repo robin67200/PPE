@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190513122525_user")]
-    partial class user
+    [Migration("20190514143817_newBdd")]
+    partial class newBdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -206,9 +206,17 @@ namespace PPE.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime>("DateOfBirth");
+
+                    b.Property<DateTime>("LastActive");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("Status");
 
                     b.Property<string>("Username");
 
