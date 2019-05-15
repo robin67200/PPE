@@ -5,6 +5,7 @@ import { SimpleModalService, SimpleModalModule } from 'ngx-simple-modal';
 import { UserService } from './_services/user.service';
 import { MemberListComponent } from './member-list/member-list.component';
 import { MembersRoutingModule } from './member.routing';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 
 
@@ -12,10 +13,10 @@ import { MembersRoutingModule } from './member.routing';
   imports: [CommonModule,
             ReactiveFormsModule,
             FormsModule,
-            MembersRoutingModule
+            MembersRoutingModule,
            ],
   declarations: [
-    MemberListComponent,
+    MemberListComponent, TimeAgoPipe
   ],
   providers: [UserService]
 })

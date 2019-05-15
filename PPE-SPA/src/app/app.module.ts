@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { SuccessComponent } from './success/success.component';
 import { UserService } from './user/_services/user.service';
+
 
 
 const appRoutes: Routes = [
