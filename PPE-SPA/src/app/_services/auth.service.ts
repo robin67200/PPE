@@ -4,13 +4,14 @@ import { logging } from 'protractor';
 import { map } from 'rxjs/operators';
 import { registerContentQuery } from '@angular/core/src/render3';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from '../user/_models/user';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
- baseUrl = 'http://localhost:5000/api/auth/';
+ baseUrl = 'https://localhost:5001/api/auth/';
  jwtHelper = new JwtHelperService();
  decodedToken: any;
 
@@ -29,8 +30,8 @@ login(model: any) {
     );
 }
 
-register(model: any) {
-  return this.http.post(this.baseUrl + 'register', model);
+register(user: User) {
+  return this.http.post(this.baseUrl + 'register', user);
 }
 
 loggedIn() {
