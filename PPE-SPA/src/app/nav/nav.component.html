@@ -3,8 +3,10 @@
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="margin-left:auto">
       <span class="navbar-toggler-icon"></span>
     </button>
-      <div class="navbar-collapse collapse" id="navbarCollapse" style>
+      <div  class="navbar-collapse collapse" id="navbarCollapse" style>
+        <div *ngIf="!loggedIn()">
         <a class="navbar-brand" routerLink="home">PPE 2</a>
+        </div>
     
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item active" routerLinkActive="active">
@@ -31,7 +33,6 @@
       </div>
       
     </div>
-  -->
   <div style="margin-left: auto">
       <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
           <input class="form-control mr-sm-2" type="text" name="username" 
@@ -41,5 +42,4 @@
           <button [disabled]="!LoginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
         </form>
   </div>
-</div>
 </nav>

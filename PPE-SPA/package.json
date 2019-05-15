@@ -26,6 +26,7 @@
     "auth0-js": "^9.10.2",
     "auth0-lock": "^11.16.0",
     "bootstrap": "^4.3.1",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "date": "^1.0.2",
     "date-and-time": "^0.6.3",

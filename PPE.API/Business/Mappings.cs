@@ -37,6 +37,8 @@ namespace PPE.API.Business
                 .ForMember(dest => dest.Age, opt => {
                     opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
                 });
+
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }
