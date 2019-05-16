@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PPE.API.Business;
 using PPE.API.DataAccess.Repositories.Interfaces;
 using PPE.API.Dtos;
 using PPE.API.Models;
@@ -25,6 +26,7 @@ namespace PPE.API.Controllers
 
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
@@ -35,7 +37,7 @@ namespace PPE.API.Controllers
             return Ok(usersToReturn);
         }
 
-
+        [AllowAnonymous]
         [HttpGet("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {

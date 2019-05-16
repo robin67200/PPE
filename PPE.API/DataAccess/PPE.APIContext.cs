@@ -1,4 +1,6 @@
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PPE.API.DataAccess;
 using PPE.API.Models;
@@ -6,7 +8,8 @@ using TechCloud.Tools.DataAccess.Infrastructure;
 
 namespace PPE.API.Models
 {
-    public class PPEAPIContext : DbContext, IDbContext
+    public class PPEAPIContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>,
+     UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>, IDbContext
     {
         public PPEAPIContext(DbContextOptions<PPEAPIContext> options)
             : base(options)
@@ -21,7 +24,7 @@ namespace PPE.API.Models
 
         public DbSet<PPE.API.Models.Critere> Criteres { get; set; }
         public DbSet<PPE.API.Models.Note> Notes { get; set; }
-       public DbSet<PPE.API.Models.User> Users {get; set;}
+       
     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,6 +51,17 @@ namespace PPE.API.Models
             modelBuilder.ApplyConfiguration(new EvaluationConfig());
             modelBuilder.ApplyConfiguration(new NoteConfig());
             modelBuilder.ApplyConfiguration(new CritereConfig());
+
+            modelBuilder.Entity<UserRole>(userRole => 
+            {
+                userRole.HasKey(ur => new {ur.UserId, ur.RoleId});
+                
+                userRole.HasOne(ur => ur.Role).WithMany(r => r.UserRoles)
+                    .HasForeignKey(ur => ur.RoleId).IsRequired();
+
+                userRole.HasOne(ur => ur.User).WithMany(r => r.UserRoles)
+                    .HasForeignKey(ur => ur.UserId).IsRequired();
+            });
         }
     }
 }

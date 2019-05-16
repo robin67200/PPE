@@ -35,10 +35,10 @@
           {{ user.status }}
         </td>
         <td>
-          {{ user.created }}
+          {{ user.created | date: 'mediumDate' }}
         </td>
         <td>
-          {{ user.lastActive }}
+          {{ user.lastActive | timeAgo}}
         </td>
       </tr>
     </tbody>
