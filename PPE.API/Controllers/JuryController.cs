@@ -21,7 +21,6 @@ namespace PPE.API.Controllers
        }
        
         // GET api/jurys
-        
         [HttpGet]
         public async Task<IActionResult> GetJurys()
         {

@@ -26,7 +26,6 @@ namespace PPE.API.Controllers
 
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
@@ -37,7 +36,6 @@ namespace PPE.API.Controllers
             return Ok(usersToReturn);
         }
 
-        [AllowAnonymous]
         [HttpGet("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {

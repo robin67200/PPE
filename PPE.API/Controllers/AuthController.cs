@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -16,7 +17,6 @@ using PPE.API.Models;
 
 namespace PPE.API.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
 
@@ -56,7 +56,7 @@ namespace PPE.API.Controllers
             return BadRequest(result.Errors);
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
@@ -71,7 +71,7 @@ namespace PPE.API.Controllers
                 var userToReturn = _mapper.Map<UserForListDto>(appUser);
 
                 return Ok(new {
-                token = GenerateJwtToken(appUser),
+                token = GenerateJwtToken(appUser).Result,
                 user = userToReturn
             });
             }
@@ -80,13 +80,20 @@ namespace PPE.API.Controllers
 
         }
 
-        private string GenerateJwtToken(User user)
+        private async Task <string> GenerateJwtToken(User user)
         {
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
 
             var key = new SymmetricSecurityKey(Encoding.UTF8

@@ -78,6 +78,13 @@ namespace PPE.API
                 return f.GetService<PPEAPIContext>();
             });
 
+                services.AddAuthorization(options => {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("ModerateDataRole", policy => policy.RequireRole("Admin", "Moderator"));
+                options.AddPolicy("VipOnle", policy => policy.RequireRole("VIP"));
+            });
+            
+
             services.AddMvc(options => 
                 {
                     var policy = new AuthorizationPolicyBuilder()
@@ -92,12 +99,13 @@ namespace PPE.API
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.AddTransient<Seed>();
 
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -110,6 +118,7 @@ namespace PPE.API
             }
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            seeder.SeedUsers();
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseAuthentication();

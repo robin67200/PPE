@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { SuccessComponent } from './success/success.component';
 import { UserService } from './user/_services/user.service';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 
 
 
@@ -40,6 +41,10 @@ const appRoutes: Routes = [
          loadChildren: './user/member.module#MembersModule',
          canActivate: [AuthGuard]
       },
+      {
+         path: 'admin',
+         component: AdminPanelComponent,
+      }
      ]
    },
    {path: 'home', component: HomeComponent },
@@ -54,7 +59,8 @@ const appRoutes: Routes = [
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      SuccessComponent
+      SuccessComponent,
+      AdminPanelComponent
    ],
    imports: [
       BrowserModule,
