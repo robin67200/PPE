@@ -18,12 +18,12 @@
       <li class="nav-item active" routerLinkActive="active">
         <a class="nav-link text-dark" routerLink="jurys" id="list">Jurys</a>
       </li>
-      <li class="nav-item active" routerLinkActive="active">
-        <a class="nav-link text-dark" routerLink="admin">Admin</a>
+      <li *appHasRole="['Admin', 'Moderator']" class="nav-item active" routerLinkActive="active">
+        <a class="nav-link text-dark" routerLink="admin" id="list">Admin</a>
       </li>
     </ul>
 
-  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 68%">
+  <div *ngIf="loggedIn()" class="dropdown" dropdown style="margin-left: 66%">
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
         Bienvenue {{authService.decodedToken?.unique_name | titlecase}}
       </a>

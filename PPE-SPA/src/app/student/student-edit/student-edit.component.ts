@@ -4,6 +4,7 @@ import { Student } from '../models/student';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { StudentService } from '../services/student.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-student-edit',
@@ -23,7 +24,8 @@ export class StudentEditComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     route: ActivatedRoute,
-    private service: StudentService
+    private service: StudentService,
+    private alterifyService: AlertifyService
   ) {
     this.editStudent = fb.group({
       name: new FormControl(this.student.name, [
@@ -78,6 +80,7 @@ export class StudentEditComponent implements OnInit {
       this.service.putStudent(this.id, newStudent).subscribe(res => {
         this.router.navigate(['/students/detail/' + this.id]);
       });
+      this.alterifyService.succes('étudiant modifié');
     } else {
       this.hasError = true;
       this.errorMessage = 'Formulaire incomplet : Veuillez remplir tous les champs';

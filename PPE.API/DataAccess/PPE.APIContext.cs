@@ -12,9 +12,7 @@ namespace PPE.API.Models
      UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>, IDbContext
     {
         public PPEAPIContext(DbContextOptions<PPEAPIContext> options)
-            : base(options)
-        {
-        }
+            : base(options){}
 
         public DbSet<PPE.API.Models.Student> Students { get; set; }
         public DbSet<PPE.API.Models.Phase> Phases { get; set; }

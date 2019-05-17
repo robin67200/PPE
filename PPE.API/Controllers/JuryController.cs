@@ -29,7 +29,7 @@ namespace PPE.API.Controllers
 
             return Ok(jurys);
         }
-
+        
         // GET api/jurys/id
         [HttpGet("{id}")]
         public async Task<IActionResult> GetJury(int id)

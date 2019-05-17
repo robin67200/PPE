@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class seed : Migration
+    public partial class userRoles : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

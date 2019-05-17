@@ -9,6 +9,7 @@ using PPE.API.Models;
 
 namespace PPE.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase

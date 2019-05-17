@@ -76,21 +76,15 @@ namespace PPE.API
             services.AddScoped<IDbContext>(f =>
             {
                 return f.GetService<PPEAPIContext>();
-            });
+            }); 
 
-                services.AddAuthorization(options => {
-                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
-                options.AddPolicy("ModerateDataRole", policy => policy.RequireRole("Admin", "Moderator"));
-                options.AddPolicy("VipOnle", policy => policy.RequireRole("VIP"));
-            });
-            
-
-            services.AddMvc(options => 
+                
+                services.AddMvc(options => 
                 {
                     var policy = new AuthorizationPolicyBuilder()
                         .RequireAuthenticatedUser()
                         .Build();
-                    options.Filters.Add(new AuthorizeFilter(policy));
+                   // options.Filters.Add(new AuthorizeFilter(policy));
                 }
             )
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
@@ -98,6 +92,16 @@ namespace PPE.API
                     opt.SerializerSettings.ReferenceLoopHandling = 
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
+                
+                
+                services.AddAuthorization(options => {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("ModerateDataRole", policy => policy.RequireRole("Admin", "Moderator"));
+                options.AddPolicy("VipOnle", policy => policy.RequireRole("VIP"));
+            });
+            
+
+            
             services.AddCors();
             services.AddTransient<Seed>();
 

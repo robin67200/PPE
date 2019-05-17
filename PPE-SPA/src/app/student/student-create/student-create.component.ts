@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { StudentService } from '../services/student.service';
 import { Student } from '../models/student';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-student-create',
@@ -21,7 +22,8 @@ export class StudentCreateComponent implements OnInit {
     private http: HttpClient,
     fb: FormBuilder,
     private router: Router,
-    private service: StudentService
+    private service: StudentService,
+    private alterifyService: AlertifyService
   ) {
     this.createStudent = fb.group({
       name: new FormControl(this.student.name, [
@@ -67,6 +69,7 @@ export class StudentCreateComponent implements OnInit {
       this.service.postStudent(newStudent).subscribe(res => {
         this.router.navigate(['/students']);
       });
+      this.alterifyService.succes('création terminée');
     } else {
       this.hasError = true;
       this.errorMessage = 'Formulaire incomplet : Veuillez remplir tous les champs';

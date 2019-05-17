@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace PPE.API.Controllers
 {
+    
     [ApiController]
     [Route("api/[controller]")]
     public class AdminController : ControllerBase
@@ -24,7 +25,8 @@ namespace PPE.API.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Policy = "RequireAdminRole")]
+        // [Authorize(Policy = "RequireAdminRole")]
+        
         [HttpGet("usersWithRoles")]
 
         public async Task<IActionResult> GetUsersWithRoles()
@@ -69,7 +71,7 @@ namespace PPE.API.Controllers
             
         }
 
-        [Authorize(Policy = "ModerateDataRole")]
+        // [Authorize(Policy = "ModerateDataRole")]
         [HttpGet("DatasForModeration")]
         public IActionResult GetDataForModeration()
         {

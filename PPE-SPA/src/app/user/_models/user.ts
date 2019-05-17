@@ -7,6 +7,7 @@ export class User {
         public username: string,
         public created: string,
         public lastActive: string,
+        public roles?: string[]
         ) {
             this.id = 0;
         }

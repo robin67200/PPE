@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TabsModule} from 'ngx-tabset';
 
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {BsDropdownModule, BsDatepickerModule} from 'ngx-bootstrap';
+import {BsDropdownModule, BsDatepickerModule, ModalModule} from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StudentService } from './student/services/student.service';
@@ -19,8 +21,14 @@ import { AuthGuard } from './_guards/auth.guard';
 import { SuccessComponent } from './success/success.component';
 import { UserService } from './user/_services/user.service';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { AdminService } from './_services/admin.service';
+import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
 
-
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 const appRoutes: Routes = [
    {
@@ -44,6 +52,7 @@ const appRoutes: Routes = [
       {
          path: 'admin',
          component: AdminPanelComponent,
+         data: {roles: ['Admin', 'Moderator']}
       }
      ]
    },
@@ -60,7 +69,10 @@ const appRoutes: Routes = [
       HomeComponent,
       RegisterComponent,
       SuccessComponent,
-      AdminPanelComponent
+      AdminPanelComponent,
+      HasRoleDirective,
+      UserManagementComponent,
+      RolesModalComponent
    ],
    imports: [
       BrowserModule,
@@ -71,15 +83,20 @@ const appRoutes: Routes = [
       FormsModule,
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
-      BsDatepickerModule.forRoot()
+      BsDatepickerModule.forRoot(),
+      NgbModule,
+      TabsModule.forRoot(),
+      ModalModule.forRoot()
    ],
    providers: [
       JuryService,
       StudentService,
       AuthService,
       AuthGuard,
-      UserService
+      UserService,
+      AdminService
    ],
+   entryComponents: [RolesModalComponent],
    bootstrap: [
       AppComponent
    ]

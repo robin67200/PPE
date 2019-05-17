@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { JuryService } from '../services/jury.service';
 import { Jury } from '../models/jury';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-jury-create',
@@ -20,7 +21,8 @@ export class JuryCreateComponent implements OnInit {
     private http: HttpClient,
     fb: FormBuilder,
     private router: Router,
-    private service: JuryService
+    private service: JuryService,
+    private alterifyService: AlertifyService
   ) {
     this.createJury = fb.group({
       teacher1: ['', [Validators.required]],
@@ -46,6 +48,7 @@ Save() {
     this.service.postJury(newJury).subscribe(res => {
       this.router.navigate(['/jurys']);
     });
+    this.alterifyService.succes('création terminée');
   } else {
     this.hasError = true;
     this.errorMessage = 'Formulaire incomplet';

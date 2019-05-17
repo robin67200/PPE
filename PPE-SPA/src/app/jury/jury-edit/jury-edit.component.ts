@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-jury-edit',
@@ -23,7 +24,8 @@ export class JuryEditComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     route: ActivatedRoute,
-    private service: JuryService
+    private service: JuryService,
+    private alertifyService: AlertifyService
   ) {
     this.editJury = fb.group({
       teacher1: new FormControl(this.jury.teacher1, [
@@ -64,6 +66,7 @@ export class JuryEditComponent implements OnInit {
       this.service.putJury(this.id, newjury).subscribe(res => {
         this.router.navigate(['/jurys/detail/' + this.id]);
       });
+      this.alertifyService.succes('jury modifé');
     } else {
       this.hasError = true;
       this.errorMessage = 'Formulaire incomplet : Veuillez remplir tous les champs';

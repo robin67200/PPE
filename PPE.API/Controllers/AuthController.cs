@@ -17,6 +17,7 @@ using PPE.API.Models;
 
 namespace PPE.API.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
 
@@ -56,7 +57,6 @@ namespace PPE.API.Controllers
             return BadRequest(result.Errors);
         }
 
-        
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
