@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TabsModule} from 'ngx-tabset';
 
-
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -37,29 +36,35 @@ const appRoutes: Routes = [
        {
          path: 'students',
          loadChildren: './student/student.module#StudentsModule',
-         canActivate: [AuthGuard]
+         canActivate: [AuthGuard],
+         data: {animation: 'StudentsPage'}
        },
        {
           path: 'jurys',
           loadChildren: './jury/jury.module#JurysModule',
-          canActivate: [AuthGuard]
+          canActivate: [AuthGuard],
+          data: {animation: 'JurysPage'}
        },
        {
          path: 'members',
          loadChildren: './user/member.module#MembersModule',
-         canActivate: [AuthGuard]
+         canActivate: [AuthGuard],
+         data: {animation: 'MembersPage'}
       },
       {
          path: 'admin',
          component: AdminPanelComponent,
-         data: {roles: ['Admin', 'Moderator']}
+         data: {roles: ['Admin', 'Moderator'], animation: 'IsAdmin'}
       }
      ]
    },
-   {path: 'home', component: HomeComponent },
-   {path: 'registers', component: RegisterComponent },
+   {path: 'home', component: HomeComponent, data: {animation: 'IsHome'} },
+   {path: 'registers', component: RegisterComponent, data: {animation: 'IsRegister'} },
+   {path: 'user-management', component: UserManagementComponent, data: {animation : 'IsUserMana'} },
    {path: 'success', component: SuccessComponent },
    {path: '**', redirectTo: 'home', pathMatch: 'full'},
+
+
  ];
 
 @NgModule({
@@ -86,7 +91,9 @@ const appRoutes: Routes = [
       BsDatepickerModule.forRoot(),
       NgbModule,
       TabsModule.forRoot(),
-      ModalModule.forRoot()
+      ModalModule.forRoot(),
+      BrowserModule,
+      BrowserAnimationsModule,
    ],
    providers: [
       JuryService,

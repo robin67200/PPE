@@ -1,10 +1,10 @@
 <br />
 <div class="container-fluid">
-  <h4 style ="text-align: center">{{student.firstName}} {{student.name}}</h4>
+  <h4 class ="titre">{{student.firstName}} {{student.name}}</h4>
 
   <hr />
   <div class="row" >
-    <div class=" ml-auto mr-auto">
+    <div class="ml-auto mr-auto">
       <br />
       <h5>Nom: {{student.name}}</h5>
       <h5>Prenom: {{student.firstName}}</h5>
@@ -13,7 +13,7 @@
       <h5>Matiere: {{student.matiere}}</h5>
       <h5>Style Evaluation: {{student.evaluation}}</h5>
       <br>
-      <table style = "margin-left: 15%">
+      <table>
         <tr>
           <td>
              <a [routerLink]="['/students/edit',student.id]"><button class = "btn btn-primary">Modifier</button></a>
@@ -22,9 +22,8 @@
               <a [routerLink]="['/students']"><button class ="btn btn-primary">Retour</button></a>
           </td>
         </table>
-      <div class=" ml-auto mr-auto" >
         <br>
-        <table style = "margin-left: 15%">
+        <table>
           <tr>
             <td>
                 <button class="btn btn-danger" style="width: 160%" (click)="deleteStudent()">
@@ -36,4 +35,4 @@
         </div>
   </div>
 </div>
-</div>
+

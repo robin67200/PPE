@@ -8,20 +8,24 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from './animation';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-
+    slideInAnimation
   ]
 })
 export class AppComponent implements OnInit {
-  title = 'PPE-SPA';
-  jwtHelper = new JwtHelperService();
 
   constructor(private authService: AuthService) {}
+
+  title = 'PPE-SPA';
+  jwtHelper = new JwtHelperService();
 
   ngOnInit() {
     const token = localStorage.getItem('token');
@@ -29,4 +33,13 @@ export class AppComponent implements OnInit {
       this.authService.decodedToken = this.jwtHelper.decodeToken(token);
     }
   }
+
+  prepareRoute(outlet: RouterOutlet) {
+// tslint:disable-next-line: no-string-literal
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+
+
 }
+
