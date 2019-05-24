@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TabsModule} from 'ngx-tabset';
 
@@ -24,7 +24,6 @@ import { HasRoleDirective } from './_directives/hasRole.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
-import { GridComponent } from './grid/grid.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -79,12 +78,11 @@ const appRoutes: Routes = [
       HasRoleDirective,
       UserManagementComponent,
       RolesModalComponent,
-      GridComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      BrowserAnimationsModule,
+     // BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes),
       ReactiveFormsModule,
       FormsModule,
@@ -95,7 +93,7 @@ const appRoutes: Routes = [
       TabsModule.forRoot(),
       ModalModule.forRoot(),
       BrowserModule,
-      BrowserAnimationsModule
+      //BrowserAnimationsModule
    ],
    providers: [
       JuryService,
