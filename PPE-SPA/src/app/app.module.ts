@@ -24,6 +24,7 @@ import { HasRoleDirective } from './_directives/hasRole.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
+import { GridComponent } from './grid/grid.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
       AdminPanelComponent,
       HasRoleDirective,
       UserManagementComponent,
-      RolesModalComponent
+      RolesModalComponent,
+      GridComponent
    ],
    imports: [
       BrowserModule,
@@ -93,7 +95,7 @@ const appRoutes: Routes = [
       TabsModule.forRoot(),
       ModalModule.forRoot(),
       BrowserModule,
-      BrowserAnimationsModule,
+      BrowserAnimationsModule
    ],
    providers: [
       JuryService,
@@ -103,7 +105,9 @@ const appRoutes: Routes = [
       UserService,
       AdminService
    ],
-   entryComponents: [RolesModalComponent],
+   entryComponents: [
+      RolesModalComponent
+   ],
    bootstrap: [
       AppComponent
    ]
