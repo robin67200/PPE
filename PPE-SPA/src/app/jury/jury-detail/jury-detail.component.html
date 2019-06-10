@@ -24,7 +24,7 @@
       <table>
           <tr>
             <td>
-                <button class="btn btn-danger" style="width: 160%"  (click)="deleteJury()">
+                <button *appHasRole="['Admin', 'Moderator']" class="btn btn-danger" style="width: 160%"  (click)="deleteJury()">
                     Supprimer
                 </button>
             </td>

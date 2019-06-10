@@ -10,12 +10,14 @@ import { JuryListComponent } from './jury-list/jury-list.component';
 import { JuryModalsComponent } from './jury-modals/jury-modals.component';
 import { JurysRoutingModule } from './jury.routing';
 import { JuryService } from './services/jury.service';
+import { appShareModule } from '../share.module';
 
 @NgModule({
   imports: [CommonModule,
             ReactiveFormsModule,
             FormsModule,
             JurysRoutingModule,
+            appShareModule,
             SimpleModalModule.forRoot(
               { container: 'modal-container' },
               {
@@ -32,7 +34,7 @@ import { JuryService } from './services/jury.service';
     JuryListComponent,
     JuryDetailComponent,
     JuryEditComponent,
-    JuryModalsComponent
+    JuryModalsComponent,
   ],
   providers: [JuryService, SimpleModalService], entryComponents: [JuryModalsComponent]
 })

@@ -24,6 +24,7 @@ import { HasRoleDirective } from './_directives/hasRole.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
+import { appShareModule } from './share.module';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -75,7 +76,6 @@ const appRoutes: Routes = [
       RegisterComponent,
       SuccessComponent,
       AdminPanelComponent,
-      HasRoleDirective,
       UserManagementComponent,
       RolesModalComponent,
    ],
@@ -93,6 +93,7 @@ const appRoutes: Routes = [
       TabsModule.forRoot(),
       ModalModule.forRoot(),
       BrowserModule,
+      appShareModule
       //BrowserAnimationsModule
    ],
    providers: [
