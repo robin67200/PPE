@@ -1,5 +1,6 @@
 export class Evaluation {
     id: number;
+    etudiantName: string;
 
     constructor(
       public date: Date,
