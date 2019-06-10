@@ -5,4 +5,4 @@ import { NgModule } from '@angular/core';
     declarations: [HasRoleDirective],
     exports: [HasRoleDirective]
 })
-export class appShareModule{}
+export class AppShareModule {}
