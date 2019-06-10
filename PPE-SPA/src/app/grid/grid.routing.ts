@@ -1,7 +1,27 @@
-import { Routes, RouterModule } from '@angular/router';
+import { GridDetailComponent } from './grid-detail/grid-detail.component';
+import { GridEditComponent } from './grid-edit/grid-edit.component';
+import { GridListComponent } from './grid-list/grid-list.component';
+import { GridCreateComponent } from './grid-create/grid-create.component';
 
-const routes: Routes = [
-  {  },
+
+
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+
+export const routes: Routes = [
+{
+path: '',
+redirectTo: 'list',
+},
+  {path: 'create', component: GridCreateComponent},
+  {path: 'detail/:id', component: GridDetailComponent},
+  {path: 'edit/:id', component: GridEditComponent},
+  {path: 'list', component: GridListComponent},
+
 ];
 
-export const GridRoutes = RouterModule.forChild(routes);
+@NgModule({
+  imports: [RouterModule.forChild(routes) ],
+  exports: [ RouterModule ]
+})
+export class GridsRoutingModule {}

@@ -13,9 +13,6 @@
       <table>
         <tr>
           <td>
-            <a [routerLink]="['/jurys/edit',jury.id]" ><button class = "btn btn-primary my-2 my-sm-2">Modifier</button></a>
-          </td>
-          <td>
             <a [routerLink]="['/jurys']" ><button class ="btn btn-primary">Retour</button></a>
           </td>
         </tr>
@@ -27,6 +24,9 @@
                 <button *appHasRole="['Admin', 'Moderator']" class="btn btn-danger" style="width: 160%"  (click)="deleteJury()">
                     Supprimer
                 </button>
+                <button *appHasRole="['Admin', 'Moderator']" class="btn btn-info" style="width: 160%"  [routerLink]="['/jurys/edit',jury.id]">
+                  Modifier
+              </button>
             </td>
           </tr>
           </table>

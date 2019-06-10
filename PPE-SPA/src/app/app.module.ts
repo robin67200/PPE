@@ -47,6 +47,11 @@ const appRoutes: Routes = [
           data: {animation: 'JurysPage'}
        },
        {
+        path: 'grids',
+        loadChildren: './grid/grid.module#GridsModule',
+        canActivate: [AuthGuard],
+     },
+       {
          path: 'members',
          loadChildren: './user/member.module#MembersModule',
          canActivate: [AuthGuard],
