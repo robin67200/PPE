@@ -10,10 +10,12 @@ import { StudentEditComponent } from './student-edit/student-edit.component';
 import { StudentModalsComponent } from './student-modals/student-modals.component';
 import { StudentsRoutingModule } from './student.routing';
 import { StudentService } from './services/student.service';
+import { AppShareModule } from '../share.module';
 
 @NgModule({
   imports: [CommonModule,
             ReactiveFormsModule,
+            AppShareModule,
             FormsModule,
             StudentsRoutingModule,
             SimpleModalModule.forRoot(

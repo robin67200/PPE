@@ -13,23 +13,25 @@
       <h5>Matiere: {{student.matiere}}</h5>
       <h5>Style Evaluation: {{student.evaluation}}</h5>
       <br>
+      <div *appHasRole="['Admin', 'Moderator']">
       <table>
         <tr>
           <td>
              <a [routerLink]="['/students/edit',student.id]"><button class = "btn btn-primary">Modifier</button></a>
           </td>
           <td>
-              <a [routerLink]="['/students']"><button class ="btn btn-primary">Retour</button></a>
+                <button class="btn btn-danger" (click)="deleteStudent()">
+                    Supprimer
+                </button>
           </td>
         </table>
+        </div>
         <br>
         <table>
           <tr>
-            <td>
-                <button class="btn btn-danger" style="width: 160%" (click)="deleteStudent()">
-                    Supprimer
-                </button>
-            </td>
+          <td>
+              <a [routerLink]="['/students']"><button class ="btn btn-primary">Retour</button></a>
+          </td>
           </tr>
         </table>
         </div>
