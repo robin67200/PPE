@@ -3,6 +3,7 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { GridService } from '../service/grid.service';
 import { Router } from '@angular/router';
 import { Evaluation } from '../models/evalutation';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-grid-modal',
@@ -18,6 +19,7 @@ export class GridModalComponent implements OnInit {
     private service: GridService,
     private router: Router,
     public bsModalRef: BsModalRef,
+    private alertify: AlertifyService
   ) { }
 
   ngOnInit() {
