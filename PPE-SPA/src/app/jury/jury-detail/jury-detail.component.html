@@ -1,37 +1,42 @@
-<br />
-<div class="container-fluid">
-  <h4 class="titre">Jurys</h4>
-
-  <hr />
-  <div class="row" >
-    <div class=" ml-auto mr-auto">
-      <br />
-      <h5>Jury 1: {{jury.teacher1}}</h5>
-      <h5>Jury 2: {{jury.teacher2}}</h5>
-      <h5>Jury 3: {{jury.teacher3}}</h5>
-      <br>
-      <div *appHasRole="['Admin', 'Moderator']">
-      <table>
+<div class="container">
+<section class="widget">
+  <header>
+    <br />
+    <h2 style="text-align: center">Jury numéro {{jury.id}}</h2>
+    <hr/>
+  </header>
+  <br />
+  <div class="widget-controls" style="text-align: right">
+      <button [routerLink]="['/jurys/edit/', jury.id]" class="btn btn-outline-info">Modifier</button>
+      <button class="btn btn-outline-danger"(click)="deleteJury()">Supprimer</button>
+  </div>
+  <table class="table table-hover table-bordered table-striped ">
+      <tbody>
         <tr>
-          <td>
-             <a [routerLink]="['/jurys/edit',jury.id]"><button class = "btn btn-primary">Modifier</button></a>
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteJury()">
-              Supprimer
-            </button>
+          <th style="width: 50%" scope="row">Professeur 1</th>
+          <td style="text-align: center">
+            {{ jury.teacher1 }}
           </td>
         </tr>
-      </table>
-        </div>
-        <br>
-        <table>
-          <tr>
-          <td>
-              <a [routerLink]="['/jurys']"><button class ="btn btn-primary">Retour</button></a>
+        <tr>
+          <th scope="row">Professeur 2</th>
+          <td style="text-align: center">
+            {{ jury.teacher2 }}
           </td>
-          </tr>
-          </table>
-        </div>
-  </div>
+        </tr>
+        <tr>
+          <th scope="row">Professeur 3</th>
+          <td style="text-align: center">
+            {{ jury.teacher3 }}
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <br />
+    <button class="btn btn-primary btn-rounded-f" [routerLink]="['/jurys/list/']">
+      Retour
+    </button>
+</section>
 </div>
+
+
