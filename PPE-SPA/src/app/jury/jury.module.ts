@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SimpleModalService, SimpleModalModule } from 'ngx-simple-modal';
 
 import { JuryCreateComponent } from './jury-create/jury-create.component';
 import { JuryEditComponent } from './jury-edit/jury-edit.component';
@@ -11,6 +10,7 @@ import { JuryModalsComponent } from './jury-modals/jury-modals.component';
 import { JurysRoutingModule } from './jury.routing';
 import { JuryService } from './services/jury.service';
 import { AppShareModule } from '../share.module';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [CommonModule,
@@ -18,17 +18,8 @@ import { AppShareModule } from '../share.module';
             FormsModule,
             JurysRoutingModule,
             AppShareModule,
-            SimpleModalModule.forRoot(
-              { container: 'modal-container' },
-              {
-                closeOnEscape: false,
-                closeOnClickOutside: false,
-                bodyClass: 'modal-open',
-                wrapperDefaultClasses: 'modal fade-anim',
-                wrapperClass: 'in',
-                animationDuration: 300
-              }
-            )],
+            ModalModule.forRoot()
+            ],
   declarations: [
     JuryCreateComponent,
     JuryListComponent,
@@ -36,6 +27,8 @@ import { AppShareModule } from '../share.module';
     JuryEditComponent,
     JuryModalsComponent,
   ],
-  providers: [JuryService, SimpleModalService], entryComponents: [JuryModalsComponent]
+  providers: [JuryService],
+  entryComponents: [JuryModalsComponent],
+  exports: [JuryModalsComponent]
 })
 export class JurysModule {}

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { GridModalsComponent } from './grid-modals.component';
+import { GridModalComponent } from './grid-modal.component';
 
-describe('GridModalsComponent', () => {
-  let component: GridModalsComponent;
-  let fixture: ComponentFixture<GridModalsComponent>;
+describe('GridModalComponent', () => {
+  let component: GridModalComponent;
+  let fixture: ComponentFixture<GridModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridModalsComponent ]
+      declarations: [ GridModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridModalsComponent);
+    fixture = TestBed.createComponent(GridModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

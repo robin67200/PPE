@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleModalComponent } from 'ngx-simple-modal';
+import { Router } from '@angular/router';
+import { JuryService } from '../services/jury.service';
+import { BsModalRef } from 'ngx-bootstrap';
 export interface JuryModel {
   title: string;
   message: string;
@@ -7,36 +9,27 @@ export interface JuryModel {
 
 @Component({
   selector: 'app-jury-modals',
-  template:
-  `
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4><i class="icon-globe"></i>&nbsp;{{ title || "Confirmation" }}</h4>
-    </div>
-    <div class="modal-body">
-      {{message}}
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-primary btn-sm" (click)="confirm()">
-        Confirmer
-      </button>
-      <button type="button" class="btn btn-outline-primary btn-sm" (click)="close()">
-        Annuler
-      </button>
-    </div>
-  </div>
-`
-})
-export class JuryModalsComponent extends SimpleModalComponent<JuryModel, boolean> implements JuryModel {
-  title: string;
-  message: string;
-  constructor() {
-    super();
-   }
+  templateUrl: './jury-modals.component.html',
+  styleUrls: ['./jury-modals.component.css'],
 
-   confirm() {
-    this.result = true;
-    this.close();
+})
+export class JuryModalsComponent implements OnInit {
+
+  closeBtnName: string;
+
+  constructor(
+    private router: Router,
+    private service: JuryService,
+    public bsModalRef: BsModalRef,
+  ) { }
+
+  ngOnInit() {
   }
 
+  deleteJury(id: number) {
+    this.service.deleteJuryById(id).subscribe(res => {
+      this.router.navigate(['/jurys/list']);
+      window.location.reload();
+    });
+  }
 }
