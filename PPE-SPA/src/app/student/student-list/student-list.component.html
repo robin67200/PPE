@@ -29,7 +29,7 @@
         </th>
       </tr>
     </thead>
-      <tr [routerLink]="['/students/detail',student.id]" *ngFor="let student of students">
+      <tr *ngFor="let student of students">
         <td>
           {{ student.name }}
         </td>
@@ -48,6 +48,22 @@
         <td>
           {{ student.evaluation }}
         </td>
+         <td style="width: 10%">
+            <div class="dropdown">
+              <button class="btn btn-outline-info dropdown-toggle text-blue pull-right" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/students/detail/',student.id]">
+                    Details
+                  </a>
+                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/students/edit/',student.id]">
+                    Modifier
+                  </a>
+              </div>
+            </div>
+          </td>
       </tr>
   </table>
 </div>

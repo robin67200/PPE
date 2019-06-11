@@ -21,7 +21,7 @@
         </th>
       </tr>
     </thead>
-      <tr [routerLink]="['/jurys/detail',jury.id]" *ngFor="let jury of jurys">
+      <tr *ngFor="let jury of jurys">
         <td>
           {{ jury.teacher1 }}
         </td>
@@ -31,6 +31,22 @@
         <td>
           {{ jury.teacher3 }}
         </td>
+          <td style="width: 10%">
+            <div class="dropdown">
+              <button class="btn btn-outline-info dropdown-toggle text-blue pull-right" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/jurys/detail/',jury.id]">
+                    Details
+                  </a>
+                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/jurys/edit/',jury.id]">
+                    Modifier
+                  </a>
+              </div>
+            </div>
+          </td>
       </tr>
   </table>
 </div>
