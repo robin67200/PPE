@@ -29,7 +29,6 @@ export class JuryModalsComponent implements OnInit {
   deleteJury(id: number) {
     this.service.deleteJuryById(id).subscribe(res => {
       this.router.navigate(['/jurys/list']);
-      window.location.reload();
     });
   }
 }

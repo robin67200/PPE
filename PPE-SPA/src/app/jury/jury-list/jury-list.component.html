@@ -1,27 +1,27 @@
 <div class="container">
   <br />
   <h2 style="text-align:center">Jurys</h2>
+  <hr>
   <br />
   <br />
   <a [routerLink]="['/jurys/create']">
     <button class="btn btn-primary my-2 my-sm-2">Nouveau jury</button></a>
 
-  <table class="table table-hover">
+  <table class="table table-bordered table-hover table-striped">
     <thead>
       <tr>
         <th>
-          Jury 1
+          Professeur 1
         </th>
         <th>
-          Jury 2
+          Professeur 2
         </th>
         <th>
-          Jury 3
+          Professeur 3
         </th>
       </tr>
     </thead>
-    <tbody *ngFor="let jury of jurys">
-      <tr [routerLink]="['/jurys/detail',jury.id]">
+      <tr [routerLink]="['/jurys/detail',jury.id]" *ngFor="let jury of jurys">
         <td>
           {{ jury.teacher1 }}
         </td>
@@ -32,6 +32,5 @@
           {{ jury.teacher3 }}
         </td>
       </tr>
-    </tbody>
   </table>
 </div>
