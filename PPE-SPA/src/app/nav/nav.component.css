@@ -1,3 +1,6 @@
 #list:hover{
-    background-image:repeating-linear-gradient(white,rgba(176, 237, 245, 0.918));
+    background-image:repeating-linear-gradient(white,rgba(204, 247, 253, 0.918));
+}
+#rv:hover{
+  background-image:repeating-linear-gradient(white,rgba(204, 247, 253, 0.918));
 }
