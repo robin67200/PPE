@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { JuryService } from '../services/jury.service';
 import { BsModalRef } from 'ngx-bootstrap';
-import { delay } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-jury-modals',
