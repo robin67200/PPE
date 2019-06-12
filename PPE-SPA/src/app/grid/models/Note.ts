@@ -5,7 +5,7 @@ export class Note {
   constructor(
     public CritereId: number,
     public EvaluationId: number,
-    public Notation: number
+    public notation: number
   ) {
     this.id = 0;
   }

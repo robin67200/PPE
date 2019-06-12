@@ -17,7 +17,7 @@
             </td>
             <td>
               <label for="JuryId" class="control-label">Jury :</label>
-              <app-jury-select [form]="createEvaluation"></app-jury-select>
+              <app-jury-select [form]="createEvaluation" ></app-jury-select>
             </td>
             <td>
               <div class="form-group">
@@ -35,7 +35,7 @@
         <hr />
         <h3 style="text-align: center">Premiere phase: Entretient d'explication </h3>
         <hr />
-        <h3 style="text-align: right">Note: / 8</h3>
+        <h3 style="text-align: right">Note: {{sum}} / 8 </h3>
         <hr />
         <table class="table table-bordered">
           <tr>
@@ -43,11 +43,11 @@
               Interprétation de l'expression des besoins :
             </td>
             <td style="text-align: center">
-              <select name="nom" size="1">
-                  <option>Très Insufisant
-                  <option>Insufisant
-                  <option>Bien
-                  <option>Très bien
+              <select type="number" class="form-control" size="1" #premier>
+                <option value="0.5">Très Insufisant</option>
+                <option value="1">Insufisant</option>
+                <option value="1.5">Bien</option>
+                <option value="2" >Très bien</option>
               </select>
             </td>
           </tr>
@@ -56,12 +56,12 @@
               Adéquation des spécifications techniques proposées :
             </td>
             <td style="text-align: center">
-                <select name="nom" size="1">
-                    <option>Très Insufisant
-                    <option>Insufisant
-                    <option>Bien
-                    <option>Très bien
-                </select>
+              <select type="number" class="form-control" size="1" #second>
+                <option value="0.5">Très Insufisant</option>
+                <option value="1">Insufisant</option>
+                <option value="1.5">Bien</option>
+                <option value="2">Très bien</option>
+              </select>
             </td>
           </tr>
           <tr>
@@ -69,12 +69,12 @@
               Qualité de la démarche de réalisation envisagée :
             </td>
             <td style="text-align: center">
-                <select name="nom" size="1">
-                    <option>Très Insufisant
-                    <option>Insufisant
-                    <option>Bien
-                    <option>Très bien
-                </select>
+              <select type="number" class="form-control" size="1" #troisieme>
+                <option value="0.5">Très Insufisant</option>
+                <option value="1">Insufisant</option>
+                <option value="1.5">Bien</option>
+                <option value="2">Très bien</option>
+              </select>
             </td>
           </tr>
           <tr>
@@ -82,12 +82,18 @@
               Prise en compte des observations du jury :
             </td>
             <td style="text-align: center">
-                <select name="nom" size="1">
-                    <option>Très Insufisant
-                    <option>Insufisant
-                    <option>Bien
-                    <option>Très bien
-                </select>
+              <select type="number" class="form-control" size="1" #quatrieme>
+                <option value="0.5">Très Insufisant
+                <option value="1">Insufisant
+                <option value="1.5">Bien
+                <option value="2">Très bien
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-success" type="submit"
+              (click) = 'calculatePhase1(premier.value, second.value, troisieme.value, quatrieme.value)'>Valider</button>
             </td>
           </tr>
         </table>
