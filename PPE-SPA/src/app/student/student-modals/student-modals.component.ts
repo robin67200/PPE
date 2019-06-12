@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleModalComponent } from 'ngx-simple-modal';
+import { Router } from '@angular/router';
+import { StudentService } from '../services/student.service';
+import { BsModalRef } from 'ngx-bootstrap';
 export interface StudentModel {
   title: string;
   message: string;
@@ -7,37 +9,27 @@ export interface StudentModel {
 
 @Component({
   selector: 'app-student-modals',
-  template:
-  `
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4><i class="icon-globe"></i>&nbsp;{{ title || "Confirmation" }}</h4>
-    </div>
-    <div class="modal-body">
-      {{message}}
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-primary btn-sm" (click)="confirm()">
-        Confirmer
-      </button>
-      <button type="button" class="btn btn-outline-primary btn-sm" (click)="close()">
-        Annuler
-      </button>
-    </div>
-  </div>
-`
+  templateUrl: './student-modals.component.html',
+  styleUrls: ['./student-modals.component.css'],
 })
-export class StudentModalsComponent extends SimpleModalComponent<StudentModel, boolean> implements StudentModel {
-  title: string;
-  message: string;
+export class StudentModalsComponent implements OnInit {
 
-  constructor() {
-    super();
+  closeBtnName: string;
+
+  constructor(
+    private router: Router,
+    private service: StudentService,
+    public bsModalRef: BsModalRef,
+  ) { }
+
+  ngOnInit() {
   }
 
-  confirm() {
-    this.result = true;
-    this.close();
+  deleteStudent(id: number) {
+    this.service.deleteStudentById(id).subscribe(res => {
+      this.router.navigate(['/students/list']);
+      window.location.reload();
+    });
   }
 
 }

@@ -1,11 +1,12 @@
 <div class="container">
   <br />
   <h2 style="text-align:center">Etudiants</h2>
+  <hr />
   <br />
   <br />
-  <a [routerLink]="['/students/create']"><button class="btn btn-primary my-2 my-sm-2">Nouvel etudiant</button></a>
+  <a [routerLink]="['/students/create']"><button class="btn btn-outline-primary" style="margin-left: 89%">Nouvel etudiant</button></a>
 
-  <table class="table table-hover">
+  <table class="table table-bordered table-hover table-striped">
     <thead>
       <tr>
         <th>
@@ -26,10 +27,12 @@
         <th>
           Style Evaluation
         </th>
+        <th>
+        
+        </th>
       </tr>
     </thead>
-    <tbody *ngFor="let student of students">
-      <tr [routerLink]="['/students/detail',student.id]">
+      <tr *ngFor="let student of students">
         <td>
           {{ student.name }}
         </td>
@@ -48,7 +51,22 @@
         <td>
           {{ student.evaluation }}
         </td>
+         <td style="width: 10%">
+            <div class="dropdown">
+              <button class="btn btn-outline-info dropdown-toggle text-blue pull-right" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/students/detail/',student.id]">
+                    Details
+                  </a>
+                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/students/edit/',student.id]">
+                    Modifier
+                  </a>
+              </div>
+            </div>
+          </td>
       </tr>
-    </tbody>
   </table>
 </div>

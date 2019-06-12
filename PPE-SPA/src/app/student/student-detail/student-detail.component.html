@@ -1,40 +1,60 @@
-<br />
-<div class="container-fluid">
-  <h4 class ="titre">{{student.firstName}} {{student.name}}</h4>
-
-  <hr />
-  <div class="row" >
-    <div class="ml-auto mr-auto">
-      <br />
-      <h5>Nom: {{student.name}}</h5>
-      <h5>Prenom: {{student.firstName}}</h5>
-      <h5>Mail: {{student.mail}}</h5>
-      <h5>Section: {{student.section}}</h5>
-      <h5>Matiere: {{student.matiere}}</h5>
-      <h5>Style Evaluation: {{student.evaluation}}</h5>
-      <br>
-      <div *appHasRole="['Admin', 'Moderator']">
-      <table>
-        <tr>
-          <td>
-             <a [routerLink]="['/students/edit',student.id]"><button class = "btn btn-primary">Modifier</button></a>
-          </td>
-          <td>
-                <button class="btn btn-danger" (click)="deleteStudent()">
-                    Supprimer
-                </button>
-          </td>
-        </table>
-        </div>
-        <br>
-        <table>
-          <tr>
-          <td>
-              <a [routerLink]="['/students']"><button class ="btn btn-primary">Retour</button></a>
-          </td>
-          </tr>
-        </table>
-        </div>
+<div class="container">
+<section class="widget">
+  <header>
+    <br />
+    <h2 style="text-align: center">Etudiant numéro {{student.id}}</h2>
+    <hr/>
+  </header>
+  <br />
+  <div class="widget-controls" style="text-align: right">
+      <button [routerLink]="['/students/edit/', student.id]" class="btn btn-outline-info">Modifier</button>
+      <button class="btn btn-outline-danger"(click)="deleteStudent(student)">Supprimer</button>
   </div>
+  <br />
+  <table class="table table-hover table-bordered table-striped ">
+      <tbody>
+        <tr>
+          <th scope="row">Nom</th>
+          <td style="text-align: center">
+            {{ student.name }}
+        </tr>
+        <tr>
+          <th scope="row">Prénom</th>
+          <td style="text-align: center">
+            {{ student.firstName }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Mail</th>
+          <td style="text-align: center">
+            {{ student.mail }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Section</th>
+          <td style="text-align: center">
+            {{ student.section }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Matière</th>
+          <td style="text-align: center">
+            {{ student.matiere }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Evaluation</th>
+          <td style="text-align: center">
+            {{ student.evaluation }}
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <br />
+    <button class="btn btn-primary btn-rounded-f" [routerLink]="['/students/list/']">
+      Retour
+    </button>
+</section>
 </div>
+
 

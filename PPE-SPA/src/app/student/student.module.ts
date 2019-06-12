@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SimpleModalService, SimpleModalModule } from 'ngx-simple-modal';
 
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -11,6 +10,7 @@ import { StudentModalsComponent } from './student-modals/student-modals.componen
 import { StudentsRoutingModule } from './student.routing';
 import { StudentService } from './services/student.service';
 import { AppShareModule } from '../share.module';
+import { ModalModule } from 'ngx-bootstrap';
 import { StudentsSelectComponent } from './components/students-select/students-select.component';
 
 @NgModule({
@@ -19,17 +19,7 @@ import { StudentsSelectComponent } from './components/students-select/students-s
             AppShareModule,
             FormsModule,
             StudentsRoutingModule,
-            SimpleModalModule.forRoot(
-              { container: 'modal-container' },
-              {
-                closeOnEscape: false,
-                closeOnClickOutside: false,
-                bodyClass: 'modal-open',
-                wrapperDefaultClasses: 'modal fade-anim',
-                wrapperClass: 'in',
-                animationDuration: 300
-              }
-            )],
+            ModalModule.forRoot()],
   declarations: [
     StudentCreateComponent,
     StudentListComponent,
@@ -38,8 +28,8 @@ import { StudentsSelectComponent } from './components/students-select/students-s
     StudentModalsComponent,
     StudentsSelectComponent
   ],
-  providers: [StudentService, SimpleModalService],
+  providers: [StudentService],
   entryComponents: [StudentModalsComponent],
-  exports: [StudentsSelectComponent]
+  exports: [StudentsSelectComponent, StudentModalsComponent]
 })
 export class StudentsModule {}

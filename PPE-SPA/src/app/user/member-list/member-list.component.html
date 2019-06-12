@@ -3,7 +3,7 @@
   <h2 style="text-align:center">Membres</h2>
   <br />
   <br />
-  <table class="table table-hover">
+  <table class="table table-bordered table-hover table-striped">
     <thead>
       <tr>
         <th>
@@ -23,8 +23,7 @@
         </th>
       </tr>
     </thead>
-    <tbody *ngFor="let user of users">
-      <tr >
+      <tr *ngFor="let user of users" >
         <td>
           {{ user.username }}
         </td>
@@ -41,6 +40,5 @@
           {{ user.lastActive | timeAgo}}
         </td>
       </tr>
-    </tbody>
   </table>
 </div>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../models/student';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { StudentService } from '../services/student.service';
-import { SimpleModalService } from 'ngx-simple-modal';
 import { StudentModalsComponent } from '../student-modals/student-modals.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-student-detail',
@@ -14,12 +14,12 @@ export class StudentDetailComponent implements OnInit {
 
   id: number;
   student: Student = new Student('', '', '', '', '', '');
+  bsModalRef: BsModalRef;
 
   constructor(
     route: ActivatedRoute,
     private service: StudentService,
-    private router: Router,
-    public modals: SimpleModalService
+    private modalService: BsModalService,
     ) {
       route.params.forEach((params: Params) => {
         if (params.id != null) {
@@ -35,20 +35,13 @@ export class StudentDetailComponent implements OnInit {
       this.student = res;
     });
   }
-
-  deleteStudent() {
-    this.modals
-      .addModal(StudentModalsComponent, {
-        title: 'Supprimer cet étudiant',
-        message: 'Etes vous sûr ?'
-      })
-      .subscribe(result => {
-        if (result) {
-          this.service.deleteStudentById(this.id).subscribe(res => {
-            this.router.navigate(['students/list']);
-          });
-        }
-      });
+  deleteStudent(student: Student) {
+    const initialState = {
+      student
+    };
+    this.bsModalRef = this.modalService.show(StudentModalsComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
+
 
 }
