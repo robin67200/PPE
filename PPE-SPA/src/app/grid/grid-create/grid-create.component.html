@@ -1,3 +1,214 @@
-<p>
-  grid-create works!
-</p>
+<div class="container">
+  <header>
+      <h2 style="text-align: center">BTS SIO</h2>
+      <hr />
+      <h2 style="text-align: center">E4 : Conception et maintenance de solutions informatiques</h2>
+      <hr />
+      <h3 style="text-align: center">Grille d'aide à l'évaluation</h3>
+  </header>
+  <br />
+  <div class="widget-body">
+    <form >
+        <table id="form1" class="table table-bordered">
+          <tr>
+            <td>
+              <label for="StudentId" class="control-label">Candidat :</label>
+              <app-students-select [form]="createEvaluation"></app-students-select>
+            </td>
+            <td>
+              <label for="JuryId" class="control-label">Jury :</label>
+              <app-jury-select [form]="createEvaluation"></app-jury-select>
+            </td>
+            <td>
+              <div class="form-group">
+                <label class="control-label">Date :</label>
+                  <input
+                    formControlName="date"
+                    class="form-control"
+                    type="date"
+                    required
+                    />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Premiere phase: Entretient d'explication </h3>
+        <hr />
+        <h3 style="text-align: right">Note: / 8</h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Interprétation de l'expression des besoins :
+            </td>
+            <td style="text-align: center">
+              <select name="nom" size="1">
+                  <option>Très Insufisant
+                  <option>Insufisant
+                  <option>Bien
+                  <option>Très bien
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Adéquation des spécifications techniques proposées :
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Qualité de la démarche de réalisation envisagée :
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Prise en compte des observations du jury :
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Deuxième phase: Entretien d'explications </h3>
+        <hr />
+        <h3 style="text-align: right">Note: / 12</h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Conformité de la production au exigences de la demande
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Justification de la solution
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Qualité de la réalisation
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Analyse critique de la solution proposée
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h5 style="text-align: center">Critère global</h5>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Qualité de la communication professionnelle
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Très Insufisant
+                    <option>Insufisant
+                    <option>Bien
+                    <option>Très bien
+                </select>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h5 style="text-align: center">Penalités</h5>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Non-respect au cahier des charges national
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Non
+                    <option>Oui
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Absence d'une solution professionnelle
+            </td>
+            <td style="text-align: center">
+                <select name="nom" size="1">
+                    <option>Non
+                    <option>Oui
+                </select>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Note finale</h3>
+        <hr />
+        <h3 style="text-align: right">Note: / 20</h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              <h5>
+                Nom et signature des membres de la commission d'interrogation :
+              </h5>
+            </td>
+          </tr>
+        </table>
+    </form>
+  </div>
+</div>

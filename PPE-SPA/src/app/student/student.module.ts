@@ -11,6 +11,7 @@ import { StudentModalsComponent } from './student-modals/student-modals.componen
 import { StudentsRoutingModule } from './student.routing';
 import { StudentService } from './services/student.service';
 import { AppShareModule } from '../share.module';
+import { StudentsSelectComponent } from './components/students-select/students-select.component';
 
 @NgModule({
   imports: [CommonModule,
@@ -34,8 +35,11 @@ import { AppShareModule } from '../share.module';
     StudentListComponent,
     StudentDetailComponent,
     StudentEditComponent,
-    StudentModalsComponent
+    StudentModalsComponent,
+    StudentsSelectComponent
   ],
-  providers: [StudentService, SimpleModalService], entryComponents: [StudentModalsComponent]
+  providers: [StudentService, SimpleModalService],
+  entryComponents: [StudentModalsComponent],
+  exports: [StudentsSelectComponent]
 })
 export class StudentsModule {}

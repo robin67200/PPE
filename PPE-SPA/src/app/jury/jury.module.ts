@@ -11,6 +11,7 @@ import { JurysRoutingModule } from './jury.routing';
 import { JuryService } from './services/jury.service';
 import { AppShareModule } from '../share.module';
 import { ModalModule } from 'ngx-bootstrap';
+import { JurySelectComponent } from './components/jury-select/jury-select.component';
 
 @NgModule({
   imports: [CommonModule,
@@ -26,9 +27,10 @@ import { ModalModule } from 'ngx-bootstrap';
     JuryDetailComponent,
     JuryEditComponent,
     JuryModalsComponent,
+    JurySelectComponent
   ],
   providers: [JuryService],
   entryComponents: [JuryModalsComponent],
-  exports: [JuryModalsComponent]
+  exports: [JuryModalsComponent, JurySelectComponent]
 })
 export class JurysModule {}

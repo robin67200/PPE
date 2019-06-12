@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JuryService } from '../services/jury.service';
 import { BsModalRef } from 'ngx-bootstrap';
+import { Jury } from '../models/jury';
 export interface JuryModel {
   title: string;
   message: string;
@@ -15,6 +16,7 @@ export interface JuryModel {
 })
 export class JuryModalsComponent implements OnInit {
 
+  jury: Jury;
   closeBtnName: string;
 
   constructor(
