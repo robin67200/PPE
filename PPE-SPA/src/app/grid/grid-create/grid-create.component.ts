@@ -24,7 +24,6 @@ export class GridCreateComponent implements OnInit {
   sumB: number;
   sumPenalite: number;
   sumNoteFinale: number;
-  gridForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
   hasError = false;
   errorMessage: string;

@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190613131025_evalDb")]
-    partial class evalDb
+    [Migration("20190613151206_ppe")]
+    partial class ppe
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

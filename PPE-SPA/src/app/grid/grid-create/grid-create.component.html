@@ -22,8 +22,8 @@
             </td>
             <td>
               <div class="form-group" style="text-align: center" style="margin-top: 10%">
-                  <input [ngClass]="{'is-invalid': gridForm.get('date').errors 
-                  && gridForm.get('date').touched}"
+                  <input [ngClass]="{'is-invalid': createEvaluation.get('date').errors 
+                  && createEvaluation.get('date').touched}"
                     formControlName="date"
                     class="form-control"
                     type="text"
@@ -31,8 +31,8 @@
                     placeholder="Date de l'épreuve"
                     bsDatepicker [bsConfig]="bsConfig"
                     />
-                    <div class="invalid-feedback" *ngIf="gridForm.get('date').touched 
-                    && gridForm.get('date').hasError('required')">Date evaluation obligatoire
+                    <div class="invalid-feedback" *ngIf="createEvaluation.get('date').touched 
+                    && createEvaluation.get('date').hasError('required')">Date evaluation obligatoire
                   </div>
                 </div>
             </td>
