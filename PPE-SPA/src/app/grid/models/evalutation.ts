@@ -4,8 +4,11 @@ export class Evaluation {
 
     constructor(
       public date: Date,
-      public EtudiantId: number,
-      public JuryId: number,
+      public etudiantId: number,
+      public juryId: number,
+      public notePhase1: string,
+      public notePhase2: string,
+      public resultat: string
     ) {
       this.id = 0;
     }

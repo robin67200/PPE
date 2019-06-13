@@ -1,5 +1,5 @@
 <div [formGroup]="form">
-    <select formControlName="studentId" class="form-control" required >
+    <select formControlName="etudiantId" class="form-control" required >
       <option *ngFor="let student of students" value="{{student.id}}">{{student.firstName}} {{student.name}}</option>
     </select>
 </div>

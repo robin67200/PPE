@@ -134,6 +134,18 @@ namespace PPE.API.Migrations
                         .HasColumnName("JuryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("NotePhase1")
+                        .HasColumnName("NotePhase1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NotePhase2")
+                        .HasColumnName("NotePhase2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Resultat")
+                        .HasColumnName("Resultat")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EtudiantId");

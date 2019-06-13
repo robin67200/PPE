@@ -9,15 +9,15 @@
   </header>
   <br />
   <div class="widget-body">
-    <form >
+    <form [formGroup]="createEvaluation" #formDir="ngForm" >
         <table id="form1" class="table table-bordered">
           <tr>
             <td>
-              <label for="StudentId" class="control-label">Candidat :</label>
+              <label for="etudiantId" class="control-label">Candidat :</label>
               <app-students-select [form]="createEvaluation"></app-students-select>
             </td>
             <td>
-              <label for="JuryId" class="control-label">Jury :</label>
+              <label for="juryId" class="control-label">Jury :</label>
               <app-jury-select [form]="createEvaluation" ></app-jury-select>
             </td>
             <td>
@@ -95,7 +95,28 @@
               (click) = 'calculatePhase1(premier.value, second.value, troisieme.value, quatrieme.value)'>Valider Phase1</button>
             </td>
             <td width="50%">
-              <h5 style="text-align: center">Note : {{sum}} / 8 </h5>
+              <h5 style="text-align: center"
+              >
+                Note : {{sum}} / 8 </h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Entrez note phase 1</h5>
+            </td>
+            <td>
+              <input
+                formControlName="notePhase1"
+                class="form-control"
+                type="text"
+                required
+                Note : {{sum}} 
+              />
+            <div *ngIf="notePhase1.invalid && hasError"  class="alert alert-danger">
+              <div *ngIf="notePhase1.errors">
+                Champs obligatoire
+              </div>
+            </div>
             </td>
           </tr>
         </table>
@@ -180,7 +201,27 @@
                 Valider Phase2</button>
             </td>
             <td width="50%">
-              <h5 style="text-align: center">Note : {{sumB}} / 12</h5>
+              <h5 style="text-align: center"
+                  >
+                Note : {{sumB}} / 12</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Entrez note phase 2</h5>
+            </td>
+            <td>
+              <input
+            formControlName="notePhase2"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="notePhase2.invalid && hasError"  class="alert alert-danger">
+            <div *ngIf="notePhase2.errors">
+              Champs obligatoire
+            </div>
+          </div>
             </td>
           </tr>
         </table>
@@ -230,11 +271,37 @@
                 Note Finale</button>
           </td>
           <td width="50%">
-            <h4 style="text-align: center">Résultat : {{sumNoteFinale}} / 20</h4>
+            <h4 style="text-align: center"
+                >
+              Résultat : {{sumNoteFinale}} / 20</h4>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Entrez le resultat final</h5>
+          </td>
+          <td>
+            <input
+            formControlName="resultat"
+            class="form-control"
+            type="text"
+            required
+          />
+          <div *ngIf="resultat.invalid && hasError"  class="alert alert-danger">
+            <div *ngIf="resultat.errors">
+              Champs obligatoire
+            </div>
+          </div>
           </td>
         </tr>
       </table>
         <hr />
+        <div class="form-group" style="text-align:right">
+          <input type="submit" class="btn btn-primary" (click)="Save()" />
+        </div>
     </form>
+  </div>
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{ errorMessage }}
   </div>
 </div>

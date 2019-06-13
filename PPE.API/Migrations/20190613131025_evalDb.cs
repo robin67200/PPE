@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class ppe : Migration
+    public partial class evalDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -234,7 +234,10 @@ namespace PPE.API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Date = table.Column<DateTime>(type: "INTEGER", nullable: false),
                     EtudiantId = table.Column<int>(type: "INTEGER", nullable: false),
-                    JuryId = table.Column<int>(type: "INTEGER", nullable: false)
+                    JuryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    NotePhase1 = table.Column<string>(type: "TEXT", nullable: true),
+                    NotePhase2 = table.Column<string>(type: "TEXT", nullable: true),
+                    Resultat = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
