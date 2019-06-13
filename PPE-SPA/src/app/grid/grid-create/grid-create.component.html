@@ -29,6 +29,11 @@
                     type="date"
                     required
                     />
+                    <div *ngIf="date.invalid && hasError"  class="alert alert-danger">
+                      <div *ngIf="date.errors">
+                        Champs obligatoire
+                      </div>
+                    </div>
               </div>
             </td>
           </tr>
@@ -90,33 +95,19 @@
             </td>
           </tr>
           <tr>
-            <td width="50%">
+            <td>
               <button class="btn btn-outline-success" type="submit"
               (click) = 'calculatePhase1(premier.value, second.value, troisieme.value, quatrieme.value)'>Valider Phase1</button>
             </td>
-            <td width="50%">
-              <h5 style="text-align: center"
-              >
-                Note : {{sum}} / 8 </h5>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h5>Entrez note phase 1</h5>
-            </td>
             <td>
               <input
+                style="text-align: center"
+                value="{{sum}}"
                 formControlName="notePhase1"
                 class="form-control"
-                type="text"
-                required
-                Note : {{sum}} 
+                type="number"
+
               />
-            <div *ngIf="notePhase1.invalid && hasError"  class="alert alert-danger">
-              <div *ngIf="notePhase1.errors">
-                Champs obligatoire
-              </div>
-            </div>
             </td>
           </tr>
         </table>
@@ -201,27 +192,13 @@
                 Valider Phase2</button>
             </td>
             <td width="50%">
-              <h5 style="text-align: center"
-                  >
-                Note : {{sumB}} / 12</h5>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h5>Entrez note phase 2</h5>
-            </td>
-            <td>
               <input
-            formControlName="notePhase2"
-            class="form-control"
-            type="text"
-            required
+                style="text-align: center"
+                formControlName="notePhase2"
+                class="form-control"
+                type="number"
+                value="{{sumB}}"
           />
-          <div *ngIf="notePhase2.invalid && hasError"  class="alert alert-danger">
-            <div *ngIf="notePhase2.errors">
-              Champs obligatoire
-            </div>
-          </div>
             </td>
           </tr>
         </table>
@@ -271,27 +248,13 @@
                 Note Finale</button>
           </td>
           <td width="50%">
-            <h4 style="text-align: center"
-                >
-              Résultat : {{sumNoteFinale}} / 20</h4>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h5>Entrez le resultat final</h5>
-          </td>
-          <td>
             <input
-            formControlName="resultat"
-            class="form-control"
-            type="text"
-            required
+              style="text-align: center"
+              formControlName="resultat"
+              class="form-control"
+              type="number"
+              value="{{sumNoteFinale}}"
           />
-          <div *ngIf="resultat.invalid && hasError"  class="alert alert-danger">
-            <div *ngIf="resultat.errors">
-              Champs obligatoire
-            </div>
-          </div>
           </td>
         </tr>
       </table>

@@ -16,13 +16,12 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 export class GridCreateComponent implements OnInit {
 
   sum: number;
-  createEvaluation: FormGroup;
-  evaluation = new Evaluation(new Date(), 0, 0, '', '', '');
-  student: Student = new Student('', '', '', '', '', '');
-
   sumB: number;
   sumPenalite: number;
   sumNoteFinale: number;
+  createEvaluation: FormGroup;
+  evaluation = new Evaluation(new Date(), 0, 0, this.sum, this.sumB, this.sumNoteFinale);
+  student: Student = new Student('', '', '', '', '', '');
   hasError = false;
   errorMessage: string;
 
@@ -45,13 +44,13 @@ export class GridCreateComponent implements OnInit {
         Validators.required
       ]),
       notePhase1: new FormControl(this.evaluation.notePhase1, [
-        Validators.required
+
       ]),
       notePhase2: new FormControl(this.evaluation.notePhase2, [
-        Validators.required
+
       ]),
       resultat: new FormControl(this.evaluation.resultat, [
-        Validators.required
+
       ])
     });
   }
@@ -69,10 +68,12 @@ export class GridCreateComponent implements OnInit {
 // tslint:disable-next-line: max-line-length
   calculatePhase1(premier: number, second: number, troisieme: number, quatrieme: number) {
       this.sum = +premier + +second + +troisieme + +quatrieme;
+      this.sum = Math.ceil(this.sum);
   }
 
   calculatePhase2(premierB: number, secondB: number, troisiemeB: number, quatriemeB: number, cinquiemeB: number) {
     this.sumB = +premierB + +secondB + +troisiemeB + +quatriemeB + +cinquiemeB;
+    this.sumB = Math.ceil(this.sumB);
   }
 
   calculatePenalite(penaliteA: number, penaliteB: number) {
@@ -85,13 +86,13 @@ export class GridCreateComponent implements OnInit {
 
   Save() {
     if (this.createEvaluation.valid) {
-      const newEval = new Evaluation(new Date(), 0, 0, '', '', '');
+      const newEval = new Evaluation(new Date(), 0, 0,  this.sum, this.sumB, this.sumNoteFinale);
       newEval.date = this.createEvaluation.value.date;
       newEval.etudiantId = this.createEvaluation.value.etudiantId;
       newEval.juryId = this.createEvaluation.value.juryId;
-      newEval.notePhase1 = this.createEvaluation.value.notePhase1;
-      newEval.notePhase2 = this.createEvaluation.value.notePhase2;
-      newEval.resultat = this.createEvaluation.value.resultat;
+      newEval.notePhase1 = this.sum;
+      newEval.notePhase2 = this.sumB;
+      newEval.resultat = this.sumNoteFinale;
       this.service.postEvaluation(newEval).subscribe(res => {
         this.router.navigate(['/grids']);
       });

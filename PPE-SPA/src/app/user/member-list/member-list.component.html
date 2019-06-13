@@ -14,13 +14,7 @@
           Age
         </th>
         <th>
-          Statut
-        </th>
-        <th>
           Creation
-        </th>
-        <th>
-          Dernière connexion
         </th>
       </tr>
     </thead>
@@ -32,13 +26,7 @@
           {{ user.age }}
         </td>
         <td>
-          {{ user.status }}
-        </td>
-        <td>
           {{ user.created | date: 'mediumDate' }}
-        </td>
-        <td>
-          {{ user.lastActive | timeAgo}}
         </td>
       </tr>
   </table>

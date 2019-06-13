@@ -9,8 +9,8 @@ using PPE.API.Models;
 namespace PPE.API.Migrations
 {
     [DbContext(typeof(PPEAPIContext))]
-    [Migration("20190613131025_evalDb")]
-    partial class evalDb
+    [Migration("20190613161425_evalDb5")]
+    partial class evalDb5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,17 +136,17 @@ namespace PPE.API.Migrations
                         .HasColumnName("JuryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("NotePhase1")
+                    b.Property<int>("NotePhase1")
                         .HasColumnName("NotePhase1")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("REAL");
 
-                    b.Property<string>("NotePhase2")
+                    b.Property<int>("NotePhase2")
                         .HasColumnName("NotePhase2")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("REAL");
 
-                    b.Property<string>("Resultat")
+                    b.Property<int>("Resultat")
                         .HasColumnName("Resultat")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 

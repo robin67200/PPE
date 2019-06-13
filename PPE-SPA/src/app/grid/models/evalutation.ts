@@ -6,9 +6,9 @@ export class Evaluation {
       public date: Date,
       public etudiantId: number,
       public juryId: number,
-      public notePhase1: string,
-      public notePhase2: string,
-      public resultat: string
+      public notePhase1: number,
+      public notePhase2: number,
+      public resultat: number
     ) {
       this.id = 0;
     }
