@@ -1,5 +1,4 @@
-<div [formGroup]="form">
-    <select formControlName="juryId" class="form-control" required >
-        <option *ngFor="let jury of jurys" value="{{jury.id}}">{{jury.id}}</option>
-    </select>
-</div>
+<div [formGroup]="form" class="form-group">
+<label for="jury" class="control-label">Jury : </label>
+        <option *ngFor="let jury of jurys" value="jury.id">{{jury.id}}</option>
+        <div class="invalid-feedback">Choisissez un jury</div>

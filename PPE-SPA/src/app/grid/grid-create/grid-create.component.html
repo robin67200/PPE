@@ -9,7 +9,7 @@
   </header>
   <br />
   <div class="widget-body">
-    <form >
+    <form [formGroup]="gridForm" >
         <table id="form1" class="table table-bordered">
           <tr>
             <td>
@@ -17,19 +17,23 @@
               <app-students-select [form]="createEvaluation"></app-students-select>
             </td>
             <td>
-              <label for="JuryId" class="control-label">Jury :</label>
-              <app-jury-select [form]="createEvaluation" ></app-jury-select>
+              <app-jury-select [form]="createEvaluation"></app-jury-select>
             </td>
             <td>
-              <div class="form-group">
-                <label class="control-label">Date :</label>
-                  <input
+              <div class="form-group" style="text-align: center" style="margin-top: 10%">
+                  <input [ngClass]="{'is-invalid': gridForm.get('date').errors 
+                  && gridForm.get('date').touched}"
                     formControlName="date"
                     class="form-control"
-                    type="date"
+                    type="text"
                     required
+                    placeholder="Date de l'épreuve"
+                    bsDatepicker [bsConfig]="bsConfig"
                     />
-              </div>
+                    <div class="invalid-feedback" *ngIf="gridForm.get('date').touched 
+                    && gridForm.get('date').hasError('required')">Date evaluation obligatoire
+                  </div>
+                </div>
             </td>
           </tr>
         </table>
@@ -90,8 +94,8 @@
             </td>
           </tr>
           <tr>
-            <td width="50%">
-              <button class="btn btn-outline-success" type="submit"
+            <td width="50%" class="form-group">
+              <button class="btn btn-outline-success" type="submit" required #bouton1
               (click) = 'calculatePhase1(premier.value, second.value, troisieme.value, quatrieme.value)'>Valider Phase1</button>
             </td>
             <td width="50%">

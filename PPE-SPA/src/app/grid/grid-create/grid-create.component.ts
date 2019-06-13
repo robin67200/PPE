@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GridService } from '../service/grid.service';
 import { Student } from 'src/app/student/models/student';
 import { StudentService } from 'src/app/student/services/student.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-grid-create',
@@ -22,17 +23,30 @@ export class GridCreateComponent implements OnInit {
   sumB: number;
   sumPenalite: number;
   sumNoteFinale: number;
+  gridForm: FormGroup;
+  bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(
     route: ActivatedRoute,
     private router: Router,
-    fb: FormBuilder,
+    private fb: FormBuilder,
     private service: GridService,
     private studentService: StudentService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-red'
+    },
+    this.createdGridForm();
+   }
 
+  createdGridForm() {
+    this.gridForm = this.fb.group ({
+      date: [null, Validators.required],
+
+    })
+  }
 
 // tslint:disable-next-line: max-line-length
   calculatePhase1(premier: number, second: number, troisieme: number, quatrieme: number) {
