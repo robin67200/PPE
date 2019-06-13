@@ -1,3 +1,4 @@
 <div [formGroup]="form" class="form-group">
+    <select id="jury" name="jury" formControlName="jury" class="form-control" required #jury>
         <option *ngFor="let jury of jurys" value="jury.id">{{jury.id}}</option>
         <div class="invalid-feedback">Choisissez un jury</div>
