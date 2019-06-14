@@ -13,5 +13,6 @@ namespace PPE.API.Models
         public string Teacher3 {get; set;}
 
         public ICollection<Evaluation> evaluations {get; set;}
+        public ICollection<E6> e6s {get; set;}
     }
 }

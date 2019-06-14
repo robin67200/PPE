@@ -71,6 +71,8 @@ namespace PPE.API
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddScoped<INotesService, NotesService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IE6sRepository, E6sRepository>();
+            services.AddScoped<IE6sService, E6sService>();
             
 
             services.AddScoped<IDbContext>(f =>

@@ -12,6 +12,7 @@ namespace PPE.API.Business
             CreateMap<PhaseViewModel, Phase>();
             CreateMap<CritereViewModel, Critere>();
             CreateMap<NoteViewModel, Note>();
+            CreateMap<E6ViewModel, E6>();
         }
     }
 
@@ -22,6 +23,7 @@ namespace PPE.API.Business
             CreateMap<Phase, PhaseViewModel>();
             CreateMap<Critere, CritereViewModel>();
             CreateMap<Note, NoteViewModel>();
+            CreateMap<E6, E6ViewModel>();
         }
     }
 

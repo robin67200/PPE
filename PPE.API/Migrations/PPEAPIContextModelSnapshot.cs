@@ -115,6 +115,80 @@ namespace PPE.API.Migrations
                     b.ToTable("Critere");
                 });
 
+            modelBuilder.Entity("PPE.API.Models.E6", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("C1")
+                        .HasColumnName("C1")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C2")
+                        .HasColumnName("C2")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C3")
+                        .HasColumnName("C3")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C4")
+                        .HasColumnName("C4")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C5")
+                        .HasColumnName("C5")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C6")
+                        .HasColumnName("C6")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("C7")
+                        .HasColumnName("C7")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnName("Date")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EtudiantId")
+                        .HasColumnName("EtudiantId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("JuryId")
+                        .HasColumnName("JuryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("NotePhase1")
+                        .HasColumnName("NotePhase1")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("NotePhase2")
+                        .HasColumnName("NotePhase2")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("P1")
+                        .HasColumnName("NotePhase1")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("P2")
+                        .HasColumnName("NotePhase1")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Resultat")
+                        .HasColumnName("Resultat")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EtudiantId");
+
+                    b.ToTable("E6");
+                });
+
             modelBuilder.Entity("PPE.API.Models.Evaluation", b =>
                 {
                     b.Property<int>("Id")
@@ -410,6 +484,19 @@ namespace PPE.API.Migrations
                     b.HasOne("PPE.API.Models.Phase")
                         .WithMany("Criteres")
                         .HasForeignKey("PhaseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PPE.API.Models.E6", b =>
+                {
+                    b.HasOne("PPE.API.Models.Jury")
+                        .WithMany("e6s")
+                        .HasForeignKey("EtudiantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PPE.API.Models.Student")
+                        .WithMany("e6s")
+                        .HasForeignKey("EtudiantId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

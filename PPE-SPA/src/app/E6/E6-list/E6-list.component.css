@@ -1,0 +1,16 @@
+.icon {
+  width:50px;
+}
+.white-cell{
+  border:0;
+  background-color: white;
+}
+.dropdown-item
+{
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+a:hover {
+  background-color:#ECFBFD;
+  cursor: pointer;
+}

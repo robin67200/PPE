@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PPE.API.Migrations
 {
-    public partial class evalDb5 : Migration
+    public partial class newEv : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -227,6 +227,43 @@ namespace PPE.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "E6",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Date = table.Column<DateTime>(type: "INTEGER", nullable: false),
+                    EtudiantId = table.Column<int>(type: "INTEGER", nullable: false),
+                    JuryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    C1 = table.Column<int>(type: "REAL", nullable: false),
+                    C2 = table.Column<int>(type: "REAL", nullable: false),
+                    C3 = table.Column<int>(type: "REAL", nullable: false),
+                    C4 = table.Column<int>(type: "REAL", nullable: false),
+                    NotePhase1 = table.Column<int>(type: "REAL", nullable: false),
+                    C5 = table.Column<int>(type: "REAL", nullable: false),
+                    C6 = table.Column<int>(type: "REAL", nullable: false),
+                    C7 = table.Column<int>(type: "REAL", nullable: false),
+                    NotePhase2 = table.Column<int>(type: "REAL", nullable: false),
+                    Resultat = table.Column<int>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_E6", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_E6_Jury_EtudiantId",
+                        column: x => x.EtudiantId,
+                        principalTable: "Jury",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_E6_Student_EtudiantId",
+                        column: x => x.EtudiantId,
+                        principalTable: "Student",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Evaluation",
                 columns: table => new
                 {
@@ -344,6 +381,11 @@ namespace PPE.API.Migrations
                 column: "PhaseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_E6_EtudiantId",
+                table: "E6",
+                column: "EtudiantId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Evaluation_EtudiantId",
                 table: "Evaluation",
                 column: "EtudiantId");
@@ -383,6 +425,9 @@ namespace PPE.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Critere");
+
+            migrationBuilder.DropTable(
+                name: "E6");
 
             migrationBuilder.DropTable(
                 name: "Notes");

@@ -16,6 +16,7 @@ namespace PPE.API.DataAccess {
             builder.Property(x => x.Teacher3).HasColumnName("Teacher3").HasColumnType("TEXT").IsRequired();
             
             builder.HasMany(x => x.evaluations).WithOne().HasForeignKey(x => x.JuryId);
+            builder.HasMany(x => x.e6s).WithOne().HasForeignKey(x => x.EtudiantId);
         }
     }
 }

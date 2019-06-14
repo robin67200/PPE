@@ -22,6 +22,7 @@ namespace PPE.API.Models
 
         public DbSet<PPE.API.Models.Critere> Criteres { get; set; }
         public DbSet<PPE.API.Models.Note> Notes { get; set; }
+        public DbSet<PPE.API.Models.E6> e6s { get; set; }
        
     
 
@@ -47,6 +48,7 @@ namespace PPE.API.Models
 
             modelBuilder.ApplyConfiguration(new JuryConfig());
             modelBuilder.ApplyConfiguration(new EvaluationConfig());
+            modelBuilder.ApplyConfiguration(new E6Config());
             modelBuilder.ApplyConfiguration(new NoteConfig());
             modelBuilder.ApplyConfiguration(new CritereConfig());
 
