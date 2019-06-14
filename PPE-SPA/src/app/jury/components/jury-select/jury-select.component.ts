@@ -14,18 +14,11 @@ export class JurySelectComponent implements OnInit {
   @Input() form: FormGroup;
   jurys: Jury[] = [];
 
-  constructor(private service: JuryService,
-              private fb: FormBuilder) { }
+  constructor(private service: JuryService) { }
 
   ngOnInit() {
     this.service.getJury().subscribe(res => {
       this.jurys = res;
     });
-    this.createdJuryForm();
   }
-createdJuryForm() {
-  this.form = this.fb.group({
-    jury: ['', Validators.required],
-  });
-}
 }

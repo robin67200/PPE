@@ -15,9 +15,9 @@ namespace PPE.API.DataAccess
             builder.Property(x => x.Date).HasColumnName("Date").HasColumnType("INTEGER").IsRequired();
             builder.Property(x => x.EtudiantId).HasColumnName("EtudiantId").HasColumnType("INTEGER").IsRequired();
             builder.Property(x => x.JuryId).HasColumnName("JuryId").HasColumnType("INTEGER").IsRequired();
-            builder.Property(x => x.NotePhase1).HasColumnName("NotePhase1").HasColumnType("TEXT");
-            builder.Property(x => x.NotePhase2).HasColumnName("NotePhase2").HasColumnType("TEXT");
-            builder.Property(x => x.Resultat).HasColumnName("Resultat").HasColumnType("TEXT");
+            builder.Property(x => x.NotePhase1).HasColumnName("NotePhase1").HasColumnType("REAL");
+            builder.Property(x => x.NotePhase2).HasColumnName("NotePhase2").HasColumnType("REAL");
+            builder.Property(x => x.Resultat).HasColumnName("Resultat").HasColumnType("REAL");
 
             builder.HasMany(x => x.Notes).WithOne().HasForeignKey(u => u.EvaluationId);
 

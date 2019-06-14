@@ -18,7 +18,7 @@ export class GridCreateComponent implements OnInit {
 
   sum: number;
   createEvaluation: FormGroup;
-  evaluation = new Evaluation(new Date(), 0, 0, '', '', '');
+  evaluation = new Evaluation(new Date(), 0, 0, '' , '' , '');
   student: Student = new Student('', '', '', '', '', '');
 
   sumB: number;
@@ -66,11 +66,7 @@ export class GridCreateComponent implements OnInit {
   get resultat() {return this.createEvaluation.get('resultat'); }
 
   ngOnInit() {
-    this.bsConfig = {
-      containerClass: 'theme-red'
-    }
    }
-
 
 // tslint:disable-next-line: max-line-length
   calculatePhase1(premier: number, second: number, troisieme: number, quatrieme: number) {
@@ -79,6 +75,7 @@ export class GridCreateComponent implements OnInit {
 
   calculatePhase2(premierB: number, secondB: number, troisiemeB: number, quatriemeB: number, cinquiemeB: number) {
     this.sumB = +premierB + +secondB + +troisiemeB + +quatriemeB + +cinquiemeB;
+    this.sumB = Math.round(this.sumB * 100) / 100;
   }
 
   calculatePenalite(penaliteA: number, penaliteB: number) {

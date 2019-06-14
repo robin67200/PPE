@@ -99,7 +99,7 @@ const appRoutes: Routes = [
       ModalModule.forRoot(),
       BrowserModule,
       AppShareModule
-      //BrowserAnimationsModule
+      // BrowserAnimationsModule
    ],
    providers: [
       JuryService,
