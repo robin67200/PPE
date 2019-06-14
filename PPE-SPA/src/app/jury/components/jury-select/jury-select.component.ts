@@ -20,5 +20,4 @@ export class JurySelectComponent implements OnInit {
       this.jurys = res;
     });
   }
-
 }

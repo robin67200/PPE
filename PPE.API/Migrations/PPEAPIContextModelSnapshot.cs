@@ -208,15 +208,15 @@ namespace PPE.API.Migrations
                         .HasColumnName("JuryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("NotePhase1")
+                    b.Property<float>("NotePhase1")
                         .HasColumnName("NotePhase1")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("NotePhase2")
+                    b.Property<float>("NotePhase2")
                         .HasColumnName("NotePhase2")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("Resultat")
+                    b.Property<float>("Resultat")
                         .HasColumnName("Resultat")
                         .HasColumnType("REAL");
 

@@ -1,5 +1,4 @@
 <div [formGroup]="form">
-    <select formControlName="juryId" class="form-control" required >
+<select formControlName="juryId" class="form-control" required >
         <option *ngFor="let jury of jurys" value="{{jury.id}}">{{jury.id}}</option>
-    </select>
-</div>
+</select>
