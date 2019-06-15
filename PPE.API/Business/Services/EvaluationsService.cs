@@ -1,3 +1,4 @@
+using AutoMapper;
 using PPE.API.Business.ViewModels;
 using PPE.API.DataAccess.Repositories;
 using PPE.API.Models;
@@ -8,7 +9,8 @@ namespace PPE.API.Business.Services
 {
     public class EvaluationsService : BaseService<Evaluation, EvaluationViewModel>, IEvaluationsService
     {
-        public EvaluationsService(IEvaluationsRepository repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+        public EvaluationsService(IEvaluationsRepository repository, IUnitOfWork unitOfWork, IMapper mapper) : 
+            base(repository, unitOfWork)
         {
             
         }

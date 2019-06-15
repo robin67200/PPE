@@ -67,7 +67,7 @@ export class GridCreateComponent implements OnInit {
 // tslint:disable-next-line: max-line-length
   calculatePhase1(premier: number, second: number, troisieme: number, quatrieme: number) {
       this.sum = +premier + +second + +troisieme + +quatrieme;
-      this.sum = Math.ceil(this.sum);
+      // this.sum = Math.ceil(this.sum);
   }
 
   calculatePhase2(premierB: number, secondB: number, troisiemeB: number, quatriemeB: number, cinquiemeB: number) {
@@ -81,6 +81,7 @@ export class GridCreateComponent implements OnInit {
 
   calculateNoteFinale() {
     this.sumNoteFinale = +this.sum + +this.sumB - +this.sumPenalite ;
+    this.sumNoteFinale = Math.round(this.sumNoteFinale * 100) / 100;
   }
 
   Save() {

@@ -8,6 +8,7 @@ namespace PPE.API.Business
     public class MappingsToDomain : Profile
     {
         public MappingsToDomain() {
+            AllowNullCollections = true;
             CreateMap<EvaluationViewModel, Evaluation>();
             CreateMap<PhaseViewModel, Phase>();
             CreateMap<CritereViewModel, Critere>();

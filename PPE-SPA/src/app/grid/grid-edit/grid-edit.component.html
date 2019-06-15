@@ -1,3 +1,59 @@
-<p>
-  grid-edit works!
-</p>
+<div class="container">
+  <h2 style="text-align:center"> Epreuve E4 du candidat {{evaluation.etudiantName}}</h2>
+  <hr />
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <form [formGroup]="editEval" (submit)="Save()">
+        <div class="form-group">
+          <label class="control-label">Date</label>
+          <input
+            formControlName="date"
+            class="form-control"
+            type="datetime"
+            required
+          />
+        </div>
+        <div class="form-group">
+            <label for="etudiantId" class="control-label">Etudiant</label>
+            <app-students-select [form]="editEval"></app-students-select>
+        </div>
+        <div class="form-group">
+          <label for="juryId" class="control-label">Jury</label>
+          <app-jury-select [form]="editEval"></app-jury-select>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Note Phase 1</label>
+        <input
+          formControlName="notePhase1"
+          class="form-control"
+          type="number"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Note Phase 2</label>
+        <input
+          formControlName="notePhase2"
+          class="form-control"
+          type="number"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Resultat</label>
+        <input
+          formControlName="resultat"
+          class="form-control"
+          type="number"
+          required
+        />
+      </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </form>
+  <br />
+  <div style="text-align:center">
+    <a [routerLink]="['/grids']">Retour aux épreuves</a>
+  </div>
+</div>
