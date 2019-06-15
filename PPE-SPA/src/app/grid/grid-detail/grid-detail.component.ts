@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Evaluation } from '../models/evalutation';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ActivatedRoute, Params } from '@angular/router';
+import { GridService } from '../service/grid.service';
+import { GridModalComponent } from '../grid-modal/grid-modal.component';
+import { StudentService } from 'src/app/student/services/student.service';
+import { Student } from 'src/app/student/models/student';
 
 @Component({
   selector: 'app-grid-detail',
@@ -7,9 +14,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridDetailComponent implements OnInit {
 
-  constructor() { }
+  sum: number;
+  sumB: number;
+  sumNoteFinale: number;
+  id: number;
+  evaluation = new Evaluation(new Date(), 0, 0, this.sum , this.sumB , this.sumNoteFinale);
+  bsModalRef: BsModalRef;
+  students: Student[] = [];
+
+    constructor(
+    route: ActivatedRoute,
+    private service: GridService,
+    private modalService: BsModalService,
+    private etudiantService: StudentService,
+
+
+  ) {  route.params.forEach((params: Params) => {
+      if (params.id != null) {
+        this.id = +params.id;
+      }
+    }); }
 
   ngOnInit() {
+    this.service.getEvaluationById(this.id).subscribe(response => {
+      this.evaluation = response;
+/*
+      this.etudiantService.getStudents().subscribe(resp => {
+        this.students = resp;
+        this.evaluation.forEach(e => {
+          const student = this.students.find(s => s.id === e.etudiantId);
+          e.etudiantName = student.name;
+          alert('HHHHHHHHHHHHHHHHHEEEEEEEEEEEEEEEEEEe')
+        });
+    });
+  });*/
+});
   }
 
+  deleteEvaluation(evaluation: Evaluation) {
+    const initialState = {
+      evaluation
+    };
+    this.bsModalRef = this.modalService.show(GridModalComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
 }
