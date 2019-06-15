@@ -1,1 +1,61 @@
+<div class="container">
+<section class="widget">
+  <header>
+    <br />
+    <h2 style="text-align: center">Evaluation numéro {{evaluation.id}}</h2>
+    <hr/>
+  </header>
+  <br />
+  <div class="widget-controls" style="text-align: right">
+      <button [routerLink]="['/grids/edit/', evaluation.id]" class="btn btn-outline-info">Modifier</button>
+      <button class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
+  </div>
+  <br>
+  <table class="table table-hover table-bordered table-striped">
+      <tbody>
+        <tr>
+          <th style="width: 50%" scope="row">Date :</th>
+          <td style="text-align: center">
+            {{ evaluation.date }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Etudiant :</th>
+          <td style="text-align: center">
+            {{ evaluation.etudiantId }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Numéro Jury : </th>
+          <td style="text-align: center">
+            {{ evaluation.juryId }}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Note phase 1 :</th>
+          <td style="text-align: center">
+            {{ evaluation.notePhase1 }}/8
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Note phase 2</th>
+          <td style="text-align: center">
+            {{ evaluation.notePhase2 }}/12
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Note final :</th>
+          <td style="text-align: center">
+            {{ evaluation.resultat }}/20
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <br />
+    <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
+      Retour
+    </button>
+</section>
+</div>
+
 
