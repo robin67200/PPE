@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:fixed"
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" style="position:fixed"
       style="background-image:repeating-linear-gradient(white,rgba(181, 231, 247, 0.918))">
   <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="margin-left:auto">
       <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,8 @@
       <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>
           <a class="dropdown-item" (click)="logout()" style="cursor:pointer" >
-          <i class="fa fa-sign-out">
-
-          </i>Se deconnecter</a>
+              <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+              Se deconnecter</a>
       </div>
   </div>
   <div style="margin-left: auto">

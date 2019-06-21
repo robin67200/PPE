@@ -5,18 +5,13 @@ import { GridDetailComponent } from './grid-detail/grid-detail.component';
 import { GridEditComponent } from './grid-edit/grid-edit.component';
 import { GridListComponent } from './grid-list/grid-list.component';
 import { GridCreateComponent } from './grid-create/grid-create.component';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule, DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { AppShareModule } from '../share.module';
 import { GridsRoutingModule } from './grid.routing';
 import { GridService } from './service/grid.service';
 import { StudentsModule } from '../student/student.module';
 import { GridModalComponent } from './grid-modal/grid-modal.component';
 import { JurysModule } from '../jury/jury.module';
-import { NoteSelectComponent } from './components/note-select/note-select.component';
-
-
-
-
 
 @NgModule({
   imports: [AppShareModule,
@@ -26,7 +21,8 @@ import { NoteSelectComponent } from './components/note-select/note-select.compon
             GridsRoutingModule,
             StudentsModule,
             JurysModule,
-            ModalModule.forRoot()
+            ModalModule.forRoot(),
+            BsDatepickerModule.forRoot()
             ],
   declarations: [
     GridCreateComponent,
@@ -34,10 +30,9 @@ import { NoteSelectComponent } from './components/note-select/note-select.compon
     GridEditComponent,
     GridListComponent,
     GridModalComponent,
-    NoteSelectComponent
   ],
   providers: [GridService],
   entryComponents: [GridModalComponent],
-  exports: [NoteSelectComponent],
+  exports: [DatepickerModule],
 })
 export class GridsModule {}

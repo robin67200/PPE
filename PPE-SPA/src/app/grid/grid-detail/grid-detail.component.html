@@ -32,6 +32,12 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">C1 : </th>
+          <td style="text-align: center">
+            {{ evaluation.c7 }}/8
+          </td>
+        </tr>
+        <tr>
           <th scope="row">Note phase 1 :</th>
           <td style="text-align: center">
             {{ evaluation.notePhase1 }}/8
@@ -57,5 +63,167 @@
     </button>
 </section>
 </div>
+
+<div class="container">
+    <header>
+    <br>
+        <h2 style="text-align: center">BTS SIO</h2>
+        <hr />
+        <h2 style="text-align: center">E4 : Conception et maintenance de solutions informatiques</h2>
+        <hr />
+        <h3 style="text-align: center">Detail de la grille d'aide d'évaluation</h3>
+    </header>
+    <br />
+    <div class="widget-body">
+      <form>
+          <table id="form1" class="table table-bordered">
+            <tr>
+              <td>
+                  <label class="control-label">Etudiant :</label>
+                  {{evaluation.etudiantId}}
+              </td>
+              <td>
+                <label for="juryId" class="control-label">Jury :</label>
+                {{ evaluation.juryId }}
+              </td>
+              <td>
+                <div class="form-group">
+                  <label class="control-label">Date :</label>
+                  {{ evaluation.date }}
+                </div>
+              </td>
+            </tr>
+          </table>
+          <hr />
+          <h3 style="text-align: center">Premiere phase : Entretient d'explication </h3>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td>
+                Interprétation de l'expression des besoins :
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c1 }}/2
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Adéquation des spécifications techniques proposées :
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c2 }}/2
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Qualité de la démarche de réalisation envisagée :
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c3 }}/2
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Prise en compte des observations du jury :
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c4 }}/2
+              </td>
+            </tr>
+          </table>
+          <hr />
+          <h3 style="text-align: center">Deuxième phase : Entretien d'explications </h3>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td>
+                Conformité de la production au exigences de la demande
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c5 }}/3
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Justification de la solution
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c6 }}/3
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Qualité de la réalisation
+              </td>
+              <td style="text-align: center" >
+                  {{ evaluation.c7 }}/3
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Analyse critique de la solution proposée
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c8 }}/3
+              </td>
+            </tr>
+          </table>
+          <hr />
+          <h5 style="text-align: center">Critère global</h5>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td width="80%">
+                Qualité de la communication professionnelle
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.c9 }}/3
+              </td>
+            </tr>
+          </table>
+          <hr />
+          <h5 style="text-align: center">Pénalités</h5>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td>
+                Non-respect au cahier des charges national
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.p1 }}
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Absence d'une solution professionnelle
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.p2 }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+              <td width="50%">
+                <h5 style="text-align: center"> point(s) en moins</h5>
+              </td>
+            </tr>
+            <tr>
+              Note finale :
+            </tr>
+          </table>
+          <hr />
+          <div class="form-group" style="text-align:right">
+            <input type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" />
+          </div>
+          <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
+            Retour
+          </button>
+      </form>
+    </div>
+  </div>
+
 
 
