@@ -26,10 +26,14 @@
                   <input
                     formControlName="date"
                     class="form-control"
-                    type="text"
+                    type="date"
                     required
-                    bsDatepicker [bsConfig]="bsConfig"
                     />
+                    <div *ngIf="date.invalid && hasError"  class="alert alert-danger">
+                      <div *ngIf="date.errors">
+                        Champs obligatoire
+                      </div>
+                    </div>
               </div>
             </td>
           </tr>
@@ -256,7 +260,7 @@
       </table>
         <hr />
         <div class="form-group" style="text-align:right">
-          <input type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" (click)="Save()" />
+          <input type="submit" class="btn btn-primary" (click)="Save()" />
         </div>
     </form>
   </div>

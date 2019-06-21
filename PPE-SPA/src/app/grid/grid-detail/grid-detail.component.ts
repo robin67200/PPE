@@ -14,23 +14,11 @@ import { Student } from 'src/app/student/models/student';
 })
 export class GridDetailComponent implements OnInit {
 
-  cr1: number;
-  cr2: number;
-  cr3: number;
-  cr4: number;
   sum: number;
-  cr5: number;
-  cr6: number;
-  cr7: number;
-  cr8: number;
-  cr9: number;
   sumB: number;
-  pen1: number;
-  pen2: number;
-  sumPenalite: number;
   sumNoteFinale: number;
   id: number;
-  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  evaluation = new Evaluation(new Date(), 0, 0, this.sum , this.sumB , this.sumNoteFinale);
   bsModalRef: BsModalRef;
   students: Student[] = [];
 

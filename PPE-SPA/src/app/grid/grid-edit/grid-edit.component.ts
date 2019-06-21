@@ -16,7 +16,7 @@ export class GridEditComponent implements OnInit {
   errorMessage: string;
   id: number;
   editEval: FormGroup;
-  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0);
 
   constructor(
     fb: FormBuilder,
@@ -61,7 +61,7 @@ export class GridEditComponent implements OnInit {
 
   Save() {
     if (this.editEval.valid) {
-      const newEval = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      const newEval = new Evaluation(new Date(), 0, 0, 0, 0, 0);
       newEval.date = this.editEval.value.date;
       newEval.etudiantId = this.editEval.value.etudiantId;
       newEval.juryId = this.editEval.value.juryId;

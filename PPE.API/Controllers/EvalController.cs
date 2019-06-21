@@ -30,19 +30,9 @@ namespace PPE.API.Controllers
             var dbEval = _context.Evaluations.FirstOrDefault(x => x.Id == id);
             dbEval.Date = evaluation.Date;
             dbEval.EtudiantId = evaluation.EtudiantId;
-            dbEval.C1 = evaluation.C1;
-            dbEval.C2 = evaluation.C2;
-            dbEval.C3 = evaluation.C3;
-            dbEval.C4 = evaluation.C4;
+            dbEval.JuryId = evaluation.JuryId;
             dbEval.NotePhase1 = evaluation.NotePhase1;
-            dbEval.C5 = evaluation.C5;
-            dbEval.C6 = evaluation.C6;
-            dbEval.C7 = evaluation.C7;
-            dbEval.C8 = evaluation.C8;
-            dbEval.C9 = evaluation.C9;
             dbEval.NotePhase2 = evaluation.NotePhase2;
-            dbEval.P1 = evaluation.P1;
-            dbEval.P2 = evaluation.P2;
             dbEval.Resultat = evaluation.Resultat;
             
             _context.Evaluations.Update(dbEval);
