@@ -26,9 +26,12 @@ import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
 import { AppShareModule } from './share.module';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fas } from '@fortawesome/free-solid-svg-icons';
+// library.add(fas);
+
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -95,6 +98,7 @@ const appRoutes: Routes = [
    ],
    imports: [
       BrowserModule,
+      // FontAwesomeModule,
       HttpClientModule,
      // BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes),
@@ -130,5 +134,4 @@ const appRoutes: Routes = [
 export class AppModule {
   constructor() {
   // Add an icon to the library for convenient access in other components
-  library.add(fas, far);
 }}

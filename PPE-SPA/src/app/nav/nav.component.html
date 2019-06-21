@@ -33,6 +33,7 @@
       <a id="rv" class=" dropdown-toggle text-dark text-align" dropdownToggle style="cursor:pointer">
         Bienvenue {{authService.decodedToken?.unique_name | titlecase}}
       </a>
+      <i class="fas fa-sign-out-alt"></i>
       <div class="dropdown-menu mt-3" *dropdownMenu>
           <div class="dropdown-divider" ></div>
           <a class="dropdown-item" (click)="logout()" style="cursor:pointer" >

@@ -1,70 +1,4 @@
 <div class="container">
-<section class="widget">
-  <header>
-    <br />
-    <h2 style="text-align: center">Evaluation numéro {{evaluation.id}}</h2>
-    <hr/>
-  </header>
-  <br />
-  <div class="widget-controls" style="text-align: right">
-      <button [routerLink]="['/grids/edit/', evaluation.id]" class="btn btn-outline-info">Modifier</button>
-      <button class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
-  </div>
-  <br>
-  <table class="table table-hover table-bordered table-striped">
-      <tbody>
-        <tr>
-          <th style="width: 50%" scope="row">Date :</th>
-          <td style="text-align: center">
-            {{ evaluation.date }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Etudiant :</th>
-          <td style="text-align: center">
-            {{ evaluation.etudiantId }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Numéro Jury : </th>
-          <td style="text-align: center">
-            {{ evaluation.juryId }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">C1 : </th>
-          <td style="text-align: center">
-            {{ evaluation.c7 }}/8
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note phase 1 :</th>
-          <td style="text-align: center">
-            {{ evaluation.notePhase1 }}/8
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note phase 2</th>
-          <td style="text-align: center">
-            {{ evaluation.notePhase2 }}/12
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note final :</th>
-          <td style="text-align: center">
-            {{ evaluation.resultat }}/20
-          </td>
-        </tr>
-      </tbody>
-  </table>
-  <br />
-    <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
-      Retour
-    </button>
-</section>
-</div>
-
-<div class="container">
     <header>
     <br>
         <h2 style="text-align: center">BTS SIO</h2>
@@ -76,17 +10,17 @@
     <br />
     <div class="widget-body">
       <form>
-          <table id="form1" class="table table-bordered">
+          <table id="form1" class="table table-bordered table-active">
             <tr>
-              <td>
+              <td width="33%">
                   <label class="control-label">Etudiant :</label>
                   {{evaluation.etudiantId}}
               </td>
-              <td>
+              <td width="33%">
                 <label for="juryId" class="control-label">Jury :</label>
                 {{ evaluation.juryId }}
               </td>
-              <td>
+              <td width="33%">
                 <div class="form-group">
                   <label class="control-label">Date :</label>
                   {{ evaluation.date }}
@@ -94,78 +28,107 @@
               </td>
             </tr>
           </table>
+          <table class="table table-bordered">
+              <tr>
+                <td width="60%"></td>
+                <td width="10%" id="crit">Très Insuffisant</td>
+                <td width="10%" id="crit">Insuffisant</td>
+                <td width="10%" id="crit">Bien</td>
+                <td width="10%" id="crit">Très bien</td>
+              </tr>
+            <tr>
+              </tr>
+          </table>
           <hr />
-          <h3 style="text-align: center">Premiere phase : Entretient d'explication </h3>
+          <h3 style="text-align: left">Premiere phase : Entretient d'explication </h3>
           <hr />
           <table class="table table-bordered">
             <tr>
-              <td>
+              <td width="60%">
                 Interprétation de l'expression des besoins :
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c1 }}/2
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
             <tr>
-              <td>
+              <td width="60%">
                 Adéquation des spécifications techniques proposées :
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c2 }}/2
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox5"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox6"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox7"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox8"/></td>
             </tr>
             <tr>
-              <td>
+              <td width="60%">
                 Qualité de la démarche de réalisation envisagée :
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c3 }}/2
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
             <tr>
-              <td>
+              <td width="60%">
                 Prise en compte des observations du jury :
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c4 }}/2
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+            </tr>
+          </table>
+          <table class="table table-bordered table-active table-hover">
+            <tr>
+              <td width="60%">
+
               </td>
+              <th>
+                <h5 style="text-align: center">Note phase 1 : {{evaluation.notePhase1}}/8</h5>
+              </th>
             </tr>
           </table>
           <hr />
-          <h3 style="text-align: center">Deuxième phase : Entretien d'explications </h3>
+          <h3 style="text-align: left">Deuxième phase : Entretien d'explications </h3>
           <hr />
           <table class="table table-bordered">
             <tr>
-              <td>
+              <td width="60%">
                 Conformité de la production au exigences de la demande
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c5 }}/3
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
             <tr>
               <td>
                 Justification de la solution
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c6 }}/3
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
             <tr>
               <td>
                 Qualité de la réalisation
               </td>
-              <td style="text-align: center" >
-                  {{ evaluation.c7 }}/3
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
             <tr>
-              <td>
+              <td width="60%">
                 Analyse critique de la solution proposée
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c8 }}/3
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
           </table>
           <hr />
@@ -173,14 +136,25 @@
           <hr />
           <table class="table table-bordered">
             <tr>
-              <td width="80%">
+              <td width="60%">
                 Qualité de la communication professionnelle
               </td>
-              <td style="text-align: center">
-                  {{ evaluation.c9 }}/3
-              </td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
+              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
             </tr>
           </table>
+          <table class="table table-bordered table-active table-hover">
+              <tr>
+                <td width="60%">
+
+                </td>
+                <th>
+                  <h5 style="text-align: center">Note phase 2 : {{evaluation.notePhase2}}/12</h5>
+                </th>
+              </tr>
+            </table>
           <hr />
           <h5 style="text-align: center">Pénalités</h5>
           <hr />
@@ -207,17 +181,24 @@
 
               </td>
               <td width="50%">
-                <h5 style="text-align: center"> point(s) en moins</h5>
+                <h5 style="text-align: center"> {{evaluation.penaliteSomme}} point(s) en moins</h5>
               </td>
             </tr>
+          </table>
+            <table class="table table-borderless table-active table-hover">
             <tr>
-              Note finale :
+              <td></td>
+              <td width="50%"><h5 style="text-align: center">Note finale : {{evaluation.resultat}} /20</h5></td>
             </tr>
           </table>
           <hr />
-          <div class="form-group" style="text-align:right">
-            <input type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" />
-          </div>
+          <table class="table table-hover">
+            <tr>
+              <td>
+                  Nom et signature des membres de la commission d’interrogation :
+              </td>
+            </tr>
+          </table>
           <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
             Retour
           </button>

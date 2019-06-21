@@ -19,6 +19,7 @@ export class Evaluation {
       public notePhase2: number,
       public p1: number,
       public p2: number,
+      public penaliteSomme: number,
       public resultat: number
     ) {
       this.id = 0;

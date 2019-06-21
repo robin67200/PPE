@@ -29,10 +29,10 @@ export class GridCreateComponent implements OnInit {
   sumB: number;
   pen1: number;
   pen2: number;
-  sumPenalite: number;
+  sommePenalite: number;
   sumNoteFinale: number;
   createEvaluation: FormGroup;
-  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   student: Student = new Student('', '', '', '', '', '');
   hasError = false;
   errorMessage: string;
@@ -130,17 +130,17 @@ export class GridCreateComponent implements OnInit {
   calculatePenalite(penaliteA: number, penaliteB: number) {
     this.pen1 = penaliteA;
     this.pen2 = penaliteB;
-    this.sumPenalite = +penaliteA + +penaliteB;
+    this.sommePenalite = +penaliteA + +penaliteB;
   }
 
   calculateNoteFinale() {
-    this.sumNoteFinale = +this.sum + +this.sumB - +this.sumPenalite;
+    this.sumNoteFinale = +this.sum + +this.sumB - +this.sommePenalite;
     this.sumNoteFinale = Math.round(this.sumNoteFinale * 100) / 100;
   }
 
   Save() {
     if (this.createEvaluation.valid) {
-      const newEval = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      const newEval = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
       newEval.date = this.createEvaluation.value.date;
       newEval.etudiantId = this.createEvaluation.value.etudiantId;
       newEval.juryId = this.createEvaluation.value.juryId;

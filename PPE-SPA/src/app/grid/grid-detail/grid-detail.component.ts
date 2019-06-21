@@ -1,5 +1,5 @@
+import { Evaluation } from './../models/evalutation';
 import { Component, OnInit } from '@angular/core';
-import { Evaluation } from '../models/evalutation';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GridService } from '../service/grid.service';
@@ -25,12 +25,12 @@ export class GridDetailComponent implements OnInit {
   cr8: number;
   cr9: number;
   sumB: number;
-  pen1: number;
-  pen2: number;
-  sumPenalite: number;
+  p1: number;
+  p2: number;
+  sommePenalite: number;
   sumNoteFinale: number;
   id: number;
-  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   bsModalRef: BsModalRef;
   students: Student[] = [];
 
@@ -46,6 +46,10 @@ export class GridDetailComponent implements OnInit {
         this.id = +params.id;
       }
     }); }
+
+    calculatePenalite() {
+      this.sommePenalite = +this.evaluation.p1 + +this.evaluation.p2;
+    }
 
   ngOnInit() {
     this.service.getEvaluationById(this.id).subscribe(response => {
