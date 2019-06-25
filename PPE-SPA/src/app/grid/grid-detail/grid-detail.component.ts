@@ -42,7 +42,7 @@ export class GridDetailComponent implements OnInit {
     private modalService: BsModalService,
     private etudiantService: StudentService,
     private alertify: AlertifyService,
-    private exportAsService: ExportAsConfig
+    private exportAsService: ExportAsService
 
 
   ) {  route.params.forEach((params: Params) => {
