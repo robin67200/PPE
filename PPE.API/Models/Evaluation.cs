@@ -20,10 +20,10 @@ namespace PPE.API.Models
         public float C7 {get; set;}
         public float C8 {get; set;}
         public float C9 {get; set;}
-
         public float NotePhase2 {get; set;}
-        public float P2 {get; set;}
         public float P1 {get; set;}
+        public float P2 {get; set;}
+        public float penaliteSomme {get; set;}
         public float Resultat {get; set;}
         public ICollection<PhaseEvaluation> Phases {get;set;}
         public ICollection<Note> Notes{get;set;}

@@ -12,6 +12,7 @@ import { GridService } from './service/grid.service';
 import { StudentsModule } from '../student/student.module';
 import { GridModalComponent } from './grid-modal/grid-modal.component';
 import { JurysModule } from '../jury/jury.module';
+import { ExportAsModule } from 'ngx-export-as';
 
 @NgModule({
   imports: [AppShareModule,
@@ -22,7 +23,8 @@ import { JurysModule } from '../jury/jury.module';
             StudentsModule,
             JurysModule,
             ModalModule.forRoot(),
-            BsDatepickerModule.forRoot()
+            BsDatepickerModule.forRoot(),
+            ExportAsModule
             ],
   declarations: [
     GridCreateComponent,

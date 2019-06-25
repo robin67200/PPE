@@ -264,6 +264,10 @@ namespace PPE.API.Migrations
                         .HasColumnName("Resultat")
                         .HasColumnType("REAL");
 
+                    b.Property<float>("penaliteSomme")
+                        .HasColumnName("penaliteSomme")
+                        .HasColumnType("REAL");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EtudiantId");

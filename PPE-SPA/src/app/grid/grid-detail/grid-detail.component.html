@@ -8,6 +8,11 @@
         <h3 style="text-align: center">Detail de la grille d'aide d'évaluation</h3>
     </header>
     <br />
+    <div class="widget-controls" style="text-align: right">
+        <button [routerLink]="['/grids/edit/', evaluation.id]" class="btn btn-outline-info">Modifier</button>
+        <button class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
+    </div>
+    <br />
     <div class="widget-body">
       <form>
           <table id="form1" class="table table-bordered table-active">
@@ -47,37 +52,101 @@
               <td width="60%">
                 Interprétation de l'expression des besoins :
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c1 == 0.5">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c1 == 1">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c1 == 1.5">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c1 == 2">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
             <tr>
               <td width="60%">
                 Adéquation des spécifications techniques proposées :
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox5"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox6"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox7"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox1" id="checkbox8"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c2 == 0.5">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c2 == 1">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c2 == 1.5">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c2 == 2">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
             <tr>
               <td width="60%">
                 Qualité de la démarche de réalisation envisagée :
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c3 == 0.5">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c3 == 1">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c3 == 1.5">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c3 == 2">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
             <tr>
               <td width="60%">
                 Prise en compte des observations du jury :
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c4 == 0.5">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c4 == 1">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c4 == 1.5">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c4 == 2">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
           </table>
           <table class="table table-bordered table-active table-hover">
@@ -98,37 +167,101 @@
               <td width="60%">
                 Conformité de la production au exigences de la demande
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                <div *ngIf="evaluation.c5 == 0.6">
+                  <p>ok</p>
+                </div>
+              </td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c5 == 1.2">
+                      <p>ok</p>
+                    </div>
+              </td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c5 == 1.8">
+                    <p>ok</p>
+                </div>
+              </td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c5 == 2.4">
+                    <p>ok</p>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>
                 Justification de la solution
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c6 == 0.6">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c6 == 1.2">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c6 == 1.8">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c6 == 2.4">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
             <tr>
               <td>
                 Qualité de la réalisation
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c7 == 0.6">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c7 == 1.2">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c7 == 1.8">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c7 == 2.4">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
             <tr>
               <td width="60%">
                 Analyse critique de la solution proposée
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c8 == 0.6">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c8 == 1.2">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c8 == 1.8">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c8 == 2.4">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
           </table>
           <hr />
@@ -139,10 +272,26 @@
               <td width="60%">
                 Qualité de la communication professionnelle
               </td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox1"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox2"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox3"/></td>
-              <td width="10%" style = "text-align: center;"><input type="checkbox" name="checkbox" id="checkbox4"/></td>
+              <td width="10%">
+                  <div *ngIf="evaluation.c9 == 0.6">
+                    <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c9 == 1.2">
+                        <p>ok</p>
+                      </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c9 == 1.8">
+                      <p>ok</p>
+                  </div>
+                </td>
+                <td width="10%">
+                    <div *ngIf="evaluation.c9 == 2.4">
+                      <p>ok</p>
+                  </div>
+                </td>
             </tr>
           </table>
           <table class="table table-bordered table-active table-hover">

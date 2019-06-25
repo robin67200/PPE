@@ -6,6 +6,8 @@ import { GridService } from '../service/grid.service';
 import { GridModalComponent } from '../grid-modal/grid-modal.component';
 import { StudentService } from 'src/app/student/services/student.service';
 import { Student } from 'src/app/student/models/student';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
 
 @Component({
   selector: 'app-grid-detail',
@@ -39,6 +41,8 @@ export class GridDetailComponent implements OnInit {
     private service: GridService,
     private modalService: BsModalService,
     private etudiantService: StudentService,
+    private alertify: AlertifyService,
+    private exportAsService: ExportAsConfig
 
 
   ) {  route.params.forEach((params: Params) => {
@@ -46,10 +50,6 @@ export class GridDetailComponent implements OnInit {
         this.id = +params.id;
       }
     }); }
-
-    calculatePenalite() {
-      this.sommePenalite = +this.evaluation.p1 + +this.evaluation.p2;
-    }
 
   ngOnInit() {
     this.service.getEvaluationById(this.id).subscribe(response => {
@@ -66,6 +66,7 @@ export class GridDetailComponent implements OnInit {
   });*/
 });
   }
+
 
   deleteEvaluation(evaluation: Evaluation) {
     const initialState = {

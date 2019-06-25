@@ -14,7 +14,7 @@
           />
           <div *ngIf="name.invalid && hasError"  class="alert alert-danger">
             <div *ngIf="name.errors">
-              Champs obligatoire
+              Champs obligatoirel
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@
     {{ errorMessage }}
   </div>
   <div>
-    <a style="text-align: center" class="nav-link text-blue" [routerLink]="['/students']"
-      >Retour a la liste</a>
+   <a style="text-align: center" class="nav-link text-blue" [routerLink]="['/students']"
+      > <button class="btn btn-primary">Retour a la liste</button></a>
   </div>
 </div>

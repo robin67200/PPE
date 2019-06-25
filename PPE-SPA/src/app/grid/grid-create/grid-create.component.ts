@@ -29,7 +29,7 @@ export class GridCreateComponent implements OnInit {
   sumB: number;
   pen1: number;
   pen2: number;
-  sommePenalite: number;
+  sumPenalite: number;
   sumNoteFinale: number;
   createEvaluation: FormGroup;
   evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -96,6 +96,9 @@ export class GridCreateComponent implements OnInit {
       p2: new FormControl(this.evaluation.p2, [
 
       ]),
+      sommePenalite: new FormControl(this.evaluation.p2, [
+
+      ]),
       resultat: new FormControl(this.evaluation.resultat, [
 
       ])
@@ -130,11 +133,11 @@ export class GridCreateComponent implements OnInit {
   calculatePenalite(penaliteA: number, penaliteB: number) {
     this.pen1 = penaliteA;
     this.pen2 = penaliteB;
-    this.sommePenalite = +penaliteA + +penaliteB;
+    this.sumPenalite = +penaliteA + +penaliteB;
   }
 
   calculateNoteFinale() {
-    this.sumNoteFinale = +this.sum + +this.sumB - +this.sommePenalite;
+    this.sumNoteFinale = +this.sum + +this.sumB - +this.sumPenalite;
     this.sumNoteFinale = Math.round(this.sumNoteFinale * 100) / 100;
   }
 
@@ -157,6 +160,7 @@ export class GridCreateComponent implements OnInit {
       newEval.notePhase2 = this.sumB;
       newEval.p1 = this.pen1;
       newEval.p2 = this.pen2;
+      newEval.penaliteSomme = this.sumPenalite;
       newEval.resultat = this.sumNoteFinale;
       this.service.postEvaluation(newEval).subscribe(res => {
         this.router.navigate(['/grids']);

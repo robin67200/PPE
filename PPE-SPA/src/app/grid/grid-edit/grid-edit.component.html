@@ -1,4 +1,5 @@
 <div class="container">
+  <br>
   <h2 style="text-align:center"> Epreuve E4 du candidat {{evaluation.etudiantName}}</h2>
   <hr />
   <div class="row">
@@ -48,12 +49,11 @@
           required
         />
       </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" />
+        <div class="form-group" style="text-align: center">
+          <input type="submit" class="btn btn-primary"/>
+          <div style="text-align:center" style="margin-top: 5%">
+              <a [routerLink]="['/grids/list']"><button class="btn btn-primary">Retour aux épreuves</button></a>
+            </div>
         </div>
       </form>
-  <br />
-  <div style="text-align:center">
-    <a [routerLink]="['/grids']">Retour aux épreuves</a>
-  </div>
 </div>
