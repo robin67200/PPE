@@ -17,3 +17,7 @@ a:hover {
   background-color:#ECFBFD;
   cursor: pointer;
 }
+#list:hover
+{
+  background-color: rgb(241, 241, 241);
+}

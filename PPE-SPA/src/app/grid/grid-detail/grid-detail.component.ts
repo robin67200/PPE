@@ -1,11 +1,13 @@
+import { Evaluation } from './../models/evalutation';
 import { Component, OnInit } from '@angular/core';
-import { Evaluation } from '../models/evalutation';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GridService } from '../service/grid.service';
 import { GridModalComponent } from '../grid-modal/grid-modal.component';
 import { StudentService } from 'src/app/student/services/student.service';
 import { Student } from 'src/app/student/models/student';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { ExportAsService, ExportAsConfig, SupportedExtensions } from 'ngx-export-as';
 
 @Component({
   selector: 'app-grid-detail',
@@ -14,19 +16,44 @@ import { Student } from 'src/app/student/models/student';
 })
 export class GridDetailComponent implements OnInit {
 
+  cr1: number;
+  cr2: number;
+  cr3: number;
+  cr4: number;
   sum: number;
+  cr5: number;
+  cr6: number;
+  cr7: number;
+  cr8: number;
+  cr9: number;
   sumB: number;
+  p1: number;
+  p2: number;
+  sommePenalite: number;
   sumNoteFinale: number;
   id: number;
-  evaluation = new Evaluation(new Date(), 0, 0, this.sum , this.sumB , this.sumNoteFinale);
+  evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   bsModalRef: BsModalRef;
   students: Student[] = [];
+
+  config: ExportAsConfig = {
+    type: 'pdf',
+    elementId: 'pdfgrille',
+    options: {
+        orientation: 'portrait',
+        margins: {
+          bottom: '50'
+        }
+      }
+    };
 
     constructor(
     route: ActivatedRoute,
     private service: GridService,
     private modalService: BsModalService,
     private etudiantService: StudentService,
+    private alertify: AlertifyService,
+    private exportAsService: ExportAsService
 
 
   ) {  route.params.forEach((params: Params) => {
@@ -38,18 +65,13 @@ export class GridDetailComponent implements OnInit {
   ngOnInit() {
     this.service.getEvaluationById(this.id).subscribe(response => {
       this.evaluation = response;
-/*
-      this.etudiantService.getStudents().subscribe(resp => {
-        this.students = resp;
-        this.evaluation.forEach(e => {
-          const student = this.students.find(s => s.id === e.etudiantId);
-          e.etudiantName = student.name;
-          alert('HHHHHHHHHHHHHHHHHEEEEEEEEEEEEEEEEEEe')
-        });
-    });
-  });*/
-});
+  });
+}
+
+   export() {
+    this.exportAsService.save(this.config, 'Grille E4');
   }
+
 
   deleteEvaluation(evaluation: Evaluation) {
     const initialState = {

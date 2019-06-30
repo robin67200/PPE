@@ -15,13 +15,21 @@ namespace PPE.API.DataAccess
             builder.Property(x => x.Date).HasColumnName("Date").HasColumnType("INTEGER").IsRequired();
             builder.Property(x => x.EtudiantId).HasColumnName("EtudiantId").HasColumnType("INTEGER").IsRequired();
             builder.Property(x => x.JuryId).HasColumnName("JuryId").HasColumnType("INTEGER").IsRequired();
+            builder.Property(x => x.C1).HasColumnName("C1").HasColumnType("REAL");
+            builder.Property(x => x.C2).HasColumnName("C2").HasColumnType("REAL");
+            builder.Property(x => x.C3).HasColumnName("C3").HasColumnType("REAL");
+            builder.Property(x => x.C4).HasColumnName("C4").HasColumnType("REAL");
             builder.Property(x => x.NotePhase1).HasColumnName("NotePhase1").HasColumnType("REAL");
+            builder.Property(x => x.C5).HasColumnName("C5").HasColumnType("REAL");
+            builder.Property(x => x.C6).HasColumnName("C6").HasColumnType("REAL");
+            builder.Property(x => x.C7).HasColumnName("C7").HasColumnType("REAL");
+            builder.Property(x => x.C8).HasColumnName("C8").HasColumnType("REAL");
+            builder.Property(x => x.C9).HasColumnName("C9").HasColumnType("REAL");            
             builder.Property(x => x.NotePhase2).HasColumnName("NotePhase2").HasColumnType("REAL");
+            builder.Property(x => x.P1).HasColumnName("P1").HasColumnType("REAL");
+            builder.Property(x => x.P2).HasColumnName("P2").HasColumnType("REAL");
+            builder.Property(x => x.penaliteSomme).HasColumnName("penaliteSomme").HasColumnType("REAL");
             builder.Property(x => x.Resultat).HasColumnName("Resultat").HasColumnType("REAL");
-
-            builder.HasMany(x => x.Notes).WithOne().HasForeignKey(u => u.EvaluationId);
-
-
 
 
 

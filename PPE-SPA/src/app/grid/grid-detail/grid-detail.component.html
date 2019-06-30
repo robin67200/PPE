@@ -1,61 +1,223 @@
+<body id="pdfgrille">
 <div class="container">
-<section class="widget">
-  <header>
+    <header>
+    <br>
+        <h2 style="text-align: center">BTS SIO</h2>
+        <hr />
+        <h2 style="text-align: center">E4 : Conception et maintenance de solutions informatiques</h2>
+        <hr />
+        <h3 style="text-align: center">Detail de la grille d'aide d'évaluation</h3>
+    </header>
     <br />
-    <h2 style="text-align: center">Evaluation numéro {{evaluation.id}}</h2>
-    <hr/>
-  </header>
-  <br />
-  <div class="widget-controls" style="text-align: right">
-      <button [routerLink]="['/grids/edit/', evaluation.id]" class="btn btn-outline-info">Modifier</button>
-      <button class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
+    <div class="widget-controls" style="text-align: right">
+        <button *appHasRole="['Admin','Moderator']" class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
+    </div>
+    <br />
+    <div class="widget-body">
+      <form>
+          <table id="form1" class="table table-bordered table-active">
+            <tr>
+              <td width="33%">
+                  <label class="control-label">Etudiant :</label>
+                  {{evaluation.etudiantId}}
+              </td>
+              <td width="33%">
+                <label for="juryId" class="control-label">Jury :</label>
+                {{ evaluation.juryId }}
+              </td>
+              <td width="33%">
+                <div class="form-group">
+                  <label class="control-label">Date :</label>
+                  {{ evaluation.date }}
+                </div>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-bordered">
+              <tr>
+                <td width="60%"></td>
+                <td width="10%" id="crit">Très Insuffisant</td>
+                <td width="10%" id="crit">Insuffisant</td>
+                <td width="10%" id="crit">Bien</td>
+                <td width="10%" id="crit">Très bien</td>
+              </tr>
+            <tr>
+              </tr>
+          </table>
+          <hr />
+          <table class="table table-borderless">
+            <tr>
+                <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
+                <td width="10%" style="text-align: center">0,5</td>
+                <td width="10%" style="text-align: center">1</td>
+                <td width="10%" style="text-align: center">1,5</td>
+                <td width="10%" style="text-align: center">2</td>
+            </tr>
+            </table>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td width="60%">
+                Interprétation de l'expression des besoins :
+              </td>
+                <td width="10%" *ngIf="evaluation.c1 == 0.5; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="evaluation.c1 == 1;   else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="evaluation.c1 == 1.5; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="evaluation.c1 == 2;   else tdelse" class="carre" ></td>
+              <ng-template #tdelse><td></td></ng-template>
+            </tr>
+            <tr>
+              <td width="60%">
+                Adéquation des spécifications techniques proposées :
+              </td>
+              <td width="10%" *ngIf="evaluation.c2 == 0.5; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c2 == 1;   else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c2 == 1.5; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c2 == 2;   else tdelse" class="carre" ></td>
+            </tr>
+            <tr>
+              <td width="60%">
+                Qualité de la démarche de réalisation envisagée :
+              </td>
+              <td width="10%" *ngIf="evaluation.c3 == 0.5; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c3 == 1;   else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c3 == 1.5; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c3 == 2;   else tdelse" class="carre" ></td>
+            </tr>
+            <tr>
+              <td width="60%">
+                Prise en compte des observations du jury :
+              </td>
+              <td width="10%" *ngIf="evaluation.c4 == 0.5; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c4 == 1;   else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c4 == 1.5; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c4 == 2;   else tdelse" class="carre" ></td>
+            </tr>
+          </table>
+          <table class="table table-bordered table-active table-hover">
+            <tr>
+              <td width="60%">
+
+              </td>
+              <th>
+                <h5 style="text-align: center">Note phase 1 : {{evaluation.notePhase1}}/8</h5>
+              </th>
+            </tr>
+          </table>
+          <hr />
+          <h3 style="text-align: left">Deuxième phase : Entretien d'explications </h3>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td width="60%">
+                Conformité de la production au exigences de la demande
+              </td>
+              <td width="10%" *ngIf="evaluation.c5 == 0.6; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c5 == 1.2; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c5 == 1.8; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c5 == 2.4; else tdelse" class="carre" ></td>
+            </tr>
+            <tr>
+              <td>
+                Justification de la solution
+              </td>
+              <td width="10%" *ngIf="evaluation.c6 == 0.6; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c6 == 1.2; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c6 == 1.8; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c6 == 2.4; else tdelse" class="carre" ></td>
+            </tr>
+            <tr>
+              <td>
+                Qualité de la réalisation
+              </td>
+              <td width="10%" *ngIf="evaluation.c7 == 0.6; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c7 == 1.2; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c7 == 1.8; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c7 == 2.4; else tdelse" class="carre" ></td>
+            </tr>
+            <tr>
+              <td width="60%">
+                Analyse critique de la solution proposée
+              </td>
+              <td width="10%" *ngIf="evaluation.c8 == 0.6; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c8 == 1.2; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c8 == 1.8; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c8 == 2.4; else tdelse" class="carre" ></td>
+            </tr>
+          </table>
+          <hr />
+          <h5 style="text-align: center">Critère global</h5>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td width="60%">
+                Qualité de la communication professionnelle
+              </td>
+              <td width="10%" *ngIf="evaluation.c9 == 0.6; else tdelse" class="carre"></td>
+              <td width="10%" *ngIf="evaluation.c9 == 1.2; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c9 == 1.8; else tdelse" class="carre" ></td>
+              <td width="10%" *ngIf="evaluation.c9 == 2.4; else tdelse" class="carre" ></td>
+            </tr>
+          </table>
+          <table class="table table-bordered table-active table-hover">
+              <tr>
+                <td width="60%">
+
+                </td>
+                <th>
+                  <h5 style="text-align: center">Note phase 2 : {{evaluation.notePhase2}}/12</h5>
+                </th>
+              </tr>
+            </table>
+          <hr />
+          <h5 style="text-align: center">Pénalités</h5>
+          <hr />
+          <table class="table table-bordered">
+            <tr>
+              <td>
+                Non-respect au cahier des charges national
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.p1 }}
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Absence d'une solution professionnelle
+              </td>
+              <td style="text-align: center">
+                  {{ evaluation.p2 }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+              <td width="50%">
+                <h5 style="text-align: center"> {{evaluation.penaliteSomme}} point(s) en moins</h5>
+              </td>
+            </tr>
+          </table>
+            <table class="table table-borderless table-active table-hover">
+            <tr>
+              <td></td>
+              <td width="50%"><h5 style="text-align: center">Note finale : {{evaluation.resultat}} /20</h5></td>
+            </tr>
+          </table>
+          <hr />
+          <table class="table table-hover">
+            <tr>
+              <td>
+                  Nom et signature des membres de la commission d’interrogation :
+              </td>
+            </tr>
+          </table>
+          <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
+            Retour
+          </button>
+      </form>
+    </div>
   </div>
-  <br>
-  <table class="table table-hover table-bordered table-striped">
-      <tbody>
-        <tr>
-          <th style="width: 50%" scope="row">Date :</th>
-          <td style="text-align: center">
-            {{ evaluation.date }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Etudiant :</th>
-          <td style="text-align: center">
-            {{ evaluation.etudiantId }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Numéro Jury : </th>
-          <td style="text-align: center">
-            {{ evaluation.juryId }}
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note phase 1 :</th>
-          <td style="text-align: center">
-            {{ evaluation.notePhase1 }}/8
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note phase 2</th>
-          <td style="text-align: center">
-            {{ evaluation.notePhase2 }}/12
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Note final :</th>
-          <td style="text-align: center">
-            {{ evaluation.resultat }}/20
-          </td>
-        </tr>
-      </tbody>
-  </table>
-  <br />
-    <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
-      Retour
-    </button>
-</section>
-</div>
-
-
+  <button class="btn btn-dark" (click)="export('pdf')">export as pdf</button>
+</body>

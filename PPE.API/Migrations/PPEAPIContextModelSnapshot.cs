@@ -196,6 +196,42 @@ namespace PPE.API.Migrations
                         .HasColumnName("ID")
                         .HasColumnType("INTEGER");
 
+                    b.Property<float>("C1")
+                        .HasColumnName("C1")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C2")
+                        .HasColumnName("C2")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C3")
+                        .HasColumnName("C3")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C4")
+                        .HasColumnName("C4")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C5")
+                        .HasColumnName("C5")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C6")
+                        .HasColumnName("C6")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C7")
+                        .HasColumnName("C7")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C8")
+                        .HasColumnName("C8")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C9")
+                        .HasColumnName("C9")
+                        .HasColumnType("REAL");
+
                     b.Property<DateTime>("Date")
                         .HasColumnName("Date")
                         .HasColumnType("INTEGER");
@@ -216,8 +252,20 @@ namespace PPE.API.Migrations
                         .HasColumnName("NotePhase2")
                         .HasColumnType("REAL");
 
+                    b.Property<float>("P1")
+                        .HasColumnName("P1")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("P2")
+                        .HasColumnName("P2")
+                        .HasColumnType("REAL");
+
                     b.Property<float>("Resultat")
                         .HasColumnName("Resultat")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("penaliteSomme")
+                        .HasColumnName("penaliteSomme")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");

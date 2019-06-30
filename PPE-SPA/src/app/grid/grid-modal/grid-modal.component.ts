@@ -28,6 +28,7 @@ export class GridModalComponent implements OnInit {
   deleteEvaluation(id: number) {
     this.service.deleteEvaluationById(id).subscribe(res => {
       this.router.navigate(['/grids/list']);
+      this.alertify.error('Supression réussie');
     });
   }
 

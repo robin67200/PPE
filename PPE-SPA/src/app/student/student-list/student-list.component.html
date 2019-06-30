@@ -4,7 +4,7 @@
   <hr />
   <br />
   <br />
-  <a [routerLink]="['/students/create']"><button class="btn btn-outline-primary" style="margin-left: 87%">Nouvel etudiant</button></a>
+  <a *appHasRole="['Admin','Moderator']" [routerLink]="['/students/create']" style ="margin-left:87%"><button class="btn btn-outline-primary">Nouvel etudiant</button></a>
 
   <table class="table table-bordered table-hover table-striped">
     <thead>
@@ -28,11 +28,11 @@
           Style Evaluation
         </th>
         <th>
-        
+
         </th>
       </tr>
     </thead>
-      <tr *ngFor="let student of students">
+      <tr id="list" *ngFor="let student of students">
         <td>
           {{ student.name }}
         </td>
@@ -61,7 +61,7 @@
                   <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/students/detail/',student.id]">
                     Details
                   </a>
-                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/students/edit/',student.id]">
+                  <a *appHasRole="['Admin','Moderator']"  class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/students/edit/',student.id]">
                     Modifier
                   </a>
               </div>

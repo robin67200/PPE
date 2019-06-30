@@ -28,7 +28,6 @@ export class StudentModalsComponent implements OnInit {
   deleteStudent(id: number) {
     this.service.deleteStudentById(id).subscribe(res => {
       this.router.navigate(['/students/list']);
-      window.location.reload();
     });
   }
 

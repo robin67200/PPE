@@ -26,14 +26,10 @@
                   <input
                     formControlName="date"
                     class="form-control"
-                    type="date"
+                    type="text"
                     required
+                    bsDatepicker [bsConfig]="bsConfig"
                     />
-                    <div *ngIf="date.invalid && hasError"  class="alert alert-danger">
-                      <div *ngIf="date.errors">
-                        Champs obligatoire
-                      </div>
-                    </div>
               </div>
             </td>
           </tr>
@@ -101,13 +97,16 @@
             </td>
             <td>
               <input
-                style="text-align: center"
+                id="formput"
                 value="{{sum}}"
                 formControlName="notePhase1"
                 class="form-control"
                 type="number"
-
+                disabled
               />
+            </td>
+            <td>
+              <h4>/8</h4>
             </td>
           </tr>
         </table>
@@ -116,7 +115,7 @@
         <hr />
         <table class="table table-bordered">
           <tr>
-            <td>
+            <td width="52%">
               Conformité de la production au exigences de la demande
             </td>
             <td style="text-align: center">
@@ -173,7 +172,7 @@
         <hr />
         <table class="table table-bordered">
           <tr>
-            <td width="71.5%">
+            <td width="52%">
               Qualité de la communication professionnelle
             </td>
             <td>
@@ -191,14 +190,19 @@
               (click) = 'calculatePhase2(premierB.value, secondB.value, troisiemeB.value, quatriemeB.value, cinquiemeB.value)'>
                 Valider Phase2</button>
             </td>
-            <td width="50%">
+            <td>
               <input
+              id="formput"
                 style="text-align: center"
                 formControlName="notePhase2"
                 class="form-control"
                 type="number"
                 value="{{sumB}}"
+                disabled
           />
+            </td>
+            <td>
+              <h4>/12</h4>
             </td>
           </tr>
         </table>
@@ -234,7 +238,7 @@
               (click) = 'calculatePenalite(penaliteA.value, penaliteB.value)'>
                 Valider Pénalités</button>
             </td>
-            <td width="50%">
+            <td width="48%">
               <h5 style="text-align: center">{{sumPenalite}} point(s) en moins</h5>
             </td>
           </tr>
@@ -242,19 +246,23 @@
         <hr />
         <table class="table table-bordered">
         <tr>
-          <td>
+          <td width="52%">
             <button class="btn btn-success" type="submit"
               (click) = 'calculateNoteFinale()'>
                 Note Finale</button>
           </td>
-          <td width="50%">
+          <td>
             <input
+              id="formput"
               style="text-align: center"
               formControlName="resultat"
               class="form-control"
               type="number"
               value="{{sumNoteFinale}}"
+              disabled
           />
+          <td>
+              <h3 id="h3">/20</h3>
           </td>
         </tr>
       </table>

@@ -1,13 +1,12 @@
 <div class="container">
-
-  <header>
+<header>
   <br />
       <h2 style="text-align: center">Epreuve E4</h2>
       <hr />
       <br />
       <br />
     <div class="widget-controls" style="text-align: right">
-      <button [routerLink]="['/grids/create']" class="btn btn-outline-primary">Nouvelle epreuve E4</button>
+      <button *appHasRole="['Admin','Moderator']"  [routerLink]="['/grids/create']" class="btn btn-outline-primary">Nouvelle epreuve E4</button>
     </div>
   </header>
   <div class="widget-body">
@@ -62,9 +61,6 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/grids/detail/',evaluation.id]">
                     Details
-                  </a>
-                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/grids/edit/',evaluation.id]">
-                    Modifier
                   </a>
               </div>
             </div>

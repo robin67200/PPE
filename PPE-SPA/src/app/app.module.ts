@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TabsModule} from 'ngx-tabset';
 
@@ -25,6 +25,13 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
 import { AppShareModule } from './share.module';
+
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fas } from '@fortawesome/free-solid-svg-icons';
+// library.add(fas);
+
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -50,11 +57,13 @@ const appRoutes: Routes = [
         path: 'grids',
         loadChildren: './grid/grid.module#GridsModule',
         canActivate: [AuthGuard],
+        data : {animation: 'gridPage'}
         },
         {
           path: 'e6s',
           loadChildren: './E6/E6.module#E6sModule',
           canActivate: [AuthGuard],
+          data : {animation: 'e6Page'}
         },
        {
          path: 'members',
@@ -73,7 +82,8 @@ const appRoutes: Routes = [
    {path: 'registers', component: RegisterComponent, data: {animation: 'IsRegister'} },
    {path: 'user-management', component: UserManagementComponent, data: {animation : 'IsUserMana'} },
    {path: 'success', component: SuccessComponent },
-   {path: '**', redirectTo: 'home', pathMatch: 'full'},
+   {path: '', redirectTo: 'home', pathMatch: 'full'},
+   {path: '**', redirectTo: 'students', pathMatch: 'full'},
 
 
  ];
@@ -91,8 +101,9 @@ const appRoutes: Routes = [
    ],
    imports: [
       BrowserModule,
+      // FontAwesomeModule,
       HttpClientModule,
-     // BrowserAnimationsModule,
+      BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes),
       ReactiveFormsModule,
       FormsModule,
@@ -103,8 +114,8 @@ const appRoutes: Routes = [
       TabsModule.forRoot(),
       ModalModule.forRoot(),
       BrowserModule,
-      AppShareModule
-      // BrowserAnimationsModule
+      AppShareModule,
+      BrowserAnimationsModule
    ],
    providers: [
       JuryService,
@@ -119,6 +130,11 @@ const appRoutes: Routes = [
    ],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   exports: [
+   ],
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+  // Add an icon to the library for convenient access in other components
+}}

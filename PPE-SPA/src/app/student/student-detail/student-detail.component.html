@@ -2,13 +2,13 @@
 <section class="widget">
   <header>
     <br />
-    <h2 style="text-align: center">Etudiant numéro {{student.id}}</h2>
+    <h2 style="text-align: center">Etudiant {{student.firstName}} {{student.name}}</h2>
     <hr/>
   </header>
   <br />
   <div class="widget-controls" style="text-align: right">
-      <button [routerLink]="['/students/edit/', student.id]" class="btn btn-outline-info">Modifier</button>
-      <button class="btn btn-outline-danger"(click)="deleteStudent(student)">Supprimer</button>
+      <button *appHasRole="['Admin','Moderator']" [routerLink]="['/students/edit/', student.id]" class="btn btn-outline-info">Modifier</button>
+      <button *appHasRole="['Admin','Moderator']" class="btn btn-outline-danger"(click)="deleteStudent(student)">Supprimer</button>
   </div>
   <br />
   <table class="table table-hover table-bordered table-striped ">

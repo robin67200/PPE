@@ -1,0 +1,13 @@
+#crit
+{
+  transform: rotate(90deg);
+  height: 100px;
+}
+
+.carre {
+	background:rgb(83, 78, 78);
+}
+
+.carre:hover{
+  background:rgb(95, 89, 89)
+}
