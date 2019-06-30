@@ -25,8 +25,8 @@ namespace PPE.API.DataAccess
             builder.Property(x => x.C6).HasColumnName("C6").HasColumnType("REAL");
             builder.Property(x => x.C7).HasColumnName("C7").HasColumnType("REAL");
             builder.Property(x => x.NotePhase2).HasColumnName("NotePhase2").HasColumnType("REAL");
-            builder.Property(x => x.P1).HasColumnName("NotePhase1").HasColumnType("REAL");
-            builder.Property(x => x.P2).HasColumnName("NotePhase1").HasColumnType("REAL");
+            builder.Property(x => x.P1).HasColumnName("P1").HasColumnType("REAL");
+            builder.Property(x => x.P2).HasColumnName("P2").HasColumnType("REAL");
             builder.Property(x => x.Resultat).HasColumnName("Resultat").HasColumnType("REAL");
 
         

@@ -12,7 +12,7 @@ import { GridService } from './service/grid.service';
 import { StudentsModule } from '../student/student.module';
 import { GridModalComponent } from './grid-modal/grid-modal.component';
 import { JurysModule } from '../jury/jury.module';
-import { NoteSelectComponent } from './components/note-select/note-select.component';
+
 
 
 
@@ -34,10 +34,9 @@ import { NoteSelectComponent } from './components/note-select/note-select.compon
     GridEditComponent,
     GridListComponent,
     GridModalComponent,
-    NoteSelectComponent
   ],
   providers: [GridService],
   entryComponents: [GridModalComponent],
-  exports: [NoteSelectComponent],
+  exports: [],
 })
 export class GridsModule {}

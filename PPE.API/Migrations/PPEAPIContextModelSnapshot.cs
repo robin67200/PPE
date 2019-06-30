@@ -171,11 +171,11 @@ namespace PPE.API.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<float>("P1")
-                        .HasColumnName("NotePhase1")
+                        .HasColumnName("P1")
                         .HasColumnType("REAL");
 
                     b.Property<float>("P2")
-                        .HasColumnName("NotePhase1")
+                        .HasColumnName("P2")
                         .HasColumnType("REAL");
 
                     b.Property<float>("Resultat")

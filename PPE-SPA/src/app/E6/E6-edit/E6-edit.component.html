@@ -1,3 +1,241 @@
-<p>
-  E6-edit works!
-</p>
+<div class="container">
+  <header>
+  <br>
+      <h2 style="text-align: center">BTS SIO</h2>
+      <hr />
+      <h2 style="text-align: center">E6 : Parcours de professionalisation</h2>
+      <hr />
+      <h3 style="text-align: center">Grille d'aide à l'évaluation</h3>
+  </header>
+  <br />
+  <div class="widget-body">
+    <form [formGroup]="editE6" #formDir="ngForm" >
+        <table id="form1" class="table table-bordered">
+          <tr>
+            <td>
+              <label for="etudiantId" class="control-label">Candidat :</label>
+              <app-students-select [form]="editE6"></app-students-select>
+            </td>
+            <td>
+              <label for="juryId" class="control-label">Jury :</label>
+              <app-jury-select [form]="editE6" ></app-jury-select>
+            </td>
+            <td>
+              <div class="form-group">
+                <label class="control-label">Date :</label>
+                  <input
+                    formControlName="date"
+                    class="form-control"
+                    type="datetime"
+                    required
+                    />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Premiere phase : Entretient centré sur le parcours de professionnalisation</h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Qualité de la présentation:
+            </td>
+            <td style="text-align: center" style="width: 30%">
+              <select type="number" class="form-control" size="1" #premier>
+                <option value="0.625">Très Insufisant</option>
+                <option value="1.25">Insufisant</option>
+                <option value="1.875">Bien</option>
+                <option value="2.5" >Très bien</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Pertinence de l'analyse critique du parcours de professionalisation:
+            </td>
+            <td style="text-align: center">
+              <select type="number" class="form-control" size="1" #second>
+                <option value="0.625">Très Insufisant</option>
+                <option value="1.25">Insufisant</option>
+                <option value="1.875">Bien</option>
+                <option value="2.5">Très bien</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Variété des situations professionelles rencontrées :
+            </td>
+            <td style="text-align: center">
+              <select type="number" class="form-control" size="1" #troisieme>
+                <option value="0.625">Très Insufisant</option>
+                <option value="1.25">Insufisant</option>
+                <option value="1.875">Bien</option>
+                <option value="2.5">Très bien</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Degré de maitrise des compétences évaluées relevant de la participation à un projet,
+              de l'acompagnement de la mise en place d'un nouveau service et de l'exploitation d'un service
+            </td>
+            <td style="text-align: center">
+                <select type="number" class="form-control" size="1" #quatrieme>
+                  <option value="0.625">Très Insufisant</option>
+                  <option value="1.25">Insufisant</option>
+                  <option value="1.875">Bien</option>
+                  <option value="2.5">Très bien</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <button class="btn btn-outline-success" type="submit"
+                  (click) = 'calculatePhase1(premier.value, second.value , troisieme.value, quatrieme.value)'>Valider Phase1</button>
+                </td>
+                <td>
+                  <input
+                    style="text-align: center"
+                    value="{{sum}}"
+                    formControlName="notePhase1"
+                    class="form-control"
+                    type="number"
+
+                  />
+                </td>
+              </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Deuxième phase : Entretien sur les compétences relevant du processus de gestion
+          du patrimoine informatique </h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Pertinence d'usage de la gestion des configuartions
+            </td>
+            <td style="width: 30%">
+                <select type="number" class="form-control" size="1" #premierB>
+                    <option value="0.8325">Très Insufisant</option>
+                    <option value="1.665">Insufisant</option>
+                    <option value="2.4975">Bien</option>
+                    <option value="3.33">Très bien</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Efficacité de l'organisation de la veille technologique au service de la construction des compétences
+            </td>
+            <td style="text-align: center">
+                <select type="number" class="form-control" size="1" #secondB>
+                    <option value="0.8325">Très Insufisant</option>
+                    <option value="1.665">Insufisant</option>
+                    <option value="2.4975">Bien</option>
+                    <option value="3.33">Très bien</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                Degré de maitrise des compétences évaluées relevant
+                du processus de gestion du patrimoine informatique
+            </td>
+            <td style="text-align: center" >
+                <select type="number" class="form-control" size="1" #troisiemeB>
+                    <option value="0.8325">Très Insufisant</option>
+                    <option value="1.665">Insufisant</option>
+                    <option value="2.4975">Bien</option>
+                    <option value="3.33">Très bien</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <button class="btn btn-outline-success" type="submit"
+                (click) = 'calculatePhase2(premierB.value, secondB.value, troisiemeB.value)'>
+                  Valider Phase2</button>
+              </td>
+              <td width="50%">
+                <input
+                  style="text-align: center"
+                  formControlName="notePhase2"
+                  class="form-control"
+                  type="number"
+                  value="{{sumB}}"
+            />
+              </td>
+            </tr>
+        </table>
+        <hr />
+        <h5 style="text-align: center">Pénalités</h5>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              Absence de situation(s) professionelle(s) exigée(s) par le référentiel
+            </td>
+            <td style="text-align: center">
+                <select type="number" class="form-control" size="1" #penaliteA>
+                    <option value="0">0</option>
+                    <option value="5">1</option>
+                    <option value="10">2</option>
+                    <option value="15">3</option>
+                    <option value="20">4</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Portefeuille de compétence inaccessible
+            </td>
+            <td style="text-align: center">
+                <select type="number" class="form-control" size="1" #penaliteB>
+                    <option value="0">Non</option>
+                    <option value="10">Oui</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-outline-success" type="submit"
+              (click) = 'calculatePenalite(penaliteA.value, penaliteB.value)'>
+                Valider Pénalités</button>
+            </td>
+            <td width="50%">
+              <h5 style="text-align: center">{{sumPenalite}} point(s) en moins</h5>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <table class="table table-bordered">
+        <tr>
+          <td>
+            <button class="btn btn-success" type="submit"
+              (click) = 'calculateNoteFinale()'>
+                Note Finale</button>
+          </td>
+          <td width="50%">
+            <input
+              style="text-align: center"
+              formControlName="resultat"
+              class="form-control"
+              type="number"
+              value="{{sumNoteFinale}}"
+          />
+          </td>
+        </tr>
+      </table>
+        <hr />
+        <div class="form-group" style="text-align:right">
+          <input type="submit" class="btn btn-primary"  />
+        </div>
+    </form>
+  </div>
+  <div *ngIf="hasError" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
+

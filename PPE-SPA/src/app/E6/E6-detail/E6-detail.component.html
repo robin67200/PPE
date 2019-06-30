@@ -1,3 +1,144 @@
-<p>
-  E6-detail works!
-</p>
+<div class="container">
+  <header>
+  <br>
+      <h2 style="text-align: center">BTS SIO</h2>
+      <hr />
+      <h2 style="text-align: center">E6 : Parcours de professionalisation</h2>
+      <hr />
+      <h3 style="text-align: center">Grille d'aide à l'évaluation</h3>
+  </header>
+  <br />
+  <div class="widget-body">
+
+        <table id="form1" class="table table-bordered">
+          <tr>
+            <td style="text-align: center">
+              Candidat : {{student.firstName}} {{student.name}}
+            </td>
+            <td style="text-align: center">
+              Jury numéro {{e6.juryId}}
+            </td>
+            <td style="text-align: center">
+              Date : {{e6.date}}
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Premiere phase : Entretient centré sur le parcours de professionnalisation</h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td style="width: 70%" >
+              Qualité de la présentation:
+            </td>
+            <td style="text-align: center">
+              {{e6.c1}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+              Pertinence de l'analyse critique du parcours de professionalisation:
+            </td>
+            <td style="text-align: center">
+              {{e6.c2}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+              Variété des situations professionelles rencontrées :
+            </td>
+            <td  style="text-align: center">
+              {{e6.c3}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+              Degré de maitrise des compétences évaluées relevant de la participation à un projet,
+              de l'acompagnement de la mise en place d'un nouveau service et de l'exploitation d'un service
+            </td>
+            <td style="text-align: center">
+              {{e6.c4}}
+            </td>
+            </tr>
+            <tr>
+                <td style="width: 70%">
+                  Resultat Phase1
+                </td>
+                <td  style="text-align: center">
+                  {{e6.notePhase1}}
+                </td>
+              </tr>
+        </table>
+        <hr />
+        <h3 style="text-align: center">Deuxième phase : Entretien sur les compétences relevant du processus de gestion
+          du patrimoine informatique </h3>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td style="width: 70%">
+              Pertinence d'usage de la gestion des configuartions
+            </td>
+            <td style="text-align: center">
+              {{e6.c5}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+              Efficacité de l'organisation de la veille technologique au service de la construction des compétences
+            </td>
+            <td style="text-align: center">
+              {{e6.c6}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+                Degré de maitrise des compétences évaluées relevant
+                du processus de gestion du patrimoine informatique
+            </td>
+            <td style="text-align: center" >
+              {{e6.c7}}
+            </td>
+          </tr>
+          <tr>
+              <td style="width: 70%">
+                Resultat Phase2
+              </td>
+              <td  style="text-align: center">
+                {{e6.notePhase2}}
+              </td>
+            </tr>
+        </table>
+        <hr />
+        <h5 style="text-align: center">Pénalités</h5>
+        <hr />
+        <table class="table table-bordered">
+          <tr>
+            <td style="width: 70%">
+              Absence de situation(s) professionelle(s) exigée(s) par le référentiel
+            </td>
+            <td  style="text-align: center">
+              {{e6.p1}}
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 70%">
+              Portefeuille de compétence inaccessible
+            </td>
+            <td  style="text-align: center">
+              {{e6.p2}}
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <table class="table table-bordered">
+        <tr>
+          <td>
+           <h4 style="text-align: center">Note Finale</h4>
+          </td>
+          <td width="50%" style="text-align: center">
+            <h4>{{e6.resultat}}</h4>
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>
