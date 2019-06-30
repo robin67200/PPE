@@ -1,5 +1,4 @@
 import { E6CreateComponent } from './E6-create/E6-create.component';
-import { E6EditComponent } from './E6-edit/E6-edit.component';
 import { E6DetailComponent } from './E6-detail/E6-detail.component';
 import { E6ListComponent } from './E6-list/E6-list.component';
 
@@ -16,7 +15,6 @@ redirectTo: 'list',
 },
   {path: 'create', component: E6CreateComponent},
   {path: 'detail/:id', component: E6DetailComponent},
-  {path: 'edit/:id', component: E6EditComponent},
   {path: 'list', component: E6ListComponent},
 
 ];

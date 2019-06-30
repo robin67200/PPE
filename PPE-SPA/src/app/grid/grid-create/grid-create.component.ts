@@ -43,7 +43,6 @@ export class GridCreateComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private service: GridService,
-    private studentService: StudentService,
     private alertify: AlertifyService
   ) {
     this.createEvaluation = fb.group({
@@ -95,7 +94,7 @@ export class GridCreateComponent implements OnInit {
       p2: new FormControl(this.evaluation.p2, [
 
       ]),
-      sommePenalite: new FormControl(this.evaluation.p2, [
+      sommePenalite: new FormControl(this.evaluation.penaliteSomme, [
 
       ]),
       resultat: new FormControl(this.evaluation.resultat, [

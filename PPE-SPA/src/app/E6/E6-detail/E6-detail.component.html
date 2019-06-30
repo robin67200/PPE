@@ -1,226 +1,215 @@
-<div class="container">
-  <header>
-  <br>
-      <h2 style="text-align: center">BTS SIO</h2>
-      <hr />
-      <h2 style="text-align: center">E6 : Parcours de professionalisation</h2>
-      <hr />
-      <h3 style="text-align: center">Grille d'aide à l'évaluation</h3>
-  </header>
-  <br />
-  <div class="widget-body">
-
-        <table id="form1" class="table table-bordered">
-          <tr>
-            <td style="text-align: center">
-              Candidat : {{student.firstName}} {{student.name}}
-            </td>
-            <td style="text-align: center">
-              Jury numéro {{e6.juryId}}
-            </td>
-            <td style="text-align: center">
-              Date : {{e6.date}}
-            </td>
-          </tr>
-        </table>
-        <hr />
-        <h3 style="text-align: center">Premiere phase : Entretient centré sur le parcours de professionnalisation</h3>
-        <hr />
-        <table class="table table-bordered">
-          <tr>
-            <td style="width: 60%; text-align: center">
-
-            </td >
-            <td style="width: 10%; text-align: center">
-              Très insufisant
-            </td>
-            <td style="width: 10%; text-align: center">
-              Insufisant
-            </td>
-            <td style="width: 10%; text-align: center">
-              Bien
-            </td>
-            <td style="width: 10%; text-align: center">
-              Très bien
-            </td>
-          </tr>
-        </table>
-        <table class="table table-bordered">
-          <tr>
-            <td style="width: 60%" >
-              Qualité de la présentation:
-            </td >
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c1" id="c1"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c1" id="c1"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c1" id="c1"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c1" id="c1"/>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 60%">
-              Pertinence de l'analyse critique du parcours de professionalisation:
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c2" id="c2"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c2" id="c2"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c2" id="c2"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c2" id="c2"/>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 60%">
-              Variété des situations professionelles rencontrées :
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c3" id="c3"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c3" id="c3"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c3" id="c3"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c3" id="c3"/>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 60%">
-              Degré de maitrise des compétences évaluées relevant de la participation à un projet,
-              de l'acompagnement de la mise en place d'un nouveau service et de l'exploitation d'un service
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c4" id="c4"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c4" id="c4"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c4" id="c4"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c4" id="c4"/>
-            </td>
-            </tr>
-            <tr>
-                <td style="width: 60%">
-                  Resultat Phase1
+<body id="pdfgrille">
+  <div class="container">
+      <header>
+      <br>
+          <h2 style="text-align: center">BTS SIO</h2>
+          <hr />
+          <h2 style="text-align: center">E6 : Parcours de professionalisation</h2>
+          <hr />
+          <h3 style="text-align: center">Detail de la grille d'aide d'évaluation</h3>
+      </header>
+      <br />
+      <div class="widget-controls" style="text-align: right">
+      </div>
+      <br />
+      <div class="widget-body">
+        <form>
+            <table id="form1" class="table table-bordered table-active">
+              <tr>
+                <td width="33%">
+                    <label class="control-label">Candidat :</label>
+                    {{student.firstName}} {{student.name}}
                 </td>
-                <td  style="text-align: center">
-                  {{e6.notePhase1}}
+                <td width="33%">
+                  <label for="juryId" class="control-label">Jury :</label>
+                  {{ e6.juryId }}
+                </td>
+                <td width="33%">
+                  <div class="form-group">
+                    <label class="control-label">Date :</label>
+                    {{ e6.date }}
+                  </div>
                 </td>
               </tr>
-        </table>
-        <hr />
-        <h3 style="text-align: center">Deuxième phase : Entretien sur les compétences relevant du processus de gestion
-          du patrimoine informatique </h3>
-        <hr />
-        <table class="table table-bordered">
-          <tr>
-            <td style="width: 60%">
-              Pertinence d'usage de la gestion des configuartions
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c5" id="c5"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c5" id="c5"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c5" id="c5"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c5" id="c5"/>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 60%">
-              Efficacité de l'organisation de la veille technologique au service de la construction des compétences
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c6" id="c6"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c6" id="c6"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c6" id="c6"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c6" id="c6"/>
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 60%">
-                Degré de maitrise des compétences évaluées relevant
-                du processus de gestion du patrimoine informatique
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input e6.c7 type="radio" name="c7" id="c7"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c7" id="c7"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c7" id="c7"/>
-            </td>
-            <td style="width: 10%; text-align: center">
-              <input type="radio" name="c7" id="c7"/>
-            </td>
-          </tr>
-          <tr>
-              <td style="width: 60%">
-                Resultat Phase2
-              </td>
-              <td  style="text-align: center">
-                {{e6.notePhase2}}
-              </td>
-            </tr>
-        </table>
-        <hr />
-        <h5 style="text-align: center">Pénalités</h5>
-        <hr />
-        <table class="table table-bordered">
-          <tr>
-            <td style="width: 70%">
-              Absence de situation(s) professionelle(s) exigée(s) par le référentiel
-            </td>
-            <td  style="text-align: center">
-              {{e6.p1}}
-            </td>
-          </tr>
-          <tr>
-            <td style="width: 70%">
-              Portefeuille de compétence inaccessible
-            </td>
-            <td  style="text-align: center">
-              {{e6.p2}}
-            </td>
-          </tr>
-        </table>
-        <hr />
-        <table class="table table-bordered">
-        <tr>
-          <td>
-           <h4 style="text-align: center">Note Finale</h4>
-          </td>
-          <td width="50%" style="text-align: center">
-            <h4>{{e6.resultat}}</h4>
-          </td>
-        </tr>
-      </table>
-  </div>
-</div>
+            </table>
+            <table class="table table-bordered">
+                <tr>
+                  <td width="60%"></td>
+                  <td width="10%" id="crit">Très Insuffisant</td>
+                  <td width="10%" id="crit">Insuffisant</td>
+                  <td width="10%" id="crit">Bien</td>
+                  <td width="10%" id="crit">Très bien</td>
+                </tr>
+              <tr>
+                </tr>
+            </table>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                  <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
+                  <td width="10%" style="text-align: center">0,625</td>
+                  <td width="10%" style="text-align: center">1,25</td>
+                  <td width="10%" style="text-align: center">1,875</td>
+                  <td width="10%" style="text-align: center">2,5</td>
+              </tr>
+              </table>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                <td width="60%">
+                  Qualité de la présentation :
+                </td>
+                  <td width="10%" *ngIf="e6.c1 == 0.625; else tdelse" class="carre"></td>
+                  <td width="10%" *ngIf="e6.c1 == 1.25;  else tdelse" class="carre" ></td>
+                  <td width="10%" *ngIf="e6.c1 == 1.875; else tdelse" class="carre" ></td>
+                  <td width="10%" *ngIf="e6.c1 == 2.5;   else tdelse" class="carre" ></td>
+                <ng-template #tdelse><td></td></ng-template>
+              </tr>
+              <tr>
+                <td width="60%">
+                  Pertinence de l’analyse critique du parcours de professionnalisation :
+                </td>
+                <td width="10%" *ngIf="e6.c2 == 0.625; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c2 == 1.25;  else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c2 == 1.875; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c2 == 2.5;   else tdelse" class="carre" ></td>
+              </tr>
+              <tr>
+                <td width="60%">
+                  Variété des situations professionnelles rencontrées	:
+                </td>
+                <td width="10%" *ngIf="e6.c3 == 0.625; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c3 == 1.25;  else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c3 == 1.875; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c3 == 2.5;   else tdelse" class="carre" ></td>
+              </tr>
+            </table>
+            <hr />
+            <h5 style="text-align: center">Degré de maîtrise des compétences évaluées relevant de la participation à un projet
+              de l’accompagnement de la mise en place d’un nouveau service et de l’exploitation d’un service :</h5>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                <td width="60%">
+                </td>
+                <td width="10%" *ngIf="e6.c4 == 0.625; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c4 == 1.25; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c4 == 1.875; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c4 == 2.5; else tdelse" class="carre" ></td>
+              </tr>
+            </table>
+            <table class="table table-bordered table-active table-hover">
+              <tr>
+                <td width="60%">
+
+                </td>
+                <th>
+                  <h5 style="text-align: center">Note phase 1 : {{e6.notePhase1}}/8</h5>
+                </th>
+              </tr>
+            </table>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                  <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
+                  <td width="10%" style="text-align: center">0,8325</td>
+                  <td width="10%" style="text-align: center">1,665</td>
+                  <td width="10%" style="text-align: center">2,4975</td>
+                  <td width="10%" style="text-align: center">3,33</td>
+              </tr>
+              </table>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                <td width="60%">
+                  Conformité de la production au exigences de la demande
+                </td>
+                <td width="10%" *ngIf="e6.c5 == 0.8325; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c5 == 1.665; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c5 == 2.4975; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c5 == 3.33; else tdelse" class="carre" ></td>
+              </tr>
+              <tr>
+                <td>
+                  Justification de la solution
+                </td>
+                <td width="10%" *ngIf="e6.c6 == 0.8325; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c6 == 1.665; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c6 == 2.4975; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c6 == 3.33; else tdelse" class="carre" ></td>
+              </tr>
+              <tr>
+                <td>
+                  Qualité de la réalisation
+                </td>
+                <td width="10%" *ngIf="e6.c7 == 0.8325; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c7 == 1.665; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c7 == 2.4975; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c7 == 3.33; else tdelse" class="carre" ></td>
+              </tr>
+            </table>
+            <table class="table table-bordered table-active table-hover">
+                <tr>
+                  <td width="60%">
+
+                  </td>
+                  <th>
+                    <h5 style="text-align: center">Note phase 2 : {{e6.notePhase2}}/12</h5>
+                  </th>
+                </tr>
+              </table>
+            <hr />
+            <h5 style="text-align: center">Pénalités</h5>
+            <hr />
+            <table class="table table-bordered">
+              <tr>
+                <td>
+                  Non-respect au cahier des charges national
+                </td>
+                <td style="text-align: center">
+                    {{ e6.p1 }}
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Absence d'une solution professionnelle
+                </td>
+                <td style="text-align: center">
+                    {{ e6.p2 }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+
+                </td>
+                <td width="50%">
+                  <h5 style="text-align: center"> {{e6.sommePenalite}} point(s) en moins</h5>
+                </td>
+              </tr>
+            </table>
+              <table class="table table-borderless table-active table-hover">
+              <tr>
+                <td></td>
+                <td width="50%"><h5 style="text-align: center">Note finale : {{e6.resultat}} /20</h5></td>
+              </tr>
+            </table>
+            <hr />
+            <table class="table table-hover">
+              <tr>
+                <td>
+                    Nom et signature des membres de la commission d’interrogation :
+                </td>
+                <br />
+                <br />
+                <br />
+                <br />
+              </tr>
+            </table>
+            <button class="btn btn-primary btn-rounded-f" [routerLink]="['/e6s/list']">
+              Retour
+            </button>
+        </form>
+      </div>
+    </div>
+  </body>

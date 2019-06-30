@@ -28,6 +28,8 @@ export class E6ModalComponent implements OnInit {
   deleteE6(id: number) {
     this.service.deleteE6ById(id).subscribe(res => {
       this.router.navigate(['/e6s/list']);
+      this.alertify.error('Supression réussie');
+      window.location.reload();
     });
   }
 

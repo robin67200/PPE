@@ -10,7 +10,6 @@
     </header>
     <br />
     <div class="widget-controls" style="text-align: right">
-        <button *appHasRole="['Admin','Moderator']" class="btn btn-outline-danger"(click)="deleteEvaluation(evaluation)">Supprimer</button>
     </div>
     <br />
     <div class="widget-body">
@@ -18,8 +17,8 @@
           <table id="form1" class="table table-bordered table-active">
             <tr>
               <td width="33%">
-                  <label class="control-label">Etudiant :</label>
-                  {{evaluation.etudiantId}}
+                  <label class="control-label">Candidat</label>
+                  {{student.firstName}} {{student.name}}
               </td>
               <td width="33%">
                 <label for="juryId" class="control-label">Jury :</label>
@@ -211,6 +210,10 @@
               <td>
                   Nom et signature des membres de la commission d’interrogation :
               </td>
+              <br />
+              <br />
+              <br />
+              <br />
             </tr>
           </table>
           <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">
@@ -219,5 +222,4 @@
       </form>
     </div>
   </div>
-  <button class="btn btn-dark" (click)="export('pdf')">export as pdf</button>
 </body>

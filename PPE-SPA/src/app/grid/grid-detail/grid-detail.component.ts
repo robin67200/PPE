@@ -34,7 +34,7 @@ export class GridDetailComponent implements OnInit {
   id: number;
   evaluation = new Evaluation(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   bsModalRef: BsModalRef;
-  students: Student[] = [];
+  student: Student = new Student('', '', '', '', '', '');
 
   config: ExportAsConfig = {
     type: 'pdf',
@@ -51,7 +51,7 @@ export class GridDetailComponent implements OnInit {
     route: ActivatedRoute,
     private service: GridService,
     private modalService: BsModalService,
-    private etudiantService: StudentService,
+    private studentService: StudentService,
     private alertify: AlertifyService,
     private exportAsService: ExportAsService
 
@@ -63,9 +63,12 @@ export class GridDetailComponent implements OnInit {
     }); }
 
   ngOnInit() {
-    this.service.getEvaluationById(this.id).subscribe(response => {
-      this.evaluation = response;
+    this.service.getEvaluationById(this.id).subscribe(res => {
+      this.evaluation = res;
+      this.studentService.getStudentById(res.etudiantId).subscribe(student => {
+        this.student = student;
   });
+});
 }
 
    export() {

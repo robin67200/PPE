@@ -63,8 +63,7 @@
                   <a class="dropdown-item text-dark glyphicon glyphicon-zoom-in" role="button" [routerLink]="['/e6s/detail/',e6.id]">
                     Details
                   </a>
-                  <a class="dropdown-item text-dark glyphicon glyphicon-edit" role="button" [routerLink]="['/e6s/edit/',e6.id]">
-                    Modifier
+                  <a *appHasRole="['Admin','Moderator']" class="dropdown-item text-dark glyphicon glyphicon-delete" role="button" (click)="deleteE6(e6)">Supprimer
                   </a>
               </div>
             </div>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { E6Service } from '../services/E6.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { E6 } from '../models/E6';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
 // tslint:disable-next-line: component-selector
@@ -27,9 +28,11 @@ export class E6CreateComponent implements OnInit {
   sumPenalite: number;
   sumNoteFinale: number;
   createE6: FormGroup;
-  e6 = new E6(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  e6 = new E6(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   hasError = false;
   errorMessage: string;
+  @Output()
+  bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(
     private router: Router,
@@ -87,6 +90,9 @@ export class E6CreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-red'
+    };
   }
 
   // tslint:disable-next-line: max-line-length
@@ -121,7 +127,7 @@ export class E6CreateComponent implements OnInit {
 
   Save() {
     if (this.createE6.valid) {
-      const newEval = new E6(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      const newEval = new E6(new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
       newEval.date = this.createE6.value.date;
       newEval.etudiantId = this.createE6.value.etudiantId;
       newEval.juryId = this.createE6.value.juryId;
@@ -136,6 +142,7 @@ export class E6CreateComponent implements OnInit {
       newEval.notePhase2 = this.sumB;
       newEval.p1 = this.pen1;
       newEval.p2 = this.pen2;
+      newEval.sommePenalite = this.sumPenalite;
       newEval.resultat = this.sumNoteFinale;
       this.service.postE6(newEval).subscribe(res => {
         this.router.navigate(['/e6s']);
@@ -146,5 +153,6 @@ export class E6CreateComponent implements OnInit {
       this.errorMessage = 'Formulaire incomplet : Veuillez completer tous les champs';
     }
   }
+
 
 }
