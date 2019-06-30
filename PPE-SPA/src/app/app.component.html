@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-nav></app-nav>
 
-<!-- <div [@routeAnimations]="prepareRoute(outlet)" class="content" >
-</div>
--->
-  <router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)" >
+    <router-outlet (activate)="onActivate($event)" #outlet="outlet"></router-outlet>
+  </div>

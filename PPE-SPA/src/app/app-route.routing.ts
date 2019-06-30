@@ -26,7 +26,8 @@ export const routes: Routes = [
   {path: 'jurys/create', component: JuryCreateComponent},
   {path: 'jurys/detail/:id', component: JuryDetailComponent},
   {path: 'jurys/edit/:id', component: JuryEditComponent},
-,
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 

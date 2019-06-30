@@ -1,5 +1,4 @@
 import { GridDetailComponent } from './grid-detail/grid-detail.component';
-import { GridEditComponent } from './grid-edit/grid-edit.component';
 import { GridListComponent } from './grid-list/grid-list.component';
 import { GridCreateComponent } from './grid-create/grid-create.component';
 
@@ -15,7 +14,6 @@ redirectTo: 'list',
 },
   {path: 'create', component: GridCreateComponent},
   {path: 'detail/:id', component: GridDetailComponent},
-  {path: 'edit/:id', component: GridEditComponent},
   {path: 'list', component: GridListComponent},
 
 ];

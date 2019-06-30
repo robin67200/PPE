@@ -7,7 +7,7 @@ import { GridModalComponent } from '../grid-modal/grid-modal.component';
 import { StudentService } from 'src/app/student/services/student.service';
 import { Student } from 'src/app/student/models/student';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
+import { ExportAsService, ExportAsConfig, SupportedExtensions } from 'ngx-export-as';
 
 @Component({
   selector: 'app-grid-detail',
@@ -36,6 +36,17 @@ export class GridDetailComponent implements OnInit {
   bsModalRef: BsModalRef;
   students: Student[] = [];
 
+  config: ExportAsConfig = {
+    type: 'pdf',
+    elementId: 'pdfgrille',
+    options: {
+        orientation: 'portrait',
+        margins: {
+          bottom: '50'
+        }
+      }
+    };
+
     constructor(
     route: ActivatedRoute,
     private service: GridService,
@@ -54,17 +65,11 @@ export class GridDetailComponent implements OnInit {
   ngOnInit() {
     this.service.getEvaluationById(this.id).subscribe(response => {
       this.evaluation = response;
-/*
-      this.etudiantService.getStudents().subscribe(resp => {
-        this.students = resp;
-        this.evaluation.forEach(e => {
-          const student = this.students.find(s => s.id === e.etudiantId);
-          e.etudiantName = student.name;
-          alert('HHHHHHHHHHHHHHHHHEEEEEEEEEEEEEEEEEEe')
-        });
-    });
-  });*/
-});
+  });
+}
+
+   export() {
+    this.exportAsService.save(this.config, 'Grille E4');
   }
 
 

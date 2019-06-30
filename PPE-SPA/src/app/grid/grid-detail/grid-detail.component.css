@@ -2,15 +2,12 @@
 {
   transform: rotate(90deg);
   height: 100px;
-
 }
 
 .carre {
-	width:100px;
-	height:100px;
-	background:gray;
+	background:rgb(83, 78, 78);
 }
 
 .carre:hover{
-  background:grey
+  background:rgb(95, 89, 89)
 }

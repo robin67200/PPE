@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { logging } from 'protractor';
 import { map } from 'rxjs/operators';
-import { registerContentQuery } from '@angular/core/src/render3';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../user/_models/user';
 

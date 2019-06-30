@@ -7,8 +7,8 @@
   </header>
   <br />
   <div class="widget-controls" style="text-align: right">
-      <button [routerLink]="['/jurys/edit/', jury.id]" class="btn btn-outline-info">Modifier</button>
-      <button class="btn btn-outline-danger"(click)="deleteJury(jury)">Supprimer</button>
+      <button *appHasRole="['Admin','Moderator']"  [routerLink]="['/jurys/edit/', jury.id]" class="btn btn-outline-info">Modifier</button>
+      <button *appHasRole="['Admin','Moderator']"  class="btn btn-outline-danger"(click)="deleteJury(jury)">Supprimer</button>
   </div>
   <br>
   <table class="table table-hover table-bordered table-striped">

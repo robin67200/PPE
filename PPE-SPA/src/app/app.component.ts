@@ -9,7 +9,7 @@ import {
   transition,
 } from '@angular/animations';
 import { RouterOutlet } from '@angular/router';
-// import { slideInAnimation } from './animation';
+import { slideInAnimation } from './animation';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    // slideInAnimation
+    slideInAnimation
   ]
 })
 export class AppComponent implements OnInit {
@@ -39,7 +39,9 @@ export class AppComponent implements OnInit {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
-
+  onActivate() {
+    window.scroll(0, 0);
+}
 
 }
 
