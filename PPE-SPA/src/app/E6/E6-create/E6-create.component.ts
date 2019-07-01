@@ -103,6 +103,7 @@ export class E6CreateComponent implements OnInit {
     this.cr3 = troisieme;
     this.cr4 = quatrieme;
     this.sum = Math.round(this.sum * 100) / 100;
+    console.log(this.sum);
   }
 
   calculatePhase2(premierB: number, secondB: number, troisiemeB: number) {
@@ -111,17 +112,25 @@ export class E6CreateComponent implements OnInit {
     this.cr6 = secondB;
     this.cr7 = troisiemeB;
     this.sumB = Math.round(this.sumB * 100) / 100;
+    console.log(this.sumB);
+
   }
 
   calculatePenalite(penaliteA: number, penaliteB: number) {
     this.pen1 = penaliteA;
     this.pen2 = penaliteB;
     this.sumPenalite = +penaliteA + +penaliteB;
+    console.log(this.sumPenalite);
   }
 
   calculateNoteFinale() {
     this.sumNoteFinale = +this.sum + +this.sumB - +this.sumPenalite;
     this.sumNoteFinale = Math.round(this.sumNoteFinale * 100) / 100;
+    console.log(this.sumNoteFinale);
+    if (this.sumNoteFinale < 0) {
+      this.sumNoteFinale = 0;
+    }
+
   }
 
 

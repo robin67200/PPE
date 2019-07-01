@@ -18,8 +18,8 @@ namespace PPE.API.Business.ViewModels
         public float C6 {get; set;}
         public float C7 {get; set;}
         public float NotePhase2 {get; set;}
-        public float P2 {get; set;}
         public float P1 {get; set;}
+        public float P2 {get; set;}
         public float SommePenalite {get; set;}
         public float Resultat {get; set;}
 

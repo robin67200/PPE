@@ -14,17 +14,27 @@
       <br />
       <div class="widget-body">
         <form>
+            <table class="table table-bordered table-active">
+                <tr>
+                  <td class="dessus" width="50%" style="text-align: center">
+                    {{student.evaluation}}
+                  </td>
+                  <td class="dessus" width="50%" style="text-align: center">
+                    OPTION {{student.matiere}}
+                  </td>
+                </tr>
+              </table>
             <table id="form1" class="table table-bordered table-active">
               <tr>
-                <td width="33%">
+                <td class="dessus" width="33%">
                     <label class="control-label">Candidat :</label>
                     {{student.firstName}} {{student.name}}
                 </td>
-                <td width="33%">
+                <td class="dessus" width="33%">
                   <label for="juryId" class="control-label">Jury :</label>
                   {{ e6.juryId }}
                 </td>
-                <td width="33%">
+                <td class="dessus" width="33%">
                   <div class="form-group">
                     <label class="control-label">Date :</label>
                     {{ e6.date }}
@@ -44,13 +54,13 @@
                 </tr>
             </table>
             <hr />
-            <table class="table table-bordered">
+            <table class="table table-bordered table-active">
               <tr>
-                  <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
-                  <td width="10%" style="text-align: center">0,625</td>
-                  <td width="10%" style="text-align: center">1,25</td>
-                  <td width="10%" style="text-align: center">1,875</td>
-                  <td width="10%" style="text-align: center">2,5</td>
+                  <td width="60%" class="dessus" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
+                  <td width="10%" class="dessus" id="coef">0,625</td>
+                  <td width="10%" class="dessus" id="coef">1,25</td>
+                  <td width="10%" class="dessus" id="coef">1,875</td>
+                  <td width="10%" class="dessus" id="coef">2,5</td>
               </tr>
               </table>
             <hr />
@@ -103,35 +113,35 @@
                 <td width="60%">
 
                 </td>
-                <th>
-                  <h5 style="text-align: center">Note phase 1 : {{e6.notePhase1}}/8</h5>
+                <th class="dessus">
+                  <h5 style="text-align: center">Note : {{e6.notePhase1}}/10</h5>
                 </th>
               </tr>
             </table>
             <hr />
-            <table class="table table-bordered">
+            <table class="table table-bordered table-active">
               <tr>
-                  <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
-                  <td width="10%" style="text-align: center">0,8325</td>
-                  <td width="10%" style="text-align: center">1,665</td>
-                  <td width="10%" style="text-align: center">2,4975</td>
-                  <td width="10%" style="text-align: center">3,33</td>
+                  <td class="dessus" width="60%" style="text-align: left"><h4 style="text-align: left">Deuxième phase : Entretien sur les compétences relevant du processus de gestion du patrimoine informatique :</h4></td>
+                  <td class="dessus" width="10%" id="coef">0,8325</td>
+                  <td class="dessus" width="10%" id="coef">1,665</td>
+                  <td class="dessus" width="10%" id="coef">2,4975</td>
+                  <td class="dessus" width="10%" id="coef">3,33</td>
               </tr>
               </table>
             <hr />
             <table class="table table-bordered">
               <tr>
                 <td width="60%">
-                  Conformité de la production au exigences de la demande
+                  Pertinence d’usage de la gestion des configurations :
                 </td>
                 <td width="10%" *ngIf="e6.c5 == 0.8325; else tdelse" class="carre"></td>
                 <td width="10%" *ngIf="e6.c5 == 1.665; else tdelse" class="carre" ></td>
-                <td width="10%" *ngIf="e6.c5 == 2.4975; else tdelse" class="carre" ></td>
-                <td width="10%" *ngIf="e6.c5 == 3.33; else tdelse" class="carre" ></td>
+                <td width="10%" *ngIf="e6.c5 == 2.4975; else tdelse" class="carre"></td>
+                <td width="10%" *ngIf="e6.c5 == 3.33; else tdelse" class="carre"  ></td>
               </tr>
               <tr>
                 <td>
-                  Justification de la solution
+                  Efficacité de l’organisation de la veille technologique
                 </td>
                 <td width="10%" *ngIf="e6.c6 == 0.8325; else tdelse" class="carre"></td>
                 <td width="10%" *ngIf="e6.c6 == 1.665; else tdelse" class="carre" ></td>
@@ -140,7 +150,7 @@
               </tr>
               <tr>
                 <td>
-                  Qualité de la réalisation
+                  Degré de maîtrise des compétences évaluées relevant du processus de gestion du patrimoine informatique :
                 </td>
                 <td width="10%" *ngIf="e6.c7 == 0.8325; else tdelse" class="carre"></td>
                 <td width="10%" *ngIf="e6.c7 == 1.665; else tdelse" class="carre" ></td>
@@ -153,8 +163,8 @@
                   <td width="60%">
 
                   </td>
-                  <th>
-                    <h5 style="text-align: center">Note phase 2 : {{e6.notePhase2}}/12</h5>
+                  <th class="dessus">
+                    <h5 style="text-align: center">Note : {{e6.notePhase2}}/10</h5>
                   </th>
                 </tr>
               </table>
@@ -167,7 +177,7 @@
                   Non-respect au cahier des charges national
                 </td>
                 <td style="text-align: center">
-                    {{ e6.p1 }}
+                    - {{ e6.p1 }} pt(s)
 
                 </td>
               </tr>
@@ -176,10 +186,10 @@
                   Absence d'une solution professionnelle
                 </td>
                 <td style="text-align: center">
-                    {{ e6.p2 }}
+                    - {{ e6.p2 }} pt(s)
                 </td>
               </tr>
-              <tr>
+              <tr class="table table-danger">
                 <td>
 
                 </td>
@@ -188,18 +198,19 @@
                 </td>
               </tr>
             </table>
-              <table class="table table-borderless table-active table-hover">
+              <table class="table table-bordered table-active">
               <tr>
                 <td></td>
-                <td width="50%"><h5 style="text-align: center">Note finale : {{e6.resultat}} /20</h5></td>
+                <td class="dessus" width="50%"><h5 style="text-align: center">Note finale : {{e6.resultat}} /20</h5></td>
               </tr>
             </table>
             <hr />
-            <table class="table table-hover">
+            <table class="table table-hover table-bordered">
               <tr>
-                <td>
-                    Nom et signature des membres de la commission d’interrogation :
-                </td>
+                Nom et signature des membres de la commission d’interrogation :
+                <br />
+                <br />
+                <br />
                 <br />
                 <br />
                 <br />

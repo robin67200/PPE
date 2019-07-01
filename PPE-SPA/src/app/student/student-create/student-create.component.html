@@ -48,12 +48,14 @@
         </div>
         <div class="form-group">
           <label class="control-label">Section</label>
-          <input
+          <select
             formControlName="section"
             class="form-control"
             type="text"
             required
-          />
+          >
+          <option>SIO</option>
+          </select>
           <div *ngIf="section.invalid && hasError" class="alert alert-danger">
             <div *ngIf="section.hasError">
               champs obligatoire
@@ -62,12 +64,15 @@
         </div>
         <div class="form-group">
           <label class="control-label">Matiere</label>
-          <input
+          <select
             formControlName="matiere"
             class="form-control"
             type="text"
             required
-          />
+          >
+          <option>SISR</option>
+          <option>SLAM</option>
+          </select>
           <div *ngIf="matiere.invalid && hasError" class="alert alert-danger">
             <div *ngIf="matiere.hasError">
               champs obligatoire
@@ -76,12 +81,15 @@
         </div>
         <div class="form-group">
           <label class="control-label">Style Evaluation</label>
-          <input
+          <select
             formControlName="evaluation"
             class="form-control"
             type="text"
             required
-          />
+          >
+          <option>Epreuve ponctuelle</option>
+          <option>Contrôle en cours de formation</option>
+          </select>
           <div *ngIf="evaluation.invalid && hasError" class="alert alert-danger">
             <div *ngIf="evaluation.hasError">
               champs obligatoire

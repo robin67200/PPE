@@ -14,17 +14,27 @@
     <br />
     <div class="widget-body">
       <form>
+        <table class="table table-bordered table-active">
+          <tr>
+            <td class="dessus" width="50%" style="text-align: center">
+              {{student.evaluation}}
+            </td>
+            <td class="dessus" width="50%" style="text-align: center">
+              OPTION {{student.matiere}}
+            </td>
+          </tr>
+        </table>
           <table id="form1" class="table table-bordered table-active">
             <tr>
-              <td width="33%">
-                  <label class="control-label">Candidat</label>
+              <td class="dessus" width="33%">
+                  <label class="control-label">Candidat :</label>
                   {{student.firstName}} {{student.name}}
               </td>
-              <td width="33%">
+              <td class="dessus" width="33%">
                 <label for="juryId" class="control-label">Jury :</label>
                 {{ evaluation.juryId }}
               </td>
-              <td width="33%">
+              <td class="dessus" width="33%">
                 <div class="form-group">
                   <label class="control-label">Date :</label>
                   {{ evaluation.date }}
@@ -44,13 +54,13 @@
               </tr>
           </table>
           <hr />
-          <table class="table table-borderless">
+          <table class="table table-bordered table-active">
             <tr>
-                <td width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
-                <td width="10%" style="text-align: center">0,5</td>
-                <td width="10%" style="text-align: center">1</td>
-                <td width="10%" style="text-align: center">1,5</td>
-                <td width="10%" style="text-align: center">2</td>
+                <td class="dessus" width="60%" style="text-align: left"><h3 style="text-align: left">Premiere phase : Entretient d'explication</h3></td>
+                <td class="dessus" width="10%" style="text-align: center">0,5</td>
+                <td class="dessus" width="10%" style="text-align: center">1</td>
+                <td class="dessus" width="10%" style="text-align: center">1,5</td>
+                <td class="dessus" width="10%" style="text-align: center">2</td>
             </tr>
             </table>
           <hr />
@@ -98,14 +108,22 @@
               <td width="60%">
 
               </td>
-              <th>
-                <h5 style="text-align: center">Note phase 1 : {{evaluation.notePhase1}}/8</h5>
+              <th class="dessus">
+                <h5 style="text-align: center">Note : {{evaluation.notePhase1}}/8</h5>
               </th>
             </tr>
           </table>
           <hr />
-          <h3 style="text-align: left">Deuxième phase : Entretien d'explications </h3>
-          <hr />
+          <table class="table table-bordered table-active">
+            <tr>
+                <td class="dessus" width="60%" style="text-align: left"><h3 style="text-align: left">Deuxième phase : recette de la solution</h3></td>
+                <td class="dessus" width="10%" style="text-align: center">0,6</td>
+                <td class="dessus" width="10%" style="text-align: center">1,2</td>
+                <td class="dessus" width="10%" style="text-align: center">1,8</td>
+                <td class="dessus" width="10%" style="text-align: center">2,4</td>
+            </tr>
+            </table>
+            <hr />
           <table class="table table-bordered">
             <tr>
               <td width="60%">
@@ -163,7 +181,7 @@
                 <td width="60%">
 
                 </td>
-                <th>
+                <th class="dessus">
                   <h5 style="text-align: center">Note phase 2 : {{evaluation.notePhase2}}/12</h5>
                 </th>
               </tr>
@@ -177,7 +195,7 @@
                 Non-respect au cahier des charges national
               </td>
               <td style="text-align: center">
-                  {{ evaluation.p1 }}
+                  - {{ evaluation.p1 }} pt(s)
 
               </td>
             </tr>
@@ -186,10 +204,10 @@
                 Absence d'une solution professionnelle
               </td>
               <td style="text-align: center">
-                  {{ evaluation.p2 }}
+                  - {{ evaluation.p2 }} pt(s)
               </td>
             </tr>
-            <tr>
+            <tr class="table table-danger table-hover">
               <td>
 
               </td>
@@ -199,21 +217,22 @@
             </tr>
           </table>
             <table class="table table-borderless table-active table-hover">
-            <tr>
+            <tr >
               <td></td>
-              <td width="50%"><h5 style="text-align: center">Note finale : {{evaluation.resultat}} /20</h5></td>
+              <td class="dessus" width="50%"><h5 style="text-align: center">Note finale : {{evaluation.resultat}} /20</h5></td>
             </tr>
           </table>
           <hr />
-          <table class="table table-hover">
+          <table class="table table-hover table-bordered">
             <tr>
-              <td>
-                  Nom et signature des membres de la commission d’interrogation :
-              </td>
-              <br />
-              <br />
-              <br />
-              <br />
+                Nom et signature des membres de la commission d’interrogation :
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </tr>
           </table>
           <button class="btn btn-primary btn-rounded-f" [routerLink]="['/grids/list']">

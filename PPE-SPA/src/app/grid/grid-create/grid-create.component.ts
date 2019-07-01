@@ -137,6 +137,9 @@ export class GridCreateComponent implements OnInit {
   calculateNoteFinale() {
     this.sumNoteFinale = +this.sum + +this.sumB - +this.sumPenalite;
     this.sumNoteFinale = Math.round(this.sumNoteFinale * 100) / 100;
+    if (this.sumNoteFinale < 0) {
+      this.sumNoteFinale = 0;
+    }
   }
 
   Save() {
