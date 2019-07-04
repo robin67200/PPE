@@ -5,7 +5,8 @@
 }
 
 .carre {
-	background:rgb(83, 78, 78);
+  background:rgb(83, 78, 78);
+  text-align:center;
 }
 
 .carre:hover{

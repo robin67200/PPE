@@ -42,4 +42,8 @@ export class E6DetailComponent implements OnInit {
     });
   }
 
+  pdfexport() {
+    window.print();
+  }
+
 }

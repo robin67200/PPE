@@ -72,7 +72,7 @@ export class GridDetailComponent implements OnInit {
 }
 
    export() {
-    this.exportAsService.save(this.config, 'Grille E4');
+    window.print();
   }
 
 
