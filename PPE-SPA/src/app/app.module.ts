@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TabsModule} from 'ngx-tabset';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TabsModule } from 'ngx-tabset';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
