@@ -41,7 +41,7 @@
     "date-and-time": "^0.6.3",
     "dateformat": "^3.0.3",
     "install": "^0.12.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^4.3.0",
     "ngx-export-as": "^1.2.5",
     "ngx-modal": "0.0.29",
