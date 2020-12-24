@@ -38,7 +38,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.9",
     "date": "^1.0.2",
-    "date-and-time": "^0.6.3",
+    "date-and-time": "^0.14.2",
     "dateformat": "^3.0.3",
     "install": "^0.12.2",
     "jquery": "^3.4.1",
